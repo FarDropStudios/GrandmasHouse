@@ -10,14 +10,18 @@ ctx = canvas.getContext("2d");
 canvas.height = 540;
 canvas.width = 840;
 
+//Start loading GameAssets
+gameAssets = new GameAssets();
+gameAssets.loadingStart();
+
 //initialize keys
 //keys = new Keys();
 
 //initialize Player
-player = new Player(60,60);
+player = new Player(60,60,gameAssets.getCharacter());
 
 //initialize maps
-map = new Map();
+map = new Map(gameAssets.getTiles());
 
 /* UNNEEDED CODE? DUNNO, DUN CARE
 
@@ -78,17 +82,19 @@ function draw() {
 	player.draw(ctx);
 
 	//Draw a grid guide for debugging and development purposes
+	/*
 	var index = 0;
 	for(var iy = 0; iy < canvas.height; iy++) {
 		for(var ix = 0; ix < canvas.width; ix++) {
 			ctx.fillStyle = 'rgba(255,250,250,0.2)';
-			ctx.fillRect(ix, iy, 60, 60);
+			ctx.fillRect(ix, iy, 61, 61);
 			ctx.fillText(index, ix+30, iy+29);
 			index++;
 			ix+=60;
 		}
 		iy+=60;
 	}
+	*/
 }
 
 var main = function() {

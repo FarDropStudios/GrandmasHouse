@@ -5,8 +5,9 @@
  *	Takes the parameters startX and startY, which initialize where the player is
  */
 
-var Player = function(startX, startY) {
+var Player = function(startX, startY, image) {
 	var x = startX,
+		sprite = image,
 		y = startY,
 		moveAmount = 60;
 
@@ -59,8 +60,7 @@ var Player = function(startX, startY) {
 	}
 
 	var draw = function(ctx) {
-			ctx.fillStyle = 'purple';
-			ctx.fillRect(x, y, 60, 60); 
+			ctx.drawImage(sprite,x,y,60,60);
 	}
 
 	return {

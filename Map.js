@@ -5,10 +5,11 @@
  *	This class draws each room within the game. The rooms are current 14 blocks wide, and 9 high.
  *	Key: 0 = randomly generated block; 1 = wall block; 2 = empty/floor; block; 3 = exit;
  */
-var Map = function() {
+var Map = function(tileSet) {
 	var blockX = 0,
 		tileIndex = 15,
 		blockY = 0,
+		tiles = tileSet,
 		chance, 
 		room = 0,
 		rooms = [];
@@ -35,6 +36,11 @@ var Map = function() {
 	//accumulator tileIndex
 	var setTileIndex = function(tileNum) {
 		tileIndex += tileNum;
+	};
+
+	//Returns the tileIndex AKA the players position.
+	var getTileIndex = function() {
+		return tileIndex;	
 	};
 
 	//Returns what room the player is in
@@ -67,16 +73,15 @@ var Map = function() {
 			}
 			if(rooms[room][i] === 1) {
 				//WALL BLOCK
-				ctx.fillStyle = 'green';
+				ctx.drawImage(tiles,0,480,60,60,blockX,blockY,60,60);
 			} else if(rooms[room][i] === 2) {
 				//FLOOR BLOCK
-				ctx.fillStyle = 'black';
+				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
 			} else if(rooms[room][i] === 3) {
 				//EXIT BLOCK
 				ctx.fillStyle = 'red';
+				ctx.fillRect(blockX,blockY,60,60);
 			}
-			//Draw the block
-			ctx.fillRect(blockX, blockY, 60, 60);
 			//Advance to next block
                         blockX +=60;
 			//If the block is the last in the row, advace to the next row.
@@ -87,8 +92,10 @@ var Map = function() {
                 }
 	};
 
+
 	return {
 		getCollision: getCollision,
+		getTileIndex: getTileIndex,
 		setTileIndex: setTileIndex,
 		draw: draw,
 		getRoom: getRoom,

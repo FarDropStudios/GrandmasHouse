@@ -52,13 +52,14 @@ function onKeyup(e) {
 }
 */
 
+//When canvas is clicked, grab the X, and Y coords and update where the player is.
 canvas.onclick = function(e) {
 	var position = canvas.getBoundingClientRect();
 	var click = {
 		x: e.clientX - position.left,
 		y: e.clientY - position.top
 	}
-	player.update(click.x,click.y, map);
+	player.update(click.x,click.y, map); //Send X, Y and the Map object so the player can detect collisions.
 	console.log("CLICK!" + " X:"+click.x + " Y:" + click.y);
 }
 
@@ -95,4 +96,5 @@ var main = function() {
 	draw();
 }
 
+//Run the Main method every 20ms.
 setInterval("main()",20);

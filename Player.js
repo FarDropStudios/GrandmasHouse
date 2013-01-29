@@ -1,3 +1,10 @@
+/*
+ *	Player.js
+ *	Tyler St. Onge
+ *
+ *	Takes the parameters startX and startY, which initialize where the player is
+ */
+
 var Player = function(startX, startY) {
 	var x = startX,
 		y = startY,

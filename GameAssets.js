@@ -8,18 +8,27 @@ var GameAssets = function() {
 		complete = true;
 	});
 
+	//Start loading the images
 	var loadingStart = function() {
 		loader.start();
 	}
 	
+	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
 	}
 
+	//Returns the character image
 	var getCharacter = function() {
 		return tommy;
 	}
 
+	//Return rat
+	var getRat = function() {
+		return player;
+	}
+
+	//Returns the tile sheet.
 	var getTiles = function() {
 		return tiles;
 	}
@@ -29,6 +38,7 @@ var GameAssets = function() {
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
 		getCharacter: getCharacter,
-		getTiles: getTiles
+		getTiles: getTiles,
+		getRat: getRat
 	}	
 }

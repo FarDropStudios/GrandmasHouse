@@ -15,7 +15,7 @@ gameAssets = new GameAssets();
 gameAssets.loadingStart();
 
 //initialize keys
-//keys = new Keys();
+var rat = new Rat(180,120,31);
 
 //initialize Player
 player = new Player(60,60,gameAssets.getCharacter());
@@ -58,6 +58,7 @@ function onKeyup(e) {
 
 //When canvas is clicked, grab the X, and Y coords and update where the player is.
 canvas.onclick = function(e) {
+	rat.update(map);
 	var position = canvas.getBoundingClientRect();
 	var click = {
 		x: e.clientX - position.left,
@@ -77,6 +78,8 @@ function draw() {
 
 	//draw map
 	map.draw(ctx);
+
+	rat.draw(ctx, gameAssets.getRat());
 
 	//draw the player
 	player.draw(ctx);

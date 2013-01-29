@@ -19,35 +19,36 @@ var Player = function(startX, startY) {
 		y = tY;
 	}
 
-	var update = function(tx, ty) {
+	var update = function(tx, ty, map) {
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
-			x+=moveAmount;
+			map.setTileIndex(1);
+			if(!map.getCollision()) {
+				x+=moveAmount; //Right
+			} else {
+				map.setTileIndex(-1);
+			}
 		}else if(tx < x && tx > x-60 && ty > y && ty < y+60) {
-			x-=moveAmount;
+			map.setTileIndex(-1);
+			if(!map.getCollision()) {
+				x-=moveAmount; //Left
+			} else {
+				map.setTileIndex(1);
+			}
 		}else if(ty < y+120 && ty > y+60 && tx > x && tx < x+60) {
-			y+=moveAmount;
+			map.setTileIndex(14);
+			if(!map.getCollision()) {
+				y+=moveAmount; //Down
+			} else {
+				map.setTileIndex(-14);
+			}
 		}else if(ty < y && ty > y-60 && tx > x && tx < x+60) {
-			y-=moveAmount;
+			map.setTileIndex(-14);
+			if(!map.getCollision()) {
+				y-=moveAmount; //Up
+			} else {
+				map.setTileIndex(14);
+			}
 		}
-	
-		
-		/*WASD Controls
-		var prevX = x,
-		prevY = y;
-
-		if(keys.up) {
-			y -= moveAmount;
-		} else if(keys.down) {
-			y += moveAmount;
-		}
-
-		if(keys.left) {
-			x -= moveAmount;
-		} else if(keys.right) {
-			x += moveAmount;
-		}
-		return (prevX != x || prevY != y) ? true : false;
-		*/
 	}
 
 	var draw = function(ctx) {

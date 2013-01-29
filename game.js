@@ -11,15 +11,20 @@ canvas.height = 540;
 canvas.width = 840;
 
 //initialize keys
-keys = new Keys();
+//keys = new Keys();
 
 //initialize Player
-player = new Player(0,0);
+player = new Player(60,60);
 
-//Set up listeners
+//initialize maps
+map = new Map();
+
+/* UNNEEDED CODE? DUNNO, DUN CARE
+
+Set up listeners
 setEventHandlers();
 
-/* Some attempts at making the game crossplatform 
+Some attempts at making the game crossplatform 
 
 window.addEventListener('resize', function(evt) {
 	scaleFactor = Math.min(window.innerWidth/w, window.innerHeight/h);
@@ -27,16 +32,16 @@ window.addEventListener('resize', function(evt) {
 	canvas.width = window.innerWidth;
 	ctx = canvas.getContext("2d");
 }, false);
-*/
 
 
-//Event handlers
+
+Event handlers
 function setEventHandlers() {
 	window.addEventListener("keydown", onKeydown, false);
 	window.addEventListener("keyup", onKeyup, false);
 }
 
-//Checks if the key is pressed, if it is change the key in Keys class to True, so it can be checked 
+Checks if the key is pressed, if it is change the key in Keys class to True, so it can be checked 
 //In other classes.
 function onKeydown(e) {
 	keys.onKeyDown(e);
@@ -45,6 +50,7 @@ function onKeydown(e) {
 function onKeyup(e) {
 	keys.onKeyUp(e);
 }
+*/
 
 canvas.onclick = function(e) {
 	var position = canvas.getBoundingClientRect();
@@ -52,7 +58,7 @@ canvas.onclick = function(e) {
 		x: e.clientX - position.left,
 		y: e.clientY - position.top
 	}
-	player.update(click.x,click.y);
+	player.update(click.x,click.y, map);
 	console.log("CLICK!" + " X:"+click.x + " Y:" + click.y);
 }
 
@@ -64,16 +70,18 @@ function draw() {
 	//Clear the screen between every draw
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
+	//draw map
+	map.draw(ctx);
+
 	//draw the player
 	player.draw(ctx);
 
 	//Draw a grid guide for debugging and development purposes
-	var index = 1;
+	var index = 0;
 	for(var iy = 0; iy < canvas.height; iy++) {
 		for(var ix = 0; ix < canvas.width; ix++) {
-			ctx.strokeStyle = 'white';
-			ctx.strokeRect(ix, iy, 60, 60);
-			ctx.fillStyle = 'white';
+			ctx.fillStyle = 'rgba(255,250,250,0.2)';
+			ctx.fillRect(ix, iy, 60, 60);
 			ctx.fillText(index, ix+30, iy+29);
 			index++;
 			ix+=60;

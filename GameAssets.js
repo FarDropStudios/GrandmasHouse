@@ -1,3 +1,10 @@
+/*
+ *	GameAssets.js
+ *	Tyler St. Onge
+ *
+ *	Loads all assets of the game.
+ */
+ 
 var GameAssets = function() {
 	var complete = false;
 	var loader = new PxLoader(),

@@ -1,11 +1,23 @@
-var Rat = function(startX, startY, tTileIndex) {
+/*
+ *	Rat.js
+ *	Tyler St. Onge
+ *
+ *	Contains all values for each individual rat
+ */
+ 
+var Rat = function(startX, startY, tTileIndex, tImage) {
 	var x = startX,
+		image = tImage,
 		y = startY,
 		tileIndex = tTileIndex, 
 		health = 3,
 		moveAmount = 60,
 		chance;
 
+	var getPos = function() {
+		return tileIndex;
+	}
+	
 	var getHealth = function() {
 		return health;
 	}
@@ -24,7 +36,7 @@ var Rat = function(startX, startY, tTileIndex) {
 			} else {
 				tileIndex-=14;
 			}
-		} else if(chance > 0.20 || chance <= 0.30) {
+		} else if(chance > 0.20 && chance <= 0.30) {
 			//UP
 			tileIndex-=14;
 			if(!map.getCollision(tileIndex)) {
@@ -32,7 +44,7 @@ var Rat = function(startX, startY, tTileIndex) {
 			} else {
 				tileIndex+=14;
 			}
-		} else if(chance > 0.40 || chance <= 0.70) {
+		} else if(chance > 0.40 && chance <= 0.70) {
 			//LEFT
 			tileIndex-=1;
 			if(!map.getCollision(tileIndex)) {
@@ -51,11 +63,12 @@ var Rat = function(startX, startY, tTileIndex) {
 		}
 	}
 
-	var draw = function(ctx, image) {
+	var draw = function(ctx) {
 		ctx.drawImage(image, x, y, 60, 60);
 	}
 
 	return {
+		getPos: getPos,
 		getHealth: getHealth,
 		setHealth: setHealth,
 		update: update,

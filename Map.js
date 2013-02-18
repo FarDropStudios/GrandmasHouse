@@ -6,33 +6,62 @@
  *	Key: 0 = randomly generated block; 1 = wall block; 2 = empty/floor; block; 3 = exit;
  *	10 = Rat;
  */
-var Map = function(tileSet) {
+
+var Map = function(tileSet, tempEnemies, tempPlayer) {
 	var blockX = 0,
 		index = 0,
 		chance,
+		exit,
 		blockY = 0,
-		tiles = tileSet, 
+		enemy = tempEnemies,
+		tiles = tileSet,
+		player = tempPlayer, 
 		room = 0,
+		renderEnemies = true,
 		rooms = [];
 		rooms[0] = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
 		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
-                    	1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-                    	1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-                    	1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
+				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
+				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
+				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
+		    	1,0,0,0,0,0,0,0,0,0,2,2,2,1,
 		    	1,0,0,0,0,0,0,0,0,0,0,2,2,3,
+		    	1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+		rooms[1] = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+		    	1,2,2,0,0,0,0,0,0,0,0,0,2,1,
+		    	1,2,2,0,0,0,0,0,0,0,2,2,2,3,
+				1,0,0,0,0,0,0,0,0,0,0,0,2,1,
+				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
+				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
+		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
+		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
 		    	1,1,1,1,1,1,1,1,1,1,1,1,1,1];
 	
 	//Returns true if the block is solid
 	var getCollision = function(tile) {
+		enemyPositions = enemy.getEnemyPos();
 		if(rooms[room][tile] === 1) {
 			return true;
 		} else {
+			for(var i = 0; i < enemyPositions.length; i++) {
+				if(player.getPos() === enemyPositions[i]) {
+					return true;
+				}
+			}
+			for(var ii = 0; ii < enemyPositions.length - 1; ii++) {
+				if(enemyPositions[ii] === enemyPositions[ii+1]) {
+					return true;
+				}
+			}
 			false;
 		}
 	};
 
+	var getExit = function() {
+		return exit;
+	}
+	
 	//Returns what room the player is in
 	var getRoom = function() {
 		return room;
@@ -40,8 +69,11 @@ var Map = function(tileSet) {
 
 	//Changes which room the player is in
 	var setRoom = function(roomNum) {
-		room = roomNum;
+		room += roomNum;
+		enemies.emptyEnemies();
+		renderEnemies = true;
 	};
+	
 
 	//The draw function for the room, it takes the context as a parameter which
 	//enables the method to draw on the canvas.
@@ -58,7 +90,7 @@ var Map = function(tileSet) {
 				//20 percent chance that the block is solid, else its empty.
 				if(chance < 0.20) {
 					rooms[room][i] = 1;
-				} else if(chance > 0.20 || chance < 0.25) {
+				} else if(chance > 0.23 && chance < 0.25) {
 					rooms[room][i] = 10;
 				} else {
 					rooms[room][i] = 2;
@@ -72,10 +104,14 @@ var Map = function(tileSet) {
 				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
 			} else if(rooms[room][i] === 3) {
 				//EXIT BLOCK
-				ctx.fillStyle = 'red';
-				ctx.fillRect(blockX,blockY,60,60);
-			} else if(rooms[room][i] === 10) {
+				exit = index;
 				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
+			} else if(rooms[room][i] === 10) {
+				//Draw an enemy
+				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
+				if(renderEnemies) {
+					enemy.addRat(blockX, blockY, index);
+				}
 			}
 			//Advance to next block
                         blockX +=60;
@@ -85,12 +121,15 @@ var Map = function(tileSet) {
 				blockX = 0;
 				blockY+= 60;
 			}
-                }
+			
+		}
+		renderEnemies = false;
 	};
-
+	
 
 	return {
 		getCollision: getCollision,
+		getExit: getExit,
 		draw: draw,
 		getRoom: getRoom,
 		setRoom: setRoom

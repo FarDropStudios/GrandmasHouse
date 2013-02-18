@@ -28,6 +28,10 @@ var Player = function(startX, startY, image) {
 		y = tY;
 	}
 
+	var getPos = function() {
+		return tileIndex;
+	}
+	
 	var update = function(tx, ty, map) {
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
 			tileIndex+=1;
@@ -58,6 +62,15 @@ var Player = function(startX, startY, image) {
 				tileIndex+=14;
 			}
 		}
+		if(tileIndex === map.getExit()) {
+			x = 60;
+			y = 60;
+			tileIndex=15;
+			if(map.getRoom() === 1)
+				map.setRoom(-1);
+			else
+				map.setRoom(1);
+		}
 		console.log(tileIndex);
 	}
 
@@ -70,6 +83,7 @@ var Player = function(startX, startY, image) {
 		getY: getY,
 		setX: setX,
 		setY: setY,
+		getPos: getPos,
 		update: update,
 		draw: draw
 	}

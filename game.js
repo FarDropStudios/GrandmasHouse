@@ -31,6 +31,9 @@ enemies.setGameAssets(gameAssets);
 //initialize maps
 map = new Map(gameAssets.getTiles(), enemies, player);
 
+//set event listeners
+setEventListeners();
+
 //When canvas is clicked, grab the X, and Y coords and update where the player is.
 canvas.onclick = function(e) {
 	enemies.update(map);
@@ -41,6 +44,17 @@ canvas.onclick = function(e) {
 	}
 	player.update(click.x,click.y, map); //Send X, Y and the Map object so the player can detect collisions.
 	console.log("CLICK!" + " X:"+click.x + " Y:" + click.y);
+}
+
+//Event Listeners
+function setEventListeners() {
+	window.addEventListener("keydown", onKeyDown, false);
+}
+
+function onKeyDown(e) {
+	switch(e) {
+		
+	}	
 }
 
 //UPDATE AND DRAW METHODS -- WHERE DA FUN HAPPENS DOE

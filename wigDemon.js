@@ -5,7 +5,7 @@
  *	Contains all values for each individual rat
  */
  
-var wigDemon = function(startX, startY, tTileIndex, tImage) {
+var WigDemon = function(startX, startY, tTileIndex, tImage) {
 	var x = startX,
 		image = tImage,
 		y = startY,

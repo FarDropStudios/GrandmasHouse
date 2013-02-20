@@ -36,9 +36,11 @@ var Enemies = function() {
 	var addRat = function(startX, startY, startTileIndex) {
 		enemies.push(new Rat(startX, startY, startTileIndex, gameAssets.getRat()));
 	}
+	
 	var addWigDemon = function(startX, startY, startTileIndex) {
 		enemies.push(new WigDemon(startX, startY, startTileIndex, gameAssets.getWigDemon()));
 	}
+	
 	var draw = function(ctx) {
 		for(var i = 0; i < enemies.length; i++) {
 			enemies[i].draw(ctx);

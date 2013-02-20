@@ -112,7 +112,10 @@ var Map = function(tileSet, tempEnemies, tempPlayer) {
 				if(renderEnemies) {
 					if(chance > 50){
 						enemy.addRat(blockX, blockY, index);
-				}	else{ enemy.addWigDemon(blockX, blockY, index); }
+					} else { 
+						enemy.addWigDemon(blockX, blockY, index); 
+					}	
+				}
 			}
 			//Advance to next block
                         blockX +=60;

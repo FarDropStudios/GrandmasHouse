@@ -1,5 +1,5 @@
 /*
- *	wigDemon.js
+ *	WigDemon.js
  *	Tyler St. Onge
  *
  *	Contains all values for each individual rat

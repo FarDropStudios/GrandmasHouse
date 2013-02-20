@@ -40,9 +40,10 @@ var GameAssets = function() {
 	var getTiles = function() {
 		return tiles;
 	}
-	var getWigDemon = function(){
+	var getWigDemon = function() {
 		return wigDemon;
 	}
+	
 	return {
 		loader: loader,
 		loadingStart: loadingStart,
@@ -50,6 +51,6 @@ var GameAssets = function() {
 		getCharacter: getCharacter,
 		getTiles: getTiles,
 		getRat: getRat,
-		getWigDemon: wigDemon
+		getWigDemon: getWigDemon
 	}	
 }

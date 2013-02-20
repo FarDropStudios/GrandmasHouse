@@ -8,9 +8,10 @@
 var GameAssets = function() {
 	var complete = false;
 	var loader = new PxLoader(),
-		tommy = loader.addImage('tommy.png'),
-		tiles = loader.addImage('MedallionTiles.png'),
-		player = loader.addImage('player.png');
+		tommy = loader.addImage('images/thomas.png'),
+		tiles = loader.addImage('images/MedallionTiles.png'),
+		player = loader.addImage('images/rat.png'),
+		wigDemon = loader.addImage('images/wigDemon.png');
 	loader.addCompletionListener(function() {
 		complete = true;
 	});
@@ -39,13 +40,16 @@ var GameAssets = function() {
 	var getTiles = function() {
 		return tiles;
 	}
-
+	var getWigDemon = function(){
+		return wigDemon;
+	}
 	return {
 		loader: loader,
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
 		getCharacter: getCharacter,
 		getTiles: getTiles,
-		getRat: getRat
+		getRat: getRat,
+		getWigDemon: wigDemon
 	}	
 }

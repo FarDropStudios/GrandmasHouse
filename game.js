@@ -52,9 +52,42 @@ function setEventListeners() {
 }
 
 function onKeyDown(e) {
-	switch(e) {
-		
-	}	
+	key = e.keyCode;
+	switch(key) {
+		case 37: //Left
+			player.setTileIndex(player.getPos()-1);
+			if(!map.getCollision(player.getPos())) {
+				player.setX(player.getX()-60);
+			} else {
+				player.setTileIndex(player.getPos()+1);
+			}
+			break;
+		case 38: //Up
+			player.setTileIndex(player.getPos()-14);
+			if(!map.getCollision(player.getPos())) {
+				player.setY(player.getY()-60);
+			} else {
+				player.setTileIndex(player.getPos()+14);
+			}
+			break;
+		case 39: //Right
+			player.setTileIndex(player.getPos()+1);
+			if(!map.getCollision(player.getPos())) {
+				player.setX(player.getX()+60);
+			} else {
+				player.setTileIndex(player.getPos()-1);
+			}
+			break;
+		case 40: //Down
+			player.setTileIndex(player.getPos()+14);
+			if(!map.getCollision(player.getPos())) {
+				player.setY(player.getY()+60);
+			} else {
+				player.setTileIndex(player.getPos()-14);
+			}
+			break;
+	}
+	enemies.update(map);		
 }
 
 //UPDATE AND DRAW METHODS -- WHERE DA FUN HAPPENS DOE

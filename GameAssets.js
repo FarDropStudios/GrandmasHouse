@@ -8,10 +8,10 @@
 var GameAssets = function() {
 	var complete = false;
 	var loader = new PxLoader(),
-		tommy = loader.addImage('images/thomas.png'),
+		tommy = loader.addImage('images/tomScratchSheet.png'),
 		tiles = loader.addImage('images/MedallionTiles.png'),
 		player = loader.addImage('images/rat.png'),
-		wigDemon = loader.addImage('images/wigDemon.png');
+		wigDemon = loader.addImage('images/wigSheetHover.png');
 	loader.addCompletionListener(function() {
 		complete = true;
 	});

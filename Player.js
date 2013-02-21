@@ -10,6 +10,10 @@ var Player = function(startX, startY, image) {
 		sprite = image,
 		y = startY,
 		tileIndex = 15,
+		moveTimer = 15,
+		spriteLength = 176,
+		spriteX = 0,
+		tick = 0,
 		moveAmount = 60;
 
 	var getX = function() {
@@ -75,7 +79,18 @@ var Player = function(startX, startY, image) {
 	}
 
 	var draw = function(ctx) {
-			ctx.drawImage(sprite,x,y,60,60);
+		if(tick < moveTimer) {
+			tick++;
+		}
+		if(tick === moveTimer) {
+			if(spriteX === spriteLength) {
+				spriteX = 0;
+			} else {
+				spriteX += 16;
+			}
+			tick = 0;
+		}
+		ctx.drawImage(sprite,spriteX,0,16,16,x,y,60,60);
 	}
 
 	return {

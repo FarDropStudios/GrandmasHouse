@@ -7,10 +7,14 @@
  
 var WigDemon = function(startX, startY, tTileIndex, tImage) {
 	var x = startX,
-		image = tImage,
+		sprite = tImage,
 		y = startY,
 		tileIndex = tTileIndex, 
 		health = 1,
+		moveTimer = 15,
+		spriteLength = 144,
+		spriteX = 0,
+		tick = 0,
 		moveAmount = 120,
 		chance;
 
@@ -30,41 +34,52 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 		chance = Math.random();
 		if(chance <= 0.20) {
 			//DOWN
-			tileIndex+=14;
+			tileIndex+=28;
 			if(!map.getCollision(tileIndex)) {
 				y+=moveAmount;
 			} else {
-				tileIndex-=14;
+				tileIndex-=28;
 			}
 		} else if(chance > 0.20 && chance <= 0.30) {
 			//UP
-			tileIndex-=14;
+			tileIndex-=28;
 			if(!map.getCollision(tileIndex)) {
 				y-=moveAmount;
 			} else {
-				tileIndex+=14;
+				tileIndex+=28;
 			}
 		} else if(chance > 0.40 && chance <= 0.70) {
 			//LEFT
-			tileIndex-=1;
+			tileIndex-=2;
 			if(!map.getCollision(tileIndex)) {
 				x-=moveAmount;
 			} else {
-				tileIndex+=1;
+				tileIndex+=2;
 			}
 		} else {
 			//RIGHT
-			tileIndex+=1;
+			tileIndex+=2;
 			if(!map.getCollision(tileIndex)) {
 				x+=moveAmount;
 			} else {
-				tileIndex-=1;
+				tileIndex-=2;
 			}
 		}
 	}
 
 	var draw = function(ctx) {
-		ctx.drawImage(image, x, y, 60, 60);
+		if(tick < 15) {
+			tick++;
+		}
+		if(tick === moveTimer) {
+			if(spriteX === spriteLength) {
+				spriteX = 0;
+			} else {
+				spriteX += 16;
+			}
+			tick = 0;
+		}
+		ctx.drawImage(sprite,spriteX,0,16,16,x,y,60,60);
 	}
 
 	return {

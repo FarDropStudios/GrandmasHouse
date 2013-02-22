@@ -10,6 +10,10 @@ var Player = function(startX, startY, image) {
 		sprite = image,
 		y = startY,
 		tileIndex = 15,
+		moveTimer = 15,
+		spriteLength = 660,
+		spriteX = 0,
+		tick = 0,
 		moveAmount = 60;
 
 	var getX = function() {
@@ -30,6 +34,10 @@ var Player = function(startX, startY, image) {
 
 	var getPos = function() {
 		return tileIndex;
+	}
+	
+	var setTileIndex = function(tTileIndex) {
+		tileIndex = tTileIndex
 	}
 	
 	var update = function(tx, ty, map) {
@@ -75,7 +83,18 @@ var Player = function(startX, startY, image) {
 	}
 
 	var draw = function(ctx) {
-			ctx.drawImage(sprite,x,y,60,60);
+		if(tick < moveTimer) {
+			tick++;
+		}
+		if(tick === moveTimer) {
+			if(spriteX === spriteLength) {
+				spriteX = 0;
+			} else {
+				spriteX += 60;
+			}
+			tick = 0;
+		}
+		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 	}
 
 	return {
@@ -84,6 +103,7 @@ var Player = function(startX, startY, image) {
 		setX: setX,
 		setY: setY,
 		getPos: getPos,
+		setTileIndex: setTileIndex,
 		update: update,
 		draw: draw
 	}

@@ -110,7 +110,7 @@ var Map = function(tileSet, tempEnemies, tempPlayer) {
 				//Draw an enemy
 				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
 				if(renderEnemies) {
-					if(chance > 50){
+					if(Math.random() > 0.50){
 						enemy.addRat(blockX, blockY, index);
 					} else { 
 						enemy.addWigDemon(blockX, blockY, index); 

@@ -35,7 +35,7 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 		if(chance <= 0.20) {
 			//DOWN
 			tileIndex+=28;
-			if(!map.getCollision(tileIndex)) {
+			if(!map.getCollision(tileIndex) && y+moveAmount < 540) {
 				y+=moveAmount;
 			} else {
 				tileIndex-=28;
@@ -43,7 +43,7 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 		} else if(chance > 0.20 && chance <= 0.30) {
 			//UP
 			tileIndex-=28;
-			if(!map.getCollision(tileIndex)) {
+			if(!map.getCollision(tileIndex) && y-moveAmount > 0) {
 				y-=moveAmount;
 			} else {
 				tileIndex+=28;
@@ -51,7 +51,7 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 		} else if(chance > 0.40 && chance <= 0.70) {
 			//LEFT
 			tileIndex-=2;
-			if(!map.getCollision(tileIndex)) {
+			if(!map.getCollision(tileIndex) && x-moveAmount > 0) {
 				x-=moveAmount;
 			} else {
 				tileIndex+=2;
@@ -59,7 +59,7 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 		} else {
 			//RIGHT
 			tileIndex+=2;
-			if(!map.getCollision(tileIndex)) {
+			if(!map.getCollision(tileIndex) && x+moveAmount < 840) {
 				x+=moveAmount;
 			} else {
 				tileIndex-=2;

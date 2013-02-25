@@ -54,6 +54,7 @@ function setEventListeners() {
 function onKeyDown(e) {
 	key = e.keyCode;
 	switch(key) {
+		case 65:
 		case 37: //Left
 			player.setTileIndex(player.getPos()-1);
 			if(!map.getCollision(player.getPos())) {
@@ -62,6 +63,7 @@ function onKeyDown(e) {
 				player.setTileIndex(player.getPos()+1);
 			}
 			break;
+		case 87:
 		case 38: //Up
 			player.setTileIndex(player.getPos()-14);
 			if(!map.getCollision(player.getPos())) {
@@ -70,6 +72,7 @@ function onKeyDown(e) {
 				player.setTileIndex(player.getPos()+14);
 			}
 			break;
+		case 68:
 		case 39: //Right
 			player.setTileIndex(player.getPos()+1);
 			if(!map.getCollision(player.getPos())) {
@@ -78,6 +81,7 @@ function onKeyDown(e) {
 				player.setTileIndex(player.getPos()-1);
 			}
 			break;
+		case 83:
 		case 40: //Down
 			player.setTileIndex(player.getPos()+14);
 			if(!map.getCollision(player.getPos())) {
@@ -87,6 +91,7 @@ function onKeyDown(e) {
 			}
 			break;
 	}
+	player.exitCheck();
 	enemies.update(map);		
 }
 

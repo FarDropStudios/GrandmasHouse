@@ -11,6 +11,8 @@ var GameAssets = function() {
 		tommy = loader.addImage('images/tomScratchSheet.png'),
 		tiles = loader.addImage('images/MedallionTiles.png'),
 		player = loader.addImage('images/rat.png'),
+		couch = loader.addImage('images/couch.png'),
+		floor = loader.addImage('images/floorTileCarpet.png')
 		wigDemon = loader.addImage('images/wigSheetHover.png');
 	loader.addCompletionListener(function() {
 		complete = true;
@@ -40,8 +42,17 @@ var GameAssets = function() {
 	var getTiles = function() {
 		return tiles;
 	}
+	
 	var getWigDemon = function() {
 		return wigDemon;
+	}
+	
+	var getCouch = function() {
+		return couch;
+	}
+	
+	var getFloorTile = function() {
+		return floor;
 	}
 	
 	return {
@@ -51,6 +62,8 @@ var GameAssets = function() {
 		getCharacter: getCharacter,
 		getTiles: getTiles,
 		getRat: getRat,
+		getCouch: getCouch,
+		getFloorTile: getFloorTile,
 		getWigDemon: getWigDemon
 	}	
 }

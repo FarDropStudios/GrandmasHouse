@@ -7,7 +7,7 @@
  *	10 = Rat;
  */
 
-var Map = function(tileSet, tempEnemies, tempPlayer) {
+var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 	var blockX = 0,
 		index = 0,
 		chance,
@@ -18,7 +18,8 @@ var Map = function(tileSet, tempEnemies, tempPlayer) {
 		player = tempPlayer, 
 		room = 0,
 		renderEnemies = true,
-		rooms = [];
+		rooms = [],
+		gameAssets = tGameAssets;
 		rooms[0] = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,
 		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
 		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
@@ -98,10 +99,10 @@ var Map = function(tileSet, tempEnemies, tempPlayer) {
 			}
 			if(rooms[room][i] === 1) {
 				//WALL BLOCK
-				ctx.drawImage(tiles,0,480,60,60,blockX,blockY,60,60);
+				ctx.drawImage(gameAssets.getCouch(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 2) {
 				//FLOOR BLOCK
-				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
+				ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 3) {
 				//EXIT BLOCK
 				exit = index;

@@ -12,7 +12,7 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 		tileIndex = tTileIndex, 
 		health = 1,
 		moveTimer = 15,
-		spriteLength = 144,
+		spriteLength = 540,
 		spriteX = 0,
 		tick = 0,
 		moveAmount = 120,
@@ -75,11 +75,11 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 			if(spriteX === spriteLength) {
 				spriteX = 0;
 			} else {
-				spriteX += 16;
+				spriteX += 60;
 			}
 			tick = 0;
 		}
-		ctx.drawImage(sprite,spriteX,0,16,16,x,y,60,60);
+		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 	}
 
 	return {

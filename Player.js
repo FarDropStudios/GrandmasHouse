@@ -40,8 +40,7 @@ var Player = function(startX, startY, image) {
 		tileIndex = tTileIndex
 	}
 	
-	var update = function(tx, ty, map) 087312ty
-	fa{
+	var update = function(tx, ty, map) {
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
 			tileIndex+=1;
 			if(!map.getCollision(tileIndex)) {
@@ -83,6 +82,18 @@ var Player = function(startX, startY, image) {
 		console.log(tileIndex);
 	}
 
+	var exitCheck = function() {
+		if(tileIndex === map.getExit()) {
+			x = 60;
+			y = 60;
+			tileIndex=15;
+			if(map.getRoom() === 1)
+				map.setRoom(-1);
+			else
+				map.setRoom(1);
+		}
+	}
+
 	var draw = function(ctx) {
 		if(tick < moveTimer) {
 			tick++;
@@ -106,6 +117,7 @@ var Player = function(startX, startY, image) {
 		getPos: getPos,
 		setTileIndex: setTileIndex,
 		update: update,
+		exitCheck: exitCheck,
 		draw: draw
 	}
 }

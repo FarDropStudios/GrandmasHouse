@@ -84,6 +84,7 @@ var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 		blockY = 0;
 		index = 0;
 		for(var i = 0; i < rooms[room].length; i++) {
+			ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			//If block needs to be randomized
 			if(rooms[room][i] === 0) {
 				//Randomize dat hoe
@@ -109,7 +110,6 @@ var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
 			} else if(rooms[room][i] === 10) {
 				//Draw an enemy
-				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
 				if(renderEnemies) {
 					if(Math.random() > 0.50){
 						enemy.addRat(blockX, blockY, index);
@@ -121,7 +121,7 @@ var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 			//Advance to next block
                         blockX +=60;
 			index++;
-			//If the block is the last in the row, advace to the next row.
+			//If the block is the last in the row, advance to the next row.
 			if(blockX === 840) {
 				blockX = 0;
 				blockY+= 60;

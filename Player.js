@@ -40,7 +40,8 @@ var Player = function(startX, startY, image) {
 		tileIndex = tTileIndex
 	}
 	
-	var update = function(tx, ty, map) {
+	var update = function(tx, ty, map) 087312ty
+	fa{
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
 			tileIndex+=1;
 			if(!map.getCollision(tileIndex)) {

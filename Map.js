@@ -21,7 +21,7 @@ var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 		rooms = [],
 		gameAssets = tGameAssets;
 		rooms[0] = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
+		    	1,2,2,0,0,8,9,0,0,0,0,0,0,1,
 		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
 				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
 				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
@@ -42,7 +42,7 @@ var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 	//Returns true if the block is solid
 	var getCollision = function(tile) {
 		enemyPositions = enemy.getEnemyPos();
-		if(rooms[room][tile] === 1) {
+		if(rooms[room][tile] === 1 || rooms[room][tile] === 8 || rooms[room][tile] === 9) {
 			return true;
 		} else {
 			for(var i = 0; i < enemyPositions.length; i++) {
@@ -108,6 +108,10 @@ var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 				//EXIT BLOCK
 				exit = index;
 				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
+			} else if(rooms[room][i] === 8) {
+				ctx.drawImage(gameAssets.getCouchLeft(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 9) {
+				ctx.drawImage(gameAssets.getCouchRight(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 10) {
 				//Draw an enemy
 				if(renderEnemies) {

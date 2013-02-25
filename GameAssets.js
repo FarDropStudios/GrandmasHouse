@@ -72,6 +72,8 @@ var GameAssets = function() {
 		getTiles: getTiles,
 		getRat: getRat,
 		getCouch: getCouch,
+		getCouchLeft: getCouchLeft,
+		getCouchRight: getCouchRight,
 		getFloorTile: getFloorTile,
 		getWigDemon: getWigDemon
 	}	

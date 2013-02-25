@@ -8,6 +8,8 @@
 var GameAssets = function() {
 	var complete = false;
 	var loader = new PxLoader(),
+		couchLeft = loader.addImage('images/couchLeftTile.png'),
+		couchRight = loader.addImage('images/couchRightTile.png'),
 		tommy = loader.addImage('images/tomScratchSheet.png'),
 		tiles = loader.addImage('images/MedallionTiles.png'),
 		player = loader.addImage('images/rat.png'),
@@ -55,6 +57,13 @@ var GameAssets = function() {
 		return floor;
 	}
 	
+	var getCouchLeft = function() {
+		return couchLeft;	
+	}
+	
+	var getCouchRight = function() {
+		return couchRight;
+	}
 	return {
 		loader: loader,
 		loadingStart: loadingStart,

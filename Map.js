@@ -107,7 +107,6 @@ var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 			} else if(rooms[room][i] === 3) {
 				//EXIT BLOCK
 				exit = index;
-				ctx.drawImage(tiles,480,60,60,60,blockX,blockY,60,60);
 			} else if(rooms[room][i] === 8) {
 				ctx.drawImage(gameAssets.getCouchLeft(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 9) {

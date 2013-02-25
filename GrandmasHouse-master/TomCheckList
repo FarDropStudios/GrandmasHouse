@@ -1,0 +1,5 @@
+1. Add filename to Index.html
+2. Implement methods
+3. Add the add"Enemy" method in Enemies.js
+4. Add random add"Enemy" to Map.js
+5. Add sprite to GameAssets and include return function

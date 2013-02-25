@@ -1,5 +1,5 @@
 /*
- *	WigDemon.js
+ *	wigDemon.js
  *	Tyler St. Onge
  *
  *	Contains all values for each individual rat
@@ -12,7 +12,7 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 		tileIndex = tTileIndex, 
 		health = 1,
 		moveTimer = 15,
-		spriteLength = 144,
+		spriteLength = 540,
 		spriteX = 0,
 		tick = 0,
 		moveAmount = 120,
@@ -75,7 +75,7 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 			if(spriteX === spriteLength) {
 				spriteX = 0;
 			} else {
-				spriteX += 16;
+				spriteX += 60;
 			}
 			tick = 0;
 		}

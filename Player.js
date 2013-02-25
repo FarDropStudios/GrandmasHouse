@@ -95,18 +95,19 @@ var Player = function(startX, startY, image) {
 	}
 
 	var draw = function(ctx) {
-		if(tick < moveTimer) {
-			tick++;
-		}
-		if(tick === moveTimer) {
-			if(spriteX === spriteLength) {
-				spriteX = 0;
-			} else {
-				spriteX += 60;
+			
+			if(tick < moveTimer) {
+				tick++;
 			}
-			tick = 0;
-		}
-		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
+			if(tick === moveTimer) {
+				if(spriteX === spriteLength) {
+					spriteX = 0;
+				} else {
+					spriteX += 60;
+				}
+				tick = 0;
+			}
+			ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);	
 	}
 
 	return {

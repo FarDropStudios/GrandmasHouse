@@ -82,6 +82,18 @@ var Player = function(startX, startY, image) {
 		console.log(tileIndex);
 	}
 
+	var exitCheck = function() {
+		if(tileIndex === map.getExit()) {
+			x = 60;
+			y = 60;
+			tileIndex=15;
+			if(map.getRoom() === 1)
+				map.setRoom(-1);
+			else
+				map.setRoom(1);
+		}
+	}
+
 	var draw = function(ctx) {
 		if(tick < moveTimer) {
 			tick++;
@@ -105,6 +117,7 @@ var Player = function(startX, startY, image) {
 		getPos: getPos,
 		setTileIndex: setTileIndex,
 		update: update,
+		exitCheck: exitCheck,
 		draw: draw
 	}
 }

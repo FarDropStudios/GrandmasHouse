@@ -154,11 +154,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 					if(Math.random() > 0.65){
 						enemy.addCat(blockX, blockY, index);
 					} else if(Math.random() > .35){ 
-						enemy.addWigDemon(blockX, blockY, index); 
+						enemy.addRat(blockX,blockY, index);	
 					} else if(Math.random() > .20) {
 					  	enemy.addDog(blockX,blockY, index);
 					} else {  	
-						enemy.addRat(blockX,blockY, index);					
+						enemy.addWigDemon(blockX, blockY, index); 
 					}	
 				}
 			}

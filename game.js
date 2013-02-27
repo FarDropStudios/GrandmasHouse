@@ -29,7 +29,7 @@ var enemies = new Enemies();
 enemies.setGameAssets(gameAssets);
 
 //initialize maps
-map = new Map(gameAssets.getTiles(), enemies, player, gameAssets);
+map = new Map(enemies, player, gameAssets);
 
 //set event listeners
 setEventListeners();
@@ -51,11 +51,11 @@ canvas.onclick = function(e) {
 function setEventListeners() {
 	window.addEventListener("keydown", onKeyDown, false);
 }
-
+//function for movement
 function onKeyDown(e) {
 	key = e.keyCode;
 	switch(key) {
-		case 65:
+		case 65: //A?
 		case 37: //Left
 			player.setTileIndex(player.getPos()-1);
 			if(!map.getCollision(player.getPos())) {
@@ -64,7 +64,7 @@ function onKeyDown(e) {
 				player.setTileIndex(player.getPos()+1);
 			}
 			break;
-		case 87:
+		case 87: //W?
 		case 38: //Up
 			player.setTileIndex(player.getPos()-14);
 			if(!map.getCollision(player.getPos())) {
@@ -73,7 +73,7 @@ function onKeyDown(e) {
 				player.setTileIndex(player.getPos()+14);
 			}
 			break;
-		case 68:
+		case 68: // D?
 		case 39: //Right
 			player.setTileIndex(player.getPos()+1);
 			if(!map.getCollision(player.getPos())) {
@@ -82,7 +82,7 @@ function onKeyDown(e) {
 				player.setTileIndex(player.getPos()-1);
 			}
 			break;
-		case 83:
+		case 83: //S?
 		case 40: //Down
 			player.setTileIndex(player.getPos()+14);
 			if(!map.getCollision(player.getPos())) {
@@ -99,6 +99,8 @@ function onKeyDown(e) {
 
 //UPDATE AND DRAW METHODS -- WHERE DA FUN HAPPENS DOE
 function update() {
+//why is nothing updating? TG
+
 }
 
 function draw() {

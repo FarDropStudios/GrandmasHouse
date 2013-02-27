@@ -9,6 +9,7 @@ var Player = function(startX, startY, image) {
 	var x = startX,
 		sprite = image,
 		y = startY,
+		lastMove = 0,
 		tileIndex = 15,
 		moveTimer = 15,
 		spriteLength = 660,
@@ -95,20 +96,30 @@ var Player = function(startX, startY, image) {
 	}
 
 	var draw = function(ctx) {
-		if(tick < moveTimer) {
-			tick++;
-		}
-		if(tick === moveTimer) {
-			if(spriteX === spriteLength) {
-				spriteX = 0;
-			} else {
-				spriteX += 60;
+		if(lastMove > 250) {
+			if(tick < moveTimer) {
+				tick++;
 			}
-			tick = 0;
+			if(tick === moveTimer) {
+				if(spriteX === spriteLength) {
+					spriteX = 0;
+				} else {
+					spriteX += 60;
+				}
+				tick = 0;
+				lastMove = 0;
+				ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
+			}
+		} else {
+			lastMove++;
 		}
 		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 	}
 
+	var moved = function() {
+		lastMove = 0;	
+	}
+	
 	return {
 		getX: getX,
 		getY: getY,
@@ -117,6 +128,7 @@ var Player = function(startX, startY, image) {
 		getPos: getPos,
 		setTileIndex: setTileIndex,
 		update: update,
+		moved: moved,
 		exitCheck: exitCheck,
 		draw: draw
 	}

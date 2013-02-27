@@ -37,6 +37,7 @@ setEventListeners();
 //When canvas is clicked, grab the X, and Y coords and update where the player is.
 canvas.onclick = function(e) {
 	enemies.update(map);
+	player.moved();
 	var position = canvas.getBoundingClientRect();
 	var click = {
 		x: e.clientX - position.left,
@@ -92,6 +93,7 @@ function onKeyDown(e) {
 			break;
 	}
 	player.exitCheck();
+	player.moved();
 	enemies.update(map);		
 }
 

@@ -1,6 +1,6 @@
 /*
  *	GameAssets.js
- *	Tyler St. Onge
+ *	Tyler St. Onge & Tommy Guererri
  *
  *	Loads all assets of the game.
  */

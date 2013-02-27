@@ -1,6 +1,6 @@
 /*
  *	Map.js	
- *	Tyler St. Onge
+ *	Tyler St. Onge & Tommy Guererri
  *	
  *	This class draws each room within the game. The rooms are current 14 blocks wide, and 9 high.
  *	Key: 0 = randomly generated block; 1 = wall block; 2 = empty/floor; block; 3 = exit;
@@ -36,12 +36,22 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				301,0,0,0,0,0,0,0,0,0,0,0,0,302,
 		    	301,0,0,0,0,0,0,0,0,0,0,2,2,302,
 		    	301,0,0,0,0,0,0,0,0,0,0,2,2,302,
-		    	201,1,1,1,1,1,1,1,1,1,1,1,1,202];
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
 	
 	//Returns true if the block is solid
 	var getCollision = function(tile) {
 		enemyPositions = enemy.getEnemyPos();
-		if(rooms[room][tile] === 1 || rooms[room][tile] === 8 || rooms[room][tile] === 9) {
+		if(rooms[room][tile] === 1 
+			|| rooms[room][tile] === 8 
+			|| rooms[room][tile] === 9
+			|| rooms[room][tile] === 301
+			|| rooms[room][tile] === 302
+			|| rooms[room][tile] === 303
+			|| rooms[room][tile] === 304
+			|| rooms[room][tile] === 101
+			|| rooms[room][tile] === 102
+			|| rooms[room][tile] === 201
+			|| rooms[room][tile] === 202) {
 			return true;
 		} else {
 			for(var i = 0; i < enemyPositions.length; i++) {

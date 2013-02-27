@@ -40,7 +40,7 @@ var Enemies = function() {
 		enemies.push(new Dog(startX, startY, startTileIndex, gameAssets.getDog()));
 	}
 	var addCat = function(startX, startY, startTileIndex) {
-		enemies.push(new Cat(startX, startY, startTileIndex, gameAssets.getRat()));
+		enemies.push(new Cat(startX, startY, startTileIndex, gameAssets.getCat()));
 	}
 	var addWigDemon = function(startX, startY, startTileIndex) {
 		enemies.push(new WigDemon(startX, startY, startTileIndex, gameAssets.getWigDemon()));

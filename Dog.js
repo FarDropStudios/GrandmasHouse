@@ -1,21 +1,17 @@
 /*
- *	WigDemon.js
+ *	Dog.js
  *	Tyler St. Onge
  *
- *	Contains all values for each individual rat
+ *	Contains all values for each individual dog
  */
  
-var WigDemon = function(startX, startY, tTileIndex, tImage) {
+var Dog = function(startX, startY, tTileIndex, tImage) {
 	var x = startX,
-		sprite = tImage,
+		image = tImage,
 		y = startY,
 		tileIndex = tTileIndex, 
-		health = 1,
-		moveTimer = 15,
-		spriteLength = 540,
-		spriteX = 0,
-		tick = 0,
-		moveAmount = 120,
+		health = 5,
+		moveAmount = 60,
 		chance;
 
 	var getPos = function() {
@@ -34,52 +30,41 @@ var WigDemon = function(startX, startY, tTileIndex, tImage) {
 		chance = Math.random();
 		if(chance <= 0.20) {
 			//DOWN
-			tileIndex+=28;
+			tileIndex+=14;
 			if(!map.getCollision(tileIndex)) {
 				y+=moveAmount;
 			} else {
-				tileIndex-=28;
+				tileIndex-=14;
 			}
 		} else if(chance > 0.20 && chance <= 0.30) {
 			//UP
-			tileIndex-=28;
+			tileIndex-=14;
 			if(!map.getCollision(tileIndex)) {
 				y-=moveAmount;
 			} else {
-				tileIndex+=28;
+				tileIndex+=14;
 			}
 		} else if(chance > 0.40 && chance <= 0.70) {
 			//LEFT
-			tileIndex-=2;
+			tileIndex-=1;
 			if(!map.getCollision(tileIndex)) {
 				x-=moveAmount;
 			} else {
-				tileIndex+=2;
+				tileIndex+=1;
 			}
 		} else {
 			//RIGHT
-			tileIndex+=2;
+			tileIndex+=1;
 			if(!map.getCollision(tileIndex)) {
 				x+=moveAmount;
 			} else {
-				tileIndex-=2;
+				tileIndex-=1;
 			}
 		}
 	}
 
 	var draw = function(ctx) {
-		if(tick < 15) {
-			tick++;
-		}
-		if(tick === moveTimer) {
-			if(spriteX === spriteLength) {
-				spriteX = 0;
-			} else {
-				spriteX += 60;
-			}
-			tick = 0;
-		}
-		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
+		ctx.drawImage(image, x, y, 60, 60);
 	}
 
 	return {

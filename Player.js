@@ -7,8 +7,10 @@
 
 var Player = function(startX, startY, image) {
 	var x = startX,
+		health = 5;
 		sprite = image,
 		y = startY,
+		lastMove = 0,
 		tileIndex = 15,
 		moveTimer = 15,
 		spriteLength = 660,
@@ -32,8 +34,16 @@ var Player = function(startX, startY, image) {
 		y = tY;
 	}
 
+	var setHealth = function(tH) {
+		health = tH;
+	}
+
 	var getPos = function() {
 		return tileIndex;
+	}
+	
+	var getHealth = function() {
+		return health;
 	}
 	
 	var setTileIndex = function(tTileIndex) {
@@ -95,28 +105,41 @@ var Player = function(startX, startY, image) {
 	}
 
 	var draw = function(ctx) {
-		if(tick < moveTimer) {
-			tick++;
-		}
-		if(tick === moveTimer) {
-			if(spriteX === spriteLength) {
-				spriteX = 0;
-			} else {
-				spriteX += 60;
+		if(lastMove > 250) {
+			if(tick < moveTimer) {
+				tick++;
 			}
-			tick = 0;
+			if(tick === moveTimer) {
+				if(spriteX === spriteLength) {
+					spriteX = 0;
+				} else {
+					spriteX += 60;
+				}
+				tick = 0;
+				ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
+			}
+		} else {
+			lastMove++;
+			spriteX = 0;
 		}
 		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 	}
 
+	var moved = function() {
+		lastMove = 0;	
+	}
+	
 	return {
 		getX: getX,
 		getY: getY,
+		getHealth: getHealth,
 		setX: setX,
 		setY: setY,
+		setHealth: setHealth,
 		getPos: getPos,
 		setTileIndex: setTileIndex,
 		update: update,
+		moved: moved,
 		exitCheck: exitCheck,
 		draw: draw
 	}

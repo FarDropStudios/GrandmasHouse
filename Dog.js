@@ -1,16 +1,16 @@
 /*
- *	Rat.js
- *	Tyler St. Onge & Tommy Guererri
+ *	Dog.js
+ *	Tyler St. Onge
  *
- *	Contains all values for each individual rat
+ *	Contains all values for each individual dog
  */
  
-var Rat = function(startX, startY, tTileIndex, tImage) {
+var Dog = function(startX, startY, tTileIndex, tImage) {
 	var x = startX,
 		image = tImage,
 		y = startY,
 		tileIndex = tTileIndex, 
-		health = 3,
+		health = 5,
 		moveAmount = 60,
 		chance;
 

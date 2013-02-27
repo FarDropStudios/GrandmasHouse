@@ -1,11 +1,11 @@
 /*
- *	Rat.js
+ *	Cat.js
  *	Tyler St. Onge & Tommy Guererri
  *
- *	Contains all values for each individual rat
+ *	Contains all values for each individual cat
  */
  
-var Rat = function(startX, startY, tTileIndex, tImage) {
+var Cat = function(startX, startY, tTileIndex, tImage) {
 	var x = startX,
 		image = tImage,
 		y = startY,

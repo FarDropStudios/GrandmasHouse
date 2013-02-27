@@ -25,7 +25,10 @@ var GameAssets = function() {
 		bottomWallRight = loader.addImage('images/wallsFloor/bottomRightWall.png');
 		bottomWallLeft = loader.addImage('images/wallsFloor/bottomLeftWall.png');
 		basicWallWindow = loader.addImage('images/wallsFloor/basicWallWindow.png');
-	
+		cat = loader.addImage('images/houseOccupants/cat.png');
+		dog = loader.addImage('images/houseOccupants/dog.png');
+		grandma = loader.addImage('images/houseOccupants/grandMa.png');
+		
 	loader.addCompletionListener(function() {
 		complete = true;
 	});
@@ -110,10 +113,25 @@ var GameAssets = function() {
 	var getCouchRight = function() {
 		return couchRight;
 	}
+	//returns Cat
+	var getCat = function() {
+		return cat;
+	}
+	//returns Dog
+	var getDog = function() {
+		return dog;
+	}
+	//returns Grandma
+	var getGrandma = function(){
+		return grandma;
+	}
 	return {
 		loader: loader,
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
+		getGrandma:getGrandma,
+		getDog:getDog,
+		getCat:getCat,
 		getCharacter: getCharacter,
 		getTiles: getTiles,
 		getRat: getRat,

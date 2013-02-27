@@ -83,8 +83,6 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		enemies.emptyEnemies();
 		renderEnemies = true;
 	};
-	
-
 	//The draw function for the room, it takes the context as a parameter which
 	//enables the method to draw on the canvas.
 	var draw = function(ctx) {
@@ -152,10 +150,14 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			} else if(rooms[room][i] === 10) {
 				//Draw an enemy
 				if(renderEnemies) {
-					if(Math.random() > 0.50){
-						enemy.addRat(blockX, blockY, index);
-					} else { 
+					if(Math.random() > 0.65){
+						enemy.addCat(blockX, blockY, index);
+					} else if(Math.random() > .35){ 
 						enemy.addWigDemon(blockX, blockY, index); 
+					} else if(Math.random() > .20) {
+					  	enemy.addDog(blockX,blockY, index);
+					} else {  	
+						enemy.addRat(blockX,blockY, index);					
 					}	
 				}
 			}

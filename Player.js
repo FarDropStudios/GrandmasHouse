@@ -7,6 +7,7 @@
 
 var Player = function(startX, startY, image) {
 	var x = startX,
+		health = 5;
 		sprite = image,
 		y = startY,
 		lastMove = 0,
@@ -33,8 +34,16 @@ var Player = function(startX, startY, image) {
 		y = tY;
 	}
 
+	var setHealth = function(tH) {
+		health = tH;
+	}
+
 	var getPos = function() {
 		return tileIndex;
+	}
+	
+	var getHealth = function() {
+		return health;
 	}
 	
 	var setTileIndex = function(tTileIndex) {
@@ -123,8 +132,10 @@ var Player = function(startX, startY, image) {
 	return {
 		getX: getX,
 		getY: getY,
+		getHealth: getHealth,
 		setX: setX,
 		setY: setY,
+		setHealth: setHealth,
 		getPos: getPos,
 		setTileIndex: setTileIndex,
 		update: update,

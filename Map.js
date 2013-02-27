@@ -64,7 +64,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 					return true;
 				}
 			}
-			false;
+			return false;
 		}
 	};
 

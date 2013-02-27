@@ -1,6 +1,6 @@
 /*
- *	wigDemon.js
- *	Tyler St. Onge
+ *	WigDemon.js
+ *	Tyler St. Onge and Tommy Guererri
  *
  *	Contains all values for each individual Wig Demon
  */

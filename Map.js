@@ -1,6 +1,6 @@
 /*
  *	Map.js	
- *	Tyler St. Onge
+ *	Tyler St. Onge & Tommy Guererri
  *	
  *	This class draws each room within the game. The rooms are current 14 blocks wide, and 9 high.
  *	Key: 0 = randomly generated block; 1 = wall block; 2 = empty/floor; block; 3 = exit;
@@ -19,29 +19,39 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		renderEnemies = true,
 		rooms = [],
 		gameAssets = tGameAssets;
-		rooms[0] = [101,1,1,1,1,1,666,1,1,1,1,1,1,102,
-		    	1,2,2,0,0,8,9,0,0,0,0,0,0,1,
-		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
-				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
-				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
-		    	1,0,0,0,0,0,0,0,0,0,2,2,2,1,
-		    	1,0,0,0,0,0,666,0,0,0,0,2,2,3,
-		    	201,1,1,1,1,1,1,1,1,1,1,1,202,];
-		rooms[1] = [101,1,1,1,1,666,1,1,1,1,1,1,1,102,
-		    	1,2,2,0,0,0,0,0,0,0,8,9,2,1,
-		    	1,2,2,0,0,0,0,0,0,0,2,2,2,3,
-				1,0,0,0,0,0,0,0,0,0,0,0,2,1,
-				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
-		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
-		    	201,1,1,1,1,1,1,666,1,1,1,1,1,202];
+		rooms[0] = [101,303,303,303,303,303,666,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,8,9,0,0,0,0,0,0,302,
+		    	301,2,2,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,0,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,0,0,0,0,0,0,0,0,2,0,0,302,
+				301,0,0,0,0,0,0,0,0,0,2,0,0,302,
+		    	301,0,0,0,0,0,0,0,0,0,2,2,2,3,
+		    	301,0,0,0,0,0,0,0,0,0,0,2,2,302,
+		    	202,304,304,304,304,304,304,304,304,304,304,304,304,202,];
+		rooms[1] = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
+		    	301,2,2,0,0,0,0,0,0,0,2,2,2,3,
+				301,0,0,0,0,0,0,0,0,0,0,0,2,302,
+				301,0,0,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,0,0,0,0,0,0,0,0,0,0,0,302,
+		    	301,0,0,0,0,0,0,0,0,0,0,2,2,302,
+		    	301,0,0,0,0,0,0,0,0,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
 	
 	//Returns true if the block is solid
 	var getCollision = function(tile) {
 		enemyPositions = enemy.getEnemyPos();
-		if(rooms[room][tile] === 1 || rooms[room][tile] === 8 || rooms[room][tile] === 9) {
+		if(rooms[room][tile] === 1 
+			|| rooms[room][tile] === 8 
+			|| rooms[room][tile] === 9
+			|| rooms[room][tile] === 301
+			|| rooms[room][tile] === 302
+			|| rooms[room][tile] === 303
+			|| rooms[room][tile] === 304
+			|| rooms[room][tile] === 101
+			|| rooms[room][tile] === 102
+			|| rooms[room][tile] === 201
+			|| rooms[room][tile] === 202) {
 			return true;
 		} else {
 			for(var i = 0; i < enemyPositions.length; i++) {
@@ -73,8 +83,6 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		enemies.emptyEnemies();
 		renderEnemies = true;
 	};
-	
-
 	//The draw function for the room, it takes the context as a parameter which
 	//enables the method to draw on the canvas.
 	var draw = function(ctx) {
@@ -106,19 +114,32 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			} else if(rooms[room][i] === 3) {
 				//EXIT BLOCK
 				exit = index;
-			} else if(roms[room][i] === 201){
+			} else if(rooms[room][i] === 201){
 				//bottomLeftCorner
-				ctx.drawImage(gameAssets.getBottomLeftWall(),blockX,blockY,60,60);
+				ctx.drawImage(gameAssets.getBottomWallLeft(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 202){
 				//BottomRightCorner
-				ctx.drawImage(gameAssets.getBottomRightWall(),blockX,blockY,60,60);
-			} else if(rooms[room][i]) === 101){
+				ctx.drawImage(gameAssets.getBottomWallRight(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 101){
 				//UpperLeftCorner
-				ctx.drawImage(gameAssets.getUpperLeftWall(),blockX,blockY,60,60);
-			} else if(rooms[room][i]) === 102){
+				ctx.drawImage(gameAssets.getUpperWallLeft(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 102){
 				//UpperRightCorner
-				ctx.drawImage(gameAssets.getUpperRightWall(),blockX,blockY,60,60);
-			} else if(rooms[room][i]) === 666){
+				ctx.drawImage(gameAssets.getUpperWallRight(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 303){
+				//Top Wall
+				ctx.drawImage(gameAssets.getBasicWallTop(), blockX, blockY,60,60);
+			} else if(rooms[room][i] === 301){
+				//Left Wall
+				ctx.drawImage(gameAssets.getBasicWallLeft(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 302){
+				//Right Wall
+				ctx.drawImage(gameAssets.getBasicWallRight(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 304){
+				//Bottom Wall
+				ctx.drawImage(gameAssets.getBasicWallBottom(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 666){
+				//Window
 				ctx.drawImage(gameAssets.getBasicWallWindow(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 8) {
 				//CouchLeft
@@ -129,10 +150,14 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			} else if(rooms[room][i] === 10) {
 				//Draw an enemy
 				if(renderEnemies) {
-					if(Math.random() > 0.50){
-						enemy.addRat(blockX, blockY, index);
-					} else { 
+					if(Math.random() > 0.65){
+						enemy.addCat(blockX, blockY, index);
+					} else if(Math.random() > .35){ 
 						enemy.addWigDemon(blockX, blockY, index); 
+					} else if(Math.random() > .20) {
+					  	enemy.addDog(blockX,blockY, index);
+					} else {  	
+						enemy.addRat(blockX,blockY, index);					
 					}	
 				}
 			}

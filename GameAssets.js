@@ -1,6 +1,6 @@
 /*
  *	GameAssets.js
- *	Tyler St. Onge
+ *	Tyler St. Onge & Tommy Guererri
  *
  *	Loads all assets of the game.
  */
@@ -20,12 +20,15 @@ var GameAssets = function() {
 		basicWallBottom = loader.addImage('images/wallsFloor/basicWallBottom.png');
 		basicWallRight = loader.addImage('images/wallsFloor/basicWallRight.png');
 		basicWallLeft = loader.addImage('images/wallsFloor/basicWallLeft.png');
-		upperWallRight = loader.addImage('images/wallsFloor/upperWallRight.png');
-		upperWallLeft = loader.addImage('images/wallsFloor/upperWallLeft.png');
-		bottomWallRight = loader.addImage('images/wallsFloor/bottomWallRight.png');
-		bottomWallLeft = loader.addImage('images/wallsFloor/bottomWallLeft.png');
+		upperWallRight = loader.addImage('images/wallsFloor/upperRightWall.png');
+		upperWallLeft = loader.addImage('images/wallsFloor/upperLeftWall.png');
+		bottomWallRight = loader.addImage('images/wallsFloor/bottomRightWall.png');
+		bottomWallLeft = loader.addImage('images/wallsFloor/bottomLeftWall.png');
 		basicWallWindow = loader.addImage('images/wallsFloor/basicWallWindow.png');
-	
+		cat = loader.addImage('images/houseOccupants/cat.png');
+		dog = loader.addImage('images/houseOccupants/dog.png');
+		grandma = loader.addImage('images/houseOccupants/grandMa.png');
+		
 	loader.addCompletionListener(function() {
 		complete = true;
 	});
@@ -110,10 +113,25 @@ var GameAssets = function() {
 	var getCouchRight = function() {
 		return couchRight;
 	}
+	//returns Cat
+	var getCat = function() {
+		return cat;
+	}
+	//returns Dog
+	var getDog = function() {
+		return dog;
+	}
+	//returns Grandma
+	var getGrandma = function(){
+		return grandma;
+	}
 	return {
 		loader: loader,
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
+		getGrandma:getGrandma,
+		getDog:getDog,
+		getCat:getCat,
 		getCharacter: getCharacter,
 		getTiles: getTiles,
 		getRat: getRat,

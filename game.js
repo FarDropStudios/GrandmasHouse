@@ -29,7 +29,7 @@ var enemies = new Enemies();
 enemies.setGameAssets(gameAssets);
 
 //initialize maps
-map = new Map(gameAssets.getTiles(), enemies, player, gameAssets);
+map = new Map(enemies, player, gameAssets);
 
 //set event listeners
 setEventListeners();

@@ -11,7 +11,7 @@ var GameAssets = function() {
 		couchLeft = loader.addImage('images/houseObjects/couchLeftTile.png'),
 		couchRight = loader.addImage('images/houseObjects/couchRightTile.png'),
 		tommy = loader.addImage('images/houseOccupants/tomScratchSheet.png'),
-		tiles = loader.addImage('images//Misc Images/MedallionTiles.png'),
+		tiles = loader.addImage('images/MiscImages/MedallionTiles.png'),
 		player = loader.addImage('images/houseOccupants/rat.png'),
 		couch = loader.addImage('images/houseObjects/couch.png'),
 		floor = loader.addImage('images/wallsFloor/floorTileCarpet.png')
@@ -40,7 +40,7 @@ var GameAssets = function() {
 		return complete;
 	}
 	//returns wallWindow
-	var getWallWindow = function() {
+	var getBasicWallWindow = function() {
 		return basicWallWindow;
 	}
 	
@@ -126,7 +126,7 @@ var GameAssets = function() {
 		getBasicWallTop: getBasicWallTop,
 		getBasicWallLeft: getBasicWallLeft,
 		getBasicWallRight: getBasicWallRight,
-		getUpperLeftWall: getUpperLeftWall,
+		getUpperWallLeft: getUpperWallLeft,
 		getUpperWallRight: getUpperWallRight,
 		getBottomWallRight: getBottomWallRight,
 		getBottomWallLeft: getBottomWallRight,

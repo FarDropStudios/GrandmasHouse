@@ -7,37 +7,36 @@
  *	10 = Rat;
  */
 
-var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
+var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 	var blockX = 0,
 		index = 0,
 		chance,
 		exit,
 		blockY = 0,
 		enemy = tempEnemies,
-		tiles = tileSet,
 		player = tempPlayer, 
 		room = 0,
 		renderEnemies = true,
 		rooms = [],
 		gameAssets = tGameAssets;
-		rooms[0] = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,
+		rooms[0] = [101,1,1,1,1,1,666,1,1,1,1,1,1,102,
 		    	1,2,2,0,0,8,9,0,0,0,0,0,0,1,
 		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
 				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
 				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
 				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
 		    	1,0,0,0,0,0,0,0,0,0,2,2,2,1,
-		    	1,0,0,0,0,0,0,0,0,0,0,2,2,3,
-		    	1,1,1,1,1,1,1,1,1,1,1,1,1,1];
-		rooms[1] = [1,1,1,1,1,1,1,1,1,1,1,1,1,1,
-		    	1,2,2,0,0,0,0,0,0,0,0,0,2,1,
+		    	1,0,0,0,0,0,666,0,0,0,0,2,2,3,
+		    	201,1,1,1,1,1,1,1,1,1,1,1,202,];
+		rooms[1] = [101,1,1,1,1,666,1,1,1,1,1,1,1,102,
+		    	1,2,2,0,0,0,0,0,0,0,8,9,2,1,
 		    	1,2,2,0,0,0,0,0,0,0,2,2,2,3,
 				1,0,0,0,0,0,0,0,0,0,0,0,2,1,
 				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
 				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
 		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
 		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
-		    	1,1,1,1,1,1,1,1,1,1,1,1,1,1];
+		    	201,1,1,1,1,1,1,666,1,1,1,1,1,202];
 	
 	//Returns true if the block is solid
 	var getCollision = function(tile) {
@@ -107,9 +106,25 @@ var Map = function(tileSet, tempEnemies, tempPlayer, tGameAssets) {
 			} else if(rooms[room][i] === 3) {
 				//EXIT BLOCK
 				exit = index;
+			} else if(roms[room][i] === 201){
+				//bottomLeftCorner
+				ctx.drawImage(gameAssets.getBottomLeftWall(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 202){
+				//BottomRightCorner
+				ctx.drawImage(gameAssets.getBottomRightWall(),blockX,blockY,60,60);
+			} else if(rooms[room][i]) == 101){
+				//UpperLeftCorner
+				ctx.drawImage(gameAssets.getUpperLeftWall(),blockX,blockY,60,60);
+			} else if(rooms[room][i]) === 102){
+				//UpperRightCorner
+				ctx.drawImage(gameAssets.getUpperRightWall(),blockX,blockY,60,60);
+			} else if(rooms[room][i]) === 666){
+				ctx.drawImage(gameAssets.getBasicWallWindow(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 8) {
+				//CouchLeft
 				ctx.drawImage(gameAssets.getCouchLeft(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 9) {
+				//CouchRight
 				ctx.drawImage(gameAssets.getCouchRight(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 10) {
 				//Draw an enemy

@@ -19,23 +19,23 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		renderEnemies = true,
 		rooms = [],
 		gameAssets = tGameAssets;
-		rooms[0] = [101,1,1,1,1,1,666,1,1,1,1,1,1,102,
-		    	1,2,2,0,0,8,9,0,0,0,0,0,0,1,
-		    	1,2,2,0,0,0,0,0,0,0,0,0,0,1,
-				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
-				1,0,0,0,0,0,0,0,0,0,2,0,0,1,
-		    	1,0,0,0,0,0,0,0,0,0,2,2,2,1,
-		    	1,0,0,0,0,0,0,0,0,0,0,2,2,3,
-		    	202,1,1,1,1,1,1,1,1,1,1,1,1,202,];
-		rooms[1] = [101,1,1,1,1,666,1,1,1,1,1,1,1,102,
-		    	1,2,2,0,0,0,0,0,0,0,8,9,2,1,
-		    	1,2,2,0,0,0,0,0,0,0,2,2,2,3,
-				1,0,0,0,0,0,0,0,0,0,0,0,2,1,
-				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-				1,0,0,0,0,0,0,0,0,0,0,0,0,1,
-		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
-		    	1,0,0,0,0,0,0,0,0,0,0,2,2,1,
+		rooms[0] = [101,303,303,303,303,303,666,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,8,9,0,0,0,0,0,0,302,
+		    	301,2,2,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,0,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,0,0,0,0,0,0,0,0,2,0,0,302,
+				301,0,0,0,0,0,0,0,0,0,2,0,0,302,
+		    	301,0,0,0,0,0,0,0,0,0,2,2,2,302,
+		    	301,0,0,0,0,0,0,0,0,0,0,2,2,3,
+		    	202,304,304,304,304,304,304,304,304,304,304,304,304,202,];
+		rooms[1] = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
+		    	301,2,2,0,0,0,0,0,0,0,2,2,2,3,
+				301,0,0,0,0,0,0,0,0,0,0,0,2,302,
+				301,0,0,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,0,0,0,0,0,0,0,0,0,0,0,302,
+		    	301,0,0,0,0,0,0,0,0,0,0,2,2,302,
+		    	301,0,0,0,0,0,0,0,0,0,0,2,2,302,
 		    	201,1,1,1,1,1,1,1,1,1,1,1,1,202];
 	
 	//Returns true if the block is solid
@@ -118,7 +118,20 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			} else if(rooms[room][i] === 102){
 				//UpperRightCorner
 				ctx.drawImage(gameAssets.getUpperWallRight(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 303){
+				//Top Wall
+				ctx.drawImage(gameAssets.getBasicWallTop(), blockX, blockY,60,60);
+			} else if(rooms[room][i] === 301){
+				//Left Wall
+				ctx.drawImage(gameAssets.getBasicWallLeft(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 302){
+				//Right Wall
+				ctx.drawImage(gameAssets.getBasicWallRight(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 304){
+				//Bottom Wall
+				ctx.drawImage(gameAssets.getBasicWallBottom(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 666){
+				//Window
 				ctx.drawImage(gameAssets.getBasicWallWindow(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 8) {
 				//CouchLeft

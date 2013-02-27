@@ -20,10 +20,10 @@ var GameAssets = function() {
 		basicWallBottom = loader.addImage('images/wallsFloor/basicWallBottom.png');
 		basicWallRight = loader.addImage('images/wallsFloor/basicWallRight.png');
 		basicWallLeft = loader.addImage('images/wallsFloor/basicWallLeft.png');
-		upperWallRight = loader.addImage('images/wallsFloor/upperWallRight.png');
-		upperWallLeft = loader.addImage('images/wallsFloor/upperWallLeft.png');
-		bottomWallRight = loader.addImage('images/wallsFloor/bottomWallRight.png');
-		bottomWallLeft = loader.addImage('images/wallsFloor/bottomWallLeft.png');
+		upperWallRight = loader.addImage('images/wallsFloor/upperRightWall.png');
+		upperWallLeft = loader.addImage('images/wallsFloor/upperLeftWall.png');
+		bottomWallRight = loader.addImage('images/wallsFloor/bottomRightWall.png');
+		bottomWallLeft = loader.addImage('images/wallsFloor/bottomLeftWall.png');
 		basicWallWindow = loader.addImage('images/wallsFloor/basicWallWindow.png');
 	
 	loader.addCompletionListener(function() {

@@ -112,7 +112,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			} else if(rooms[room][i] === 202){
 				//BottomRightCorner
 				ctx.drawImage(gameAssets.getBottomRightWall(),blockX,blockY,60,60);
-			} else if(rooms[room][i]) == 101){
+			} else if(rooms[room][i]) === 101){
 				//UpperLeftCorner
 				ctx.drawImage(gameAssets.getUpperLeftWall(),blockX,blockY,60,60);
 			} else if(rooms[room][i]) === 102){

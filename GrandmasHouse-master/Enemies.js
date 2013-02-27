@@ -36,14 +36,9 @@ var Enemies = function() {
 	var addRat = function(startX, startY, startTileIndex) {
 		enemies.push(new Rat(startX, startY, startTileIndex, gameAssets.getRat()));
 	}
-	var addDog = function(startX, startY, startTileIndex) {
-		enemies.push(new Dog(startX, startY, startTileIndex, gameAssets.getDog()));
-	}
-	var addCat = function(startX, startY, startTileIndex) {
-		enemies.push(new Cat(startX, startY, startTileIndex, gameAssets.getCat()));
-	}
+	
 	var addWigDemon = function(startX, startY, startTileIndex) {
-		enemies.push(new WigMonster(startX, startY, startTileIndex, gameAssets.getWigDemon()));
+		enemies.push(new WigDemon(startX, startY, startTileIndex, gameAssets.getWigDemon()));
 	}
 	
 	var draw = function(ctx) {
@@ -59,8 +54,6 @@ var Enemies = function() {
 		update: update,
 		addRat: addRat,
 		addWigDemon: addWigDemon,
-		addDog: addDog,
-		addCat: addCat,
 		draw: draw
 	}
 }

@@ -1,11 +1,12 @@
 /*
- *	WigDemon.js
+ *	WigMonster.js
+
  *	Tyler St. Onge and Tommy Guererri
- *
+
  *	Contains all values for each individual Wig Demon
  */
  
-var WigDemon = function(startX, startY, tTileIndex, tImage) {
+var WigMonster = function(startX, startY, tTileIndex, tImage) {
 	var x = startX,
 		sprite = tImage,
 		y = startY,

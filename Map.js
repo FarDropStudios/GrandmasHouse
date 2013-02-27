@@ -99,7 +99,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				//20 percent chance that the block is solid, else its empty.
 				if(chance < 0.20) {
 					rooms[room][i] = 1;
-				} else if(chance > 0.23 && chance < 0.25) {
+				} else if(chance > 0.21 && chance < 0.25) {
 					rooms[room][i] = 10;
 				} else {
 					rooms[room][i] = 2;

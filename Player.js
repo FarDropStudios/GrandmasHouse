@@ -107,11 +107,11 @@ var Player = function(startX, startY, image) {
 					spriteX += 60;
 				}
 				tick = 0;
-				lastMove = 0;
 				ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 			}
 		} else {
 			lastMove++;
+			spriteX = 0;
 		}
 		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 	}

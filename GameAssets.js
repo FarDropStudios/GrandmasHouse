@@ -147,7 +147,7 @@ var GameAssets = function() {
 		getUpperWallLeft: getUpperWallLeft,
 		getUpperWallRight: getUpperWallRight,
 		getBottomWallRight: getBottomWallRight,
-		getBottomWallLeft: getBottomWallRight,
+		getBottomWallLeft: getBottomWallLeft,
 		getBasicWallWindow: getBasicWallWindow
 	}	
 }

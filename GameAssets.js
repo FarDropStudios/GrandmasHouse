@@ -28,6 +28,7 @@ var GameAssets = function() {
 		cat = loader.addImage('images/houseOccupants/cat.png');
 		dog = loader.addImage('images/houseOccupants/dog.png');
 		grandma = loader.addImage('images/houseOccupants/grandMa.png');
+		doorRight = loader.addImage('images/wallsFloor/doorRight.png');
 		
 	loader.addCompletionListener(function() {
 		complete = true;
@@ -125,10 +126,15 @@ var GameAssets = function() {
 	var getGrandma = function(){
 		return grandma;
 	}
+	//returns right door
+	var getRightDoor = function(){
+		return doorRight;
+	}
 	return {
 		loader: loader,
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
+		getRightDoor:getRightDoor,
 		getGrandma:getGrandma,
 		getDog:getDog,
 		getCat:getCat,

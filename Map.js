@@ -114,6 +114,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			} else if(rooms[room][i] === 3) {
 				//EXIT BLOCK
 				exit = index;
+				ctx.drawImage(gameAssets.getRightDoor(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 201){
 				//bottomLeftCorner
 				ctx.drawImage(gameAssets.getBottomWallLeft(),blockX,blockY,60,60);

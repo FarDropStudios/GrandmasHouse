@@ -2,7 +2,7 @@
  *	wigDemon.js
  *	Tyler St. Onge
  *
- *	Contains all values for each individual rat
+ *	Contains all values for each individual Wig Demon
  */
  
 var WigDemon = function(startX, startY, tTileIndex, tImage) {

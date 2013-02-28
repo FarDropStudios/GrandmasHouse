@@ -31,9 +31,9 @@ var GameAssets = function() {
 		doorRight = loader.addImage('images/wallsFloor/doorRight.png');
 		tomBack = loader.addImage('images/houseOccupants/thomasBack.png');
 		tomRight = loader.addImage('images/houseOccupants/thomasRight.png');
-		tomLeft = loader.addImage('images/houseOccupants/thomasLeft.png');
+		//tomLeft = loader.addImage('images/houseOccupants/thomasLeft.png');
 		
-		loader.addCompletionListener(function() {
+	loader.addCompletionListener(function() {
 		complete = true;
 	});
 
@@ -154,7 +154,7 @@ var GameAssets = function() {
 		getCharacter: getCharacter,
 		getTomBack: getTomBack,
 		getTomRight: getTomRight,
-		getTomLeft: getTomleft,
+		//getTomLeft: getTomleft,
 		getTiles: getTiles,
 		getRat: getRat,
 		getCouch: getCouch,

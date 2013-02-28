@@ -29,9 +29,9 @@ var GameAssets = function() {
 		dog = loader.addImage('images/houseOccupants/dog.png');
 		grandma = loader.addImage('images/houseOccupants/grandMa.png');
 		doorRight = loader.addImage('images/wallsFloor/doorRight.png');
+		tomLeft = loader.addImage('images/houseOccupants/thomasLeft.png');
 		tomBack = loader.addImage('images/houseOccupants/thomasBack.png');
 		tomRight = loader.addImage('images/houseOccupants/thomasRight.png');
-		//tomLeft = loader.addImage('images/houseOccupants/thomasLeft.png');
 		
 	loader.addCompletionListener(function() {
 		complete = true;
@@ -67,11 +67,11 @@ var GameAssets = function() {
 	var getTomBack = function(){
 		return tomBack;
 	}
-	var getTomRight = function(){
-		return tomRight;
-	}
 	var getTomLeft = function(){
 		return tomLeft;
+	}
+	var getTomRight = function(){
+		return tomRight;
 	}
 	//returns basic wall for left of level
 	var getBasicWallLeft = function(){
@@ -152,9 +152,9 @@ var GameAssets = function() {
 		getDog:getDog,
 		getCat:getCat,
 		getCharacter: getCharacter,
+		getTomLeft: getTomLeft,
 		getTomBack: getTomBack,
 		getTomRight: getTomRight,
-		//getTomLeft: getTomleft,
 		getTiles: getTiles,
 		getRat: getRat,
 		getCouch: getCouch,

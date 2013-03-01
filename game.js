@@ -52,6 +52,7 @@ function setEventListeners() {
 	window.addEventListener("keydown", onKeyDown, false);
 }
 //function for movement
+//possibly add a combat check in the collision here?
 function onKeyDown(e) {
 	key = e.keyCode;
 	switch(key) {

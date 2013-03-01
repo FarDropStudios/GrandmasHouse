@@ -7,6 +7,8 @@
  *	10 = Rat;
  */
 
+//Could add a check for health at each valid index to see method if health is < 1. If so change tile index to remains/ground etc.
+
 var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 	var blockX = 0,
 		index = 0,
@@ -57,6 +59,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			for(var i = 0; i < enemyPositions.length; i++) {
 				if(player.getPos() === enemyPositions[i]) {
 					return true;
+				//combat(player,)
 				}
 			}
 			for(var ii = 0; ii < enemyPositions.length - 1; ii++) {

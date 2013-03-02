@@ -59,7 +59,10 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			for(var i = 0; i < enemyPositions.length; i++) {
 				if(player.getPos() === enemyPositions[i]) {
 					return true;
-				//combat(player,)
+				//combat(player,get enemy location at position i)
+				//deal damage to enemy at pos with combat method
+				//animate with combat method
+				
 				}
 			}
 			for(var ii = 0; ii < enemyPositions.length - 1; ii++) {

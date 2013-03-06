@@ -61,6 +61,7 @@ function onKeyDown(e) {
 			player.setTileIndex(player.getPos()-1);
 			if(!map.getCollision(player.getPos(), "Player")) {
 				player.setX(player.getX()-60);
+				player.update(null,null,map);
 			} else {
 				player.setTileIndex(player.getPos()+1);
 			}
@@ -70,6 +71,7 @@ function onKeyDown(e) {
 			player.setTileIndex(player.getPos()-14);
 			if(!map.getCollision(player.getPos(),"Player")) {
 				player.setY(player.getY()-60);
+				player.update(null,null,map);
 			} else {
 				player.setTileIndex(player.getPos()+14);
 			}
@@ -79,6 +81,7 @@ function onKeyDown(e) {
 			player.setTileIndex(player.getPos()+1);
 			if(!map.getCollision(player.getPos(),"Player")) {
 				player.setX(player.getX()+60);
+				player.update(null,null,map);
 			} else {
 				player.setTileIndex(player.getPos()-1);
 			}
@@ -88,6 +91,7 @@ function onKeyDown(e) {
 			player.setTileIndex(player.getPos()+14);
 			if(!map.getCollision(player.getPos(), "Player")) {
 				player.setY(player.getY()+60);
+				player.update(null,null,map);
 			} else {
 				player.setTileIndex(player.getPos()-14);
 			}
@@ -108,16 +112,16 @@ function draw() {
 	//Clear the screen between every draw
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-	//draw map
-	map.draw(ctx);
-
-	//draw the player
 	if(!player.isDead()) {
-		player.draw(ctx);
-	}
+		//draw map
+		map.draw(ctx);
 	
-	//draw enemies
-	enemies.draw(ctx);
+		//draw the player
+		player.draw(ctx);
+		
+		//draw enemies
+		enemies.draw(ctx);
+	}
 }
 
 var main = function() {

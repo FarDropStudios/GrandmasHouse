@@ -117,6 +117,7 @@ var Player = function(startX, startY, image) {
 			if(tick === moveTimer) {
 				if(spriteX === spriteLength) {
 					spriteX = 0;
+					lastMove = 0;
 				} else {
 					spriteX += 60;
 				}
@@ -127,6 +128,8 @@ var Player = function(startX, startY, image) {
 			lastMove++;
 			spriteX = 0;
 		}
+		ctx.font = "25pt Arial";
+		ctx.fillText("HP: "+health, 20, 25);
 		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 	}
 

@@ -32,6 +32,12 @@ var GameAssets = function() {
 		tomLeft = loader.addImage('images/houseOccupants/thomasLeft.png');
 		tomBack = loader.addImage('images/houseOccupants/thomasBack.png');
 		tomRight = loader.addImage('images/houseOccupants/thomasRight.png');
+		bedLeft = loader.addImage('images/houseObjects/bedLeft.png');
+		bedRight = loader.addImage('images/houseObjects/bedRight.png');
+		deskLeft = loader.addImage('images/houseObjects/deskLeft.png');
+		deskRight = loader.addImage('images/houseObjects/deskRight.png');
+		deskLeftWithPC = loader.addImage('images/houseObjects/deskLeftWithPC.png');
+		deskRightWithPC = loader.addImage('images/houseObjects/deskRightWithPC.png');
 		
 	loader.addCompletionListener(function() {
 		complete = true;
@@ -45,6 +51,24 @@ var GameAssets = function() {
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getBedLeft = function(){
+		return bedLeft;
+	}
+	var getBedRight = function(){
+		return bedRight;
+	}
+	var getDeskLeft = function(){
+		return deskLeft;
+	}
+	var getDeskRight = function(){
+		return deskRight;
+	}
+	var getDeskLeftWithPC = function(){
+		return deskLeftWithPC;
+	}
+	var getDeskRightWithPC = function(){
+		return deskRightWithPC;
 	}
 	//returns wallWindow
 	var getBasicWallWindow = function() {
@@ -147,6 +171,12 @@ var GameAssets = function() {
 		loader: loader,
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
+		getBedLeft: getBedLeft,
+		getBedRight:getBedRight,
+		getDeskLeft:getDeskLeft,
+		getDeskRight:getDeskRight,
+		getDeskLeftWithPC: getDeskLeftWithPC,
+		getDeskRightWithPC: getDeskRightWithPC,
 		getRightDoor:getRightDoor,
 		getGrandma:getGrandma,
 		getDog:getDog,

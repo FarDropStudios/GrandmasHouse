@@ -22,7 +22,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		rooms = [],
 		gameAssets = tGameAssets;
 		rooms[0] = [101,303,303,303,303,303,666,303,303,303,303,303,303,102,
-		    	301,2,2,0,0,8,9,0,0,0,0,0,0,302,
+		    	301,2,2,11,12,8,9,0,0,0,0,0,0,302,
 		    	301,2,2,0,0,0,0,0,0,0,0,0,0,302,
 				301,0,0,0,0,0,0,0,0,0,0,0,0,302,
 				301,0,0,0,0,0,0,0,0,0,2,0,0,302,
@@ -126,7 +126,13 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				//EXIT BLOCK
 				exit = index;
 				ctx.drawImage(gameAssets.getRightDoor(),blockX,blockY,60,60);
-			} else if(rooms[room][i] === 201){
+			}else if(rooms[room][i] === 11){ 
+				//bedleft
+				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 12){
+				//bedRight
+				ctx.drawImage(gameAssets.getBedRight(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 201){
 				//bottomLeftCorner
 				ctx.drawImage(gameAssets.getBottomWallLeft(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 202){

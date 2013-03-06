@@ -6,7 +6,6 @@
  */
 
 var Combat = {};
-
 	//calls methods for getting and setting health
 	//striker,struck,strikerPos,struckPos
 	//if striker is player

@@ -6,6 +6,7 @@
  */
  
 var Dog = function(startX, startY, tTileIndex, tImage) {
+	var name = "Dog";
 	var x = startX,
 		image = tImage,
 		y = startY,
@@ -66,8 +67,13 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 	var draw = function(ctx) {
 		ctx.drawImage(image, x, y, 60, 60);
 	}
+	
+	var getName = function() {
+		return name;
+	}
 
 	return {
+		getName: getName,
 		getPos: getPos,
 		getHealth: getHealth,
 		setHealth: setHealth,

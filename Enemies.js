@@ -24,6 +24,16 @@ var Enemies = function() {
 		return positions;
 	}
 	
+	var getInstanceOfEnemy = function(tileIndex) {
+		var positions = getEnemyPos();
+		for(var i = 0; i < enemies.length; i++) {
+			if(enemies[i].getPos() == tileIndex) {
+				return enemies[i];
+			}
+		}
+		return null;
+	}
+	
 	var update = function(map) {
 		for(var i = 0; i < enemies.length; i++) {
 			if(enemies[i].getHealth() <= 0) {
@@ -53,6 +63,7 @@ var Enemies = function() {
 	}
 	
 	return {
+		getInstanceOfEnemy: getInstanceOfEnemy,
 		setGameAssets: setGameAssets,
 		emptyEnemies: emptyEnemies,
 		getEnemyPos: getEnemyPos,

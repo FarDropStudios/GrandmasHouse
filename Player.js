@@ -6,6 +6,7 @@
  */
 
 var Player = function(startX, startY, image) {
+	var name = "Player";
 	var x = startX,
 		health = 5;
 		sprite = image,
@@ -16,7 +17,8 @@ var Player = function(startX, startY, image) {
 		spriteLength = 660,
 		spriteX = 0,
 		tick = 0,
-		moveAmount = 60;
+		moveAmount = 60,
+		dead = false;
 
 	var getX = function() {
 		return x;
@@ -51,30 +53,33 @@ var Player = function(startX, startY, image) {
 	}
 	
 	var update = function(tx, ty, map) {
+		if(health <= 0) {
+			dead = true;
+		}
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
 			tileIndex+=1;
-			if(!map.getCollision(tileIndex)) {
+			if(!map.getCollision(tileIndex, "Player")) {
 				x+=moveAmount; //Right
 			} else {
 				tileIndex-=1;
 			}
 		}else if(tx < x && tx > x-60 && ty > y && ty < y+60) {
 			tileIndex-=1;
-			if(!map.getCollision(tileIndex)) {
+			if(!map.getCollision(tileIndex, "Player")) {
 				x-=moveAmount; //Left
 			} else {
 				tileIndex+=1;
 			}
 		}else if(ty < y+120 && ty > y+60 && tx > x && tx < x+60) {
 			tileIndex+=14;
-			if(!map.getCollision(tileIndex)) {
+			if(!map.getCollision(tileIndex, "Player")) {
 				y+=moveAmount; //Down
 			} else {
 				tileIndex-=14;
 			}
 		}else if(ty < y && ty > y-60 && tx > x && tx < x+60) {
 			tileIndex-=14;
-			if(!map.getCollision(tileIndex)) {
+			if(!map.getCollision(tileIndex, "Player")) {
 				y-=moveAmount; //Up
 			} else {
 				tileIndex+=14;
@@ -129,7 +134,16 @@ var Player = function(startX, startY, image) {
 		lastMove = 0;	
 	}
 	
+	var getName = function() {
+		return name;
+	}
+	
+	var isDead = function() {
+		return dead;
+	}
+	
 	return {
+		getName: getName,
 		getX: getX,
 		getY: getY,
 		getHealth: getHealth,
@@ -141,6 +155,7 @@ var Player = function(startX, startY, image) {
 		update: update,
 		moved: moved,
 		exitCheck: exitCheck,
+		isDead: isDead,
 		draw: draw
 	}
 }

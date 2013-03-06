@@ -7,6 +7,7 @@
  */
  
 var WigMonster = function(startX, startY, tTileIndex, tImage) {
+	var name = "WigDemon";
 	var x = startX,
 		sprite = tImage,
 		y = startY,
@@ -82,8 +83,13 @@ var WigMonster = function(startX, startY, tTileIndex, tImage) {
 		}
 		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 	}
+	
+	var getName = function() {
+		return name;
+	}
 
 	return {
+		getName: getName,
 		getPos: getPos,
 		getHealth: getHealth,
 		setHealth: setHealth,

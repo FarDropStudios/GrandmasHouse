@@ -41,7 +41,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
 	
 	//Returns true if the block is solid
-	var getCollision = function(tile) {
+	var getCollision = function(tile, source) {
 		enemyPositions = enemy.getEnemyPos();
 		if(rooms[room][tile] === 1 
 			|| rooms[room][tile] === 8 
@@ -58,6 +58,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		} else {
 			for(var i = 0; i < enemyPositions.length; i++) {
 				if(player.getPos() === enemyPositions[i]) {
+					if(source == "Player") {
+						Combat.attack(player, enemy.getInstanceOfEnemy(enemyPositions[i]));
+					} else {
+						Combat.attack(enemy.getInstanceOfEnemy(enemyPositions[i]), player);
+					}
 					return true;
 				//combat(player,get enemy location at position i)
 				//deal damage to enemy at pos with combat method

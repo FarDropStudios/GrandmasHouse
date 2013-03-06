@@ -6,6 +6,7 @@
  */
  
 var Rat = function(startX, startY, tTileIndex, tImage) {
+	var name = "Rat";
 	var x = startX,
 		image = tImage,
 		y = startY,
@@ -67,7 +68,12 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 		ctx.drawImage(image, x, y, 60, 60);
 	}
 
+	var getName = function() {
+		return name;
+	}
+
 	return {
+		getName: getName,
 		getPos: getPos,
 		getHealth: getHealth,
 		setHealth: setHealth,

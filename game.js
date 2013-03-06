@@ -59,7 +59,7 @@ function onKeyDown(e) {
 		case 65: //A?
 		case 37: //Left
 			player.setTileIndex(player.getPos()-1);
-			if(!map.getCollision(player.getPos())) {
+			if(!map.getCollision(player.getPos(), "Player")) {
 				player.setX(player.getX()-60);
 			} else {
 				player.setTileIndex(player.getPos()+1);
@@ -68,7 +68,7 @@ function onKeyDown(e) {
 		case 87: //W?
 		case 38: //Up
 			player.setTileIndex(player.getPos()-14);
-			if(!map.getCollision(player.getPos())) {
+			if(!map.getCollision(player.getPos(),"Player")) {
 				player.setY(player.getY()-60);
 			} else {
 				player.setTileIndex(player.getPos()+14);
@@ -77,7 +77,7 @@ function onKeyDown(e) {
 		case 68: // D?
 		case 39: //Right
 			player.setTileIndex(player.getPos()+1);
-			if(!map.getCollision(player.getPos())) {
+			if(!map.getCollision(player.getPos(),"Player")) {
 				player.setX(player.getX()+60);
 			} else {
 				player.setTileIndex(player.getPos()-1);
@@ -86,7 +86,7 @@ function onKeyDown(e) {
 		case 83: //S?
 		case 40: //Down
 			player.setTileIndex(player.getPos()+14);
-			if(!map.getCollision(player.getPos())) {
+			if(!map.getCollision(player.getPos(), "Player")) {
 				player.setY(player.getY()+60);
 			} else {
 				player.setTileIndex(player.getPos()-14);
@@ -112,7 +112,9 @@ function draw() {
 	map.draw(ctx);
 
 	//draw the player
-	player.draw(ctx);
+	if(!player.isDead()) {
+		player.draw(ctx);
+	}
 	
 	//draw enemies
 	enemies.draw(ctx);

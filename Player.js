@@ -47,7 +47,7 @@ var Player = function(startX, startY, image) {
 	}
 	
 	var setTileIndex = function(tTileIndex) {
-		tileIndex = tTileIndex
+		tileIndex = tTileIndex;
 	}
 	
 	var update = function(tx, ty, map) {

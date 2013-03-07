@@ -38,7 +38,7 @@ var GameAssets = function() {
 		deskRight = loader.addImage('images/houseObjects/deskRight.png');
 		deskLeftWithPC = loader.addImage('images/houseObjects/deskLeftWithPC.png');
 		deskRightWithPC = loader.addImage('images/houseObjects/deskRightWithPC.png');
-		
+		nightStand = loader.addImage('images/houseObjects/nightStand.png'); 
 	loader.addCompletionListener(function() {
 		complete = true;
 	});
@@ -69,6 +69,9 @@ var GameAssets = function() {
 	}
 	var getDeskRightWithPC = function(){
 		return deskRightWithPC;
+	}
+	var getNightStand = function(){
+		return nightStand;
 	}
 	//returns wallWindow
 	var getBasicWallWindow = function() {
@@ -171,6 +174,7 @@ var GameAssets = function() {
 		loader: loader,
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
+		getNightStand:getNightStand,
 		getBedLeft: getBedLeft,
 		getBedRight:getBedRight,
 		getDeskLeft:getDeskLeft,

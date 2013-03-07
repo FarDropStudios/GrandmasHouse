@@ -53,7 +53,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			|| rooms[room][tile] === 101
 			|| rooms[room][tile] === 102
 			|| rooms[room][tile] === 201
-			|| rooms[room][tile] === 202) {
+			|| rooms[room][tile] === 202
+			|| rooms[room][tile] === 11
+			|| rooms[room][tile] === 12
+			|| rooms[room][tile] === 13
+			|| rooms[room][tile] === 14) {
 			return true;
 		} else {
 			for(var i = 0; i < enemyPositions.length; i++) {
@@ -118,7 +122,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			}
 			if(rooms[room][i] === 1) {
 				//WALL BLOCK
-				ctx.drawImage(gameAssets.getCouch(),blockX,blockY,60,60);
+				ctx.drawImage(gameAssets.getNightStand(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 2) {
 				//FLOOR BLOCK
 				ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);

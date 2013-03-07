@@ -12,7 +12,7 @@ var GameAssets = function() {
 		couchRight = loader.addImage('images/houseObjects/couchRightTile.png'),
 		tommy = loader.addImage('images/houseOccupants/tomScratchSheet.png'),
 		tiles = loader.addImage('images/MiscImages/MedallionTiles.png'),
-		player = loader.addImage('images/houseOccupants/rat.png'),
+		rat = loader.addImage('images/houseOccupants/rat.png'),
 		couch = loader.addImage('images/houseObjects/couch.png'),
 		floor = loader.addImage('images/wallsFloor/floorTileCarpet.png')
 		wigDemon = loader.addImage('images/houseOccupants/wigSheetHover.png');
@@ -131,7 +131,7 @@ var GameAssets = function() {
 
 	//Return rat
 	var getRat = function() {
-		return player;
+		return rat;
 	}
 
 	//Returns the tile sheet.

@@ -203,8 +203,6 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		}
 		renderEnemies = false;
 	};
-	
-
 	return {
 		getCollision: getCollision,
 		getExit: getExit,

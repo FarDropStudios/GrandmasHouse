@@ -39,6 +39,7 @@ var GameAssets = function() {
 		deskLeftWithPC = loader.addImage('images/houseObjects/deskLeftWithPC.png');
 		deskRightWithPC = loader.addImage('images/houseObjects/deskRightWithPC.png');
 		nightStand = loader.addImage('images/houseObjects/nightStand.png'); 
+		box = loader.addImage('images/houseObjects/box.png');
 	loader.addCompletionListener(function() {
 		complete = true;
 	});
@@ -51,6 +52,9 @@ var GameAssets = function() {
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getBox = function(){
+		return box;
 	}
 	var getBedLeft = function(){
 		return bedLeft;
@@ -185,6 +189,7 @@ var GameAssets = function() {
 		getGrandma:getGrandma,
 		getDog:getDog,
 		getCat:getCat,
+		getBox:getBox,
 		getCharacter: getCharacter,
 		getTomLeft: getTomLeft,
 		getTomBack: getTomBack,

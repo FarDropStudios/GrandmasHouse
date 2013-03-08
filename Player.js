@@ -5,11 +5,11 @@
  *	Takes the parameters startX and startY, which initialize where the player is.
  */
 
-var Player = function(startX, startY, image) {
+var Player = function(startX, startY, tGameAssets) {
 	var name = "Player";
 	var x = startX,
 		health = 5;
-		sprite = image,
+		gameAssets = tGameAssets,
 		y = startY,
 		lastMove = 0,
 		tileIndex = 15,
@@ -122,7 +122,7 @@ var Player = function(startX, startY, image) {
 					spriteX += 60;
 				}
 				tick = 0;
-				ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
+				ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 			}
 		} else {
 			lastMove++;
@@ -131,7 +131,7 @@ var Player = function(startX, startY, image) {
 		//spritePositionX changes depending on health
 		//IF STATEMENTS to set healthPosX
 		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
-		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
+		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 
 	var moved = function() {

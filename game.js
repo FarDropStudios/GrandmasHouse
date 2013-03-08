@@ -20,7 +20,7 @@ gui = document.getElementById("gui");
 ctxGui = gui.getContext("2d");
 canvas.height = 540;
 canvas.width = 840;
-gui.height = 660;
+gui.height = 640;
 gui.width = 960;
 
 //Start loading GameAssets
@@ -126,17 +126,17 @@ function update() {
 function draw() {
 	//Clear the screen between every draw
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctxGui.clearRect(0,0,gui.width, gui.height);
 
-	if(!player.isDead()) {
-		//draw map
-		map.draw(ctx);
+	//draw map
+	map.draw(ctx);
+
+	//draw the player
+	player.draw(ctx, ctxGui);
 	
-		//draw the player
-		player.draw(ctx, ctxGui);
-		
-		//draw enemies
-		enemies.draw(ctx);
-	}
+	//draw enemies
+	enemies.draw(ctx);
+
 }
 
 var main = function() {

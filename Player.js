@@ -19,6 +19,7 @@ var Player = function(startX, startY, tGameAssets) {
 		spriteX = 0,
 		tick = 0,
 		moveAmount = 60,
+		healthPosX = 0,
 		dead = false;
 
 	var getX = function() {
@@ -62,8 +63,20 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 	
 	var update = function(tx, ty, map) {
+		//HEALTH BAR
 		if(health <= 0) {
+			healthPosX = 80;
 			dead = true;
+		} else if(health == 1){
+			healthPosX = 64;
+		} else if(health == 2) {
+			healthPosX = 48;
+		} else if(health == 3) {
+			healthPosX = 32;
+		} else if(health == 4) {
+			healthPosX = 16;
+		} else if(health == 5) {
+			healthPosX = 0;
 		}
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
 			tileIndex+=1;
@@ -131,7 +144,7 @@ var Player = function(startX, startY, tGameAssets) {
 					spriteX += 60;
 				}
 				tick = 0;
-				ctx.drawImage(gameAssets.getCharacter,spriteX,0,60,60,x,y,60,60);
+				ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 			}
 		} else {
 			lastMove++;
@@ -140,6 +153,7 @@ var Player = function(startX, startY, tGameAssets) {
 		//spritePositionX changes depending on health
 		//IF STATEMENTS to set healthPosX
 		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
+		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 16, 16, 20, 560, 60, 60);
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 

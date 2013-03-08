@@ -6,6 +6,8 @@
  */
 
 var canvas,
+	gui,
+	ctxGui,
 	ctx,
 	w = window.innerWidth,
 	h = window.innerHeight,
@@ -14,8 +16,12 @@ var canvas,
 //Setup the canvas and maximize it to window size
 canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
+gui = document.getElementById("gui");
+ctxGui = gui.getContext("2d");
 canvas.height = 540;
 canvas.width = 840;
+gui.height = 660;
+gui.width = 960;
 
 //Start loading GameAssets
 gameAssets = new GameAssets();

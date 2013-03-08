@@ -20,8 +20,8 @@ gui = document.getElementById("gui");
 ctxGui = gui.getContext("2d");
 canvas.height = 540;
 canvas.width = 840;
-gui.height = 640;
-gui.width = 960;
+gui.height = 625;
+gui.width = 945;
 
 //Start loading GameAssets
 gameAssets = new GameAssets();

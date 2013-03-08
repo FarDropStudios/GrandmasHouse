@@ -48,6 +48,7 @@ var GameAssets = function() {
 		febreeze = loader.addImage('images/powerUps/febreeze.png');
 		grenade = loader.addImage('images/powerUps/grenade.png');
 		glove = loader.addImage('images/powerUps/glove.png');
+		gmaNote = loader.addImage('images/MiscImages/gmaNote');
 
 	loader.addCompletionListener(function() {
 		complete = true;
@@ -61,6 +62,9 @@ var GameAssets = function() {
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getGmaNote = function() {
+		return gmaNote;
 	}
 	var getDarkMagic = function(){
 		return darkMagic;
@@ -238,6 +242,7 @@ var GameAssets = function() {
 		getTiles: getTiles,
 		getRat: getRat,
 		getCouch: getCouch,
+		getGmaNote: getGmaNote,
 		getCouchLeft: getCouchLeft,
 		getCouchRight: getCouchRight,
 		getFloorTile: getFloorTile,

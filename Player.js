@@ -122,11 +122,7 @@ var Player = function(startX, startY, tGameAssets) {
 					spriteX += 60;
 				}
 				tick = 0;
-<<<<<<< HEAD
 				ctx.drawImage(gameAssets.getCharacter,spriteX,0,60,60,x,y,60,60);
-=======
-				ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
->>>>>>> d42b1a2ccd8dbd5093282e3761e9a17e9b4e5b58
 			}
 		} else {
 			lastMove++;

@@ -40,6 +40,8 @@ var GameAssets = function() {
 		deskRightWithPC = loader.addImage('images/houseObjects/deskRightWithPC.png');
 		nightStand = loader.addImage('images/houseObjects/nightStand.png'); 
 		box = loader.addImage('images/houseObjects/box.png');
+		mindMeter = loader.addImage('images/MiscImages/mind.png');
+		healthMeter = loader.addImage('images/MiscImages/Health.png');
 	loader.addCompletionListener(function() {
 		complete = true;
 	});
@@ -52,6 +54,12 @@ var GameAssets = function() {
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getHealthMeter = function(){
+		return healthMeter;
+	}
+	var getMindMeter = function(){
+		return mindMeter;
 	}
 	var getBox = function(){
 		return box;
@@ -178,6 +186,8 @@ var GameAssets = function() {
 		loader: loader,
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
+		getHealthMeter: getHealthMeter,
+		getMindMeter:getMindMeter,
 		getNightStand:getNightStand,
 		getBedLeft: getBedLeft,
 		getBedRight:getBedRight,

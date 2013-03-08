@@ -13,6 +13,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 	var blockX = 0,
 		index = 0,
 		chance,
+		chancePowerUp,
 		exit,
 		blockY = 0,
 		enemy = tempEnemies,
@@ -104,7 +105,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 					break;
 					}
 				}
-			} else if(rooms[room][tile] === 999 && source === "Player" ) {
+			} else if(rooms[room][tile] === 995 && source === "Player" ) {
 			//SET Grenade
 			var playerPowerUps = player.getPowerUps()
 			for(var i = 0; i < playerPowerUps.length; i++) {
@@ -167,13 +168,29 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			if(rooms[room][i] === 0) {
 				//Randomize dat hoe
 				chance = Math.random();
+				chancePowerUp = Math.random();
 				//20 percent chance that the block is solid, else its empty.
 				if(chance < 0.20) {
-					rooms[room][i] = 1; //obstacle
+					 rooms[room][i] = 1;//obstacle
 				} else if(chance > 0.21 && chance < 0.25) {
 					rooms[room][i] = 10; //enemy
 				} else if(chance > .25 && chance < .27){
-					rooms[room][i] = 999; ///power up
+					 rooms[room][i] = 999;///power up
+					if(chancePowerUp > 0.8){
+					//do nothing -- its FEBREEZE
+					}else if(chancePowerUp > 0.6){
+					//Rubber Gloves. Change index to 998
+						rooms[room][i] = 998;
+					}else if(chancePowerUp > 0.4){
+					//Light Magic. Change index to 997
+						rooms[room][i] = 997;
+					}else if(chancePowerUp > 0.2){
+					//Dark Magic. Change index to 996
+						rooms[room][i] = 996;
+					}else if(chancePowerUp > 0.0){
+					//Grenade. Change index to 995
+						rooms[room][i] = 995;
+					}
 				} else {
 					rooms[room][i] = 2; //floor
 				}
@@ -196,28 +213,15 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				//bedleft
 				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 999){ 
-				//POWER UP LOGIC
-				if(chance > .8){
-					//Febreeze. Do not change index
-					ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
-					//don't change index
-				}else if(chance > .6){
-					//Rubber Gloves. Change index to 998
-					ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
-					rooms[room][i] = 998;
-				}else if(chance > .4){
-					//Light Magic. Change index to 997
-					ctx.drawImage(gameAssets.getLightMagic(), blockX, blockY, 60,60);
-					rooms[room][i] = 997;
-				}else if(chance > .2){
-					//Dark Magic. Change index to 996
-					ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
-					rooms[room][i] = 996;
-				}else if(chance > .0){
-					//Grenade. Change index to 995
-					ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
-					rooms[room][i] = 995;
-				}
+				ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 998){
+				ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 997){
+				ctx.drawImage(gameAssets.getLightMagic(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 996){
+				ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 995){
+				ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 12){
 				//bedRight
 				ctx.drawImage(gameAssets.getBedRight(), blockX, blockY, 60,60);

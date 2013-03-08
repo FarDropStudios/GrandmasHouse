@@ -109,7 +109,7 @@ var Player = function(startX, startY, frontSprite) {
 		}
 	}
 
-	var draw = function(ctx) {
+	var draw = function(ctx, guiCtx) {
 		if(lastMove > 250) {
 			if(tick < moveTimer) {
 				tick++;
@@ -128,8 +128,9 @@ var Player = function(startX, startY, frontSprite) {
 			lastMove++;
 			spriteX = 0;
 		}
-		ctx.font = "25pt Arial";
-		ctx.fillText("HP: "+health, 20, 25);
+		//spritePositionX changes depending on health
+		//IF STATEMENTS to set healthPosX
+		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
 		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
 	}
 

@@ -107,10 +107,12 @@ var Player = function(startX, startY, tGameAssets) {
 			x = 60;
 			y = 60;
 			tileIndex=15;
-			if(map.getRoom() === 1)
-				map.setRoom(-1);
-			else
-				map.setRoom(1);
+			var roomNumber = map.getRoom();
+			roomNumber++;
+			if(roomNumber >= 6){
+				roomNumber = 0;
+			}
+			map.setRoom(roomNumber);
 		}
 		console.log(tileIndex);
 	}
@@ -199,6 +201,20 @@ var Player = function(startX, startY, tGameAssets) {
 					case 0: powPosY += 100;
 							break;
 					case 1: guiCtx.drawImage(gameAssets.getFebreeze(), 850, powPosY);
+							powPosY += 100;
+							break;
+					case 2: guiCtx.drawImage(gameAssets.getGlove(), 850, powPosY);
+							powPosY += 100;
+							break;
+					case 3: guiCtx.drawImage(gameAssets.getLightMagic(), 850, powPosY);
+						///drawImage(gameAssets.getLightMagic(),0,60,480,60,850,powPosY,60,60); help
+							powPosY += 100;
+							break;
+					case 4: guiCtx.drawImage(gameAssets.getDarkMagic(), 850, powPosY);
+						///drawImage(gameAssets.getLightMagic(),0,60,600,60,850,powPosY,60,60);	help
+							powPosY += 100;
+							break;
+					case 5: guiCtx.drawImage(gameAssets.getGrenade(), 850, powPosY);
 							powPosY += 100;
 							break;
 				}

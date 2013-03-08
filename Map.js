@@ -23,15 +23,42 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		rooms = [],
 		gameAssets = tGameAssets;
 		rooms[0] = [101,303,303,303,303,15,16,666,303,303,303,303,303,102,
-		    	301,2,2,11,12,13,14,0,0,0,0,0,0,302,
-		    	301,2,2,0,0,0,0,0,0,0,0,0,0,302,
-				301,2,2,0,0,0,0,0,0,0,0,0,0,302,
-				301,0,2,0,0,0,0,0,0,0,2,0,0,302,
-				301,0,2,2,2,0,0,0,0,0,2,0,0,302,
-		    	301,0,0,0,0,0,0,0,0,0,2,2,2,3,
-		    	301,0,0,0,0,0,0,0,0,0,0,2,2,302,
+		    	301,2,2,11,12,13,14,19,0,0,0,0,0,302,			//2 = ground           11 = bed left
+		    	301,2,2,2,2,2,2,2,2,2,2,0,0,302,				//3 = exit				12 = bed right
+				301,2,2,0,0,0,2,2,2,0,2,0,0,302,				//301 = left side wall   13 = deskWithPC Left
+				301,0,2,0,0,0,2,2,2,0,2,0,0,302,				//302 = right side wall  14 = deskWithPC Right
+				301,0,2,2,2,0,2,2,2,0,2,0,0,302, //bedroom		//303 = top wall         19 = night stand
+		    	301,0,0,0,0,0,2,2,2,0,2,2,2,3,					//304 = bottom wall      15 = Monitor Left
+		    	301,0,0,0,0,0,2,2,2,2,2,2,2,302,				// 666 = Window			16 = Monitor Right
 		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202,];
 		rooms[1] = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
+		    	301,2,2,1,8,9,1,1,0,0,2,2,2,302,
+		    	301,2,2,1,1,1,1,1,1,0,2,2,2,3,
+				301,0,2,1,0,0,0,0,0,0,1,2,2,302,
+				301,0,2,1,0,0,0,0,0,0,0,2,0,302,
+				301,0,2,1,2,2,2,2,2,2,2,2,0,302,
+		    	301,0,2,1,2,0,0,0,0,0,0,2,2,302,
+		    	301,0,2,2,2,0,0,0,0,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+	    rooms[2] = [101,303,303,303,666,303,303,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
+		    	301,2,2,0,0,0,0,0,0,0,2,2,2,3,
+				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,3,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+		rooms[3] = [101,303,303,303,303,303,303,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
+		    	301,2,2,0,0,0,0,0,0,0,2,2,2,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,3,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+		rooms[4] = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
 		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
 		    	301,2,2,0,0,0,0,0,0,0,2,2,2,3,
 				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
@@ -40,6 +67,34 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
 		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
 		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+		rooms[5] = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
+		    	301,2,2,0,0,0,0,0,0,0,2,2,2,3,
+				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+		rooms[6] = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
+		    	301,2,2,0,0,0,0,0,0,0,2,2,2,3,
+				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+		rooms[7] = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
+		    	301,2,2,0,0,0,0,0,0,0,2,2,2,3,
+				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+	
 	
 	//Returns true if the block is solid
 	var getCollision = function(tile, source) {
@@ -58,7 +113,8 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			|| rooms[room][tile] === 11
 			|| rooms[room][tile] === 12
 			|| rooms[room][tile] === 13
-			|| rooms[room][tile] === 14) {
+			|| rooms[room][tile] === 14
+			|| rooms[room][tile] === 19) {
 			return true;
 		//POWER UP LOGIC
 		} else if(rooms[room][tile] === 999 && source === "Player" ) {
@@ -178,6 +234,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 					 rooms[room][i] = 999;///power up
 					if(chancePowerUp > 0.8){
 					//do nothing -- its FEBREEZE
+						return;
 					}else if(chancePowerUp > 0.6){
 					//Rubber Gloves. Change index to 998
 						rooms[room][i] = 998;
@@ -197,11 +254,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			}
 			if(rooms[room][i] === 1) {
 				//WALL BLOCK
-					if(chance >= 0.5){
-						ctx.drawImage(gameAssets.getNightStand(),blockX,blockY,60,60);
-					} else {
-						ctx.drawImage(gameAssets.getBox(),blockX,blockY,60,60);
-					}
+				ctx.drawImage(gameAssets.getBox(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 2) {
 				//FLOOR BLOCK
 				ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
@@ -212,15 +265,20 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			}else if(rooms[room][i] === 11){ 
 				//bedleft
 				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 11){ 
+				//night stand
+				ctx.drawImage(gameAssets.getNightStand(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 999){ 
 				ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 998){
 				ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 997){
 				ctx.drawImage(gameAssets.getLightMagic(), blockX, blockY, 60,60);
+				///drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
 			}else if(rooms[room][i] === 996){
 				ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 995){
+				///drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
 				ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 12){
 				//bedRight

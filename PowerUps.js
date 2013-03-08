@@ -51,7 +51,7 @@ var PowerUps = {};
 	
 	function determinePowerUpType(powerUpType, player) {
 		if(powerUpType == 0) {
-			return;
+			return; // do nothing
 		} else if(powerUpType == 1) {
 			//Febreeze
 			player.setMind(player.getMind() + 3);

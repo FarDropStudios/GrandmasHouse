@@ -71,6 +71,9 @@ function setEventListeners() {
 function onKeyDown(e) {
 	key = e.keyCode;
 	switch(key) {
+		case 49: //Power-up 1 	
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player));
+			break;
 		case 65: //A?
 		case 37: //Left
 			player.setTileIndex(player.getPos()-1);

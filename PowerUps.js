@@ -14,13 +14,37 @@ var PowerUps = {};
 			determinePowerUpType(powerUps[0], player);
 			powerUps[0] = 0;
 		} else if(x > 850 && x < 918 && y > 125 && y < 194) {
-			console.log("p-up two");
+			determinePowerUpType(powerUps[1], player);
+			powerUps[1] = 0;
 		} else if(x > 850 && x < 918 && y > 225 && y < 294) {
-			console.log("p-up three");
+			determinePowerUpType(powerUps[2], player);
+			powerUps[2] = 0;
 		} else if(x > 850 && x < 918 && y > 325 && y < 394) {
-			console.log("p-up four");
+			determinePowerUpType(powerUps[3], player);
+			powerUps[3] = 0;
 		} else if(x > 850 && x < 918 && y > 425 && y < 494) {
-			console.log("p-up five");
+			determinePowerUpType(powerUps[4], player);
+			powerUps[4] = 0;
+		}
+		return powerUps;
+	};
+	
+	PowerUps.useShortcut = function(powerUps, num, player) {
+		if(num === 1) {
+			determinePowerUpType(powerUps[0], player);
+			powerUps[0] = 0;
+		} else if(num === 2) {
+			determinePowerUpType(powerUps[1], player);
+			powerUps[1] = 0;
+		} else if(num === 3) {
+			determinePowerUpType(powerUps[2], player);
+			powerUps[2] = 0;
+		} else if(num === 4) {
+			determinePowerUpType(powerUps[3], player);
+			powerUps[3] = 0;
+		} else if(num === 5) {
+			determinePowerUpType(powerUps[4], player);
+			powerUps[4] = 0;
 		}
 		return powerUps;
 	};
@@ -31,14 +55,19 @@ var PowerUps = {};
 		} else if(powerUpType == 1) {
 			//Febreeze
 			player.setMind(player.getMind() + 3);
+			if(player.getMind() > 9) {
+				player.setMind(9);
+			}
 		} else if(powerUpType == 2) {
-			console.log("Grenade");
+			//Glove
+			console.log("glove");
 		} else if(powerUpType == 3) {
-			console.log("Rubber Gloves");
+			//White Magic
+			player.setHealth(5);
 		} else if(powerUpType == 4) {
-			console.log("Dark Magic");
+			//Dark Magic
 		} else if(powerUpType == 5) {
-			console.log("Light Magic");
+			//Grenade
 		} else {
 			console.log("U dun goofed");
 		}

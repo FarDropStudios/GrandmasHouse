@@ -5,11 +5,11 @@
  *	Takes the parameters startX and startY, which initialize where the player is.
  */
 
-var Player = function(startX, startY, image) {
+var Player = function(startX, startY, frontSprite) {
 	var name = "Player";
 	var x = startX,
 		health = 5;
-		sprite = image,
+		sprite = frontSprite,
 		y = startY,
 		lastMove = 0,
 		tileIndex = 15,

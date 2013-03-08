@@ -178,6 +178,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 					 rooms[room][i] = 999;///power up
 					if(chancePowerUp > 0.8){
 					//do nothing -- its FEBREEZE
+						return;
 					}else if(chancePowerUp > 0.6){
 					//Rubber Gloves. Change index to 998
 						rooms[room][i] = 998;

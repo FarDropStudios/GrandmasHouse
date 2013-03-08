@@ -201,6 +201,18 @@ var Player = function(startX, startY, tGameAssets) {
 					case 1: guiCtx.drawImage(gameAssets.getFebreeze(), 850, powPosY);
 							powPosY += 100;
 							break;
+					case 2: guiCtx.drawImage(gameAssets.getGlove(), 850, powPosY);
+							powPosY += 100;
+							break;
+					case 3: guiCtx.drawImage(gameAssets.getLightMagic(), 850, powPosY);
+							powPosY += 100;
+							break;
+					case 4: guiCtx.drawImage(gameAssets.getDarkMagic(), 850, powPosY);
+							powPosY += 100;
+							break;
+					case 5: guiCtx.drawImage(gameAssets.getGrenade(), 850, powPosY);
+						powPosY += 100;
+						break;
 				}
 		}
 		

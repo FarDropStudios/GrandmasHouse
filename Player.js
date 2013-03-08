@@ -8,8 +8,10 @@
 var Player = function(startX, startY, tGameAssets) {
 	var name = "Player";
 	var x = startX,
-		powerUps = [0,0,0,0,0];
-		health = 5;
+		mindPosX = 0,
+		powerUps = [0,0,0,0,0],
+		health = 5,
+		mind = 9;
 		gameAssets = tGameAssets,
 		y = startY,
 		lastMove = 0,
@@ -78,6 +80,31 @@ var Player = function(startX, startY, tGameAssets) {
 		} else if(health == 5) {
 			healthPosX = 0;
 		}
+		
+		//MIND METER
+		if(mind <= 0) {
+			mindPosX = 540;
+		} else if(mind == 1) {
+			mindPosX = 480;
+		} else if(mind == 2) {
+			mindPosX = 420;
+		} else if(mind == 3) {
+			mindPosX = 360;
+		} else if(mind == 4) {
+			mindPosX = 300;
+		} else if(mind == 5) {
+			mindPosX = 240;
+		} else if(mind == 6) {
+			mindPosX = 180;
+		} else if(mind == 7) {
+			mindPosX = 120;
+		} else if(mind == 8) {
+			mindPosX = 60;
+		} else if(mind == 9) {
+			mindPosX = 0;
+		}
+		
+		
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
 			tileIndex+=1;
 			if(!map.getCollision(tileIndex, "Player")) {
@@ -154,6 +181,7 @@ var Player = function(startX, startY, tGameAssets) {
 		//IF STATEMENTS to set healthPosX
 		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
 		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 560, 60, 60);
+		guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 560, 60, 60);
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 

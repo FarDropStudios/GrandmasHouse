@@ -8,6 +8,7 @@
 var Player = function(startX, startY, tGameAssets) {
 	var name = "Player";
 	var x = startX,
+		powerUps = [0,0,0,0,0];
 		health = 5;
 		gameAssets = tGameAssets,
 		y = startY,
@@ -18,6 +19,7 @@ var Player = function(startX, startY, tGameAssets) {
 		spriteX = 0,
 		tick = 0,
 		moveAmount = 60,
+		healthPosX = 0,
 		dead = false;
 
 	var getX = function() {
@@ -26,6 +28,10 @@ var Player = function(startX, startY, tGameAssets) {
 
 	var getY = function() {
 		return y;
+	}
+
+	var getPowerUps = function() {
+		return powerUps;
 	}
 
 	var setX = function(tX) {
@@ -52,9 +58,25 @@ var Player = function(startX, startY, tGameAssets) {
 		tileIndex = tTileIndex;
 	}
 	
+	var setPowerUps = function(tPowerUps) {
+		powerUps = tPowerUps;
+	}
+	
 	var update = function(tx, ty, map) {
+		//HEALTH BAR
 		if(health <= 0) {
+			healthPosX = 300;
 			dead = true;
+		} else if(health == 1){
+			healthPosX = 240;
+		} else if(health == 2) {
+			healthPosX = 180;
+		} else if(health == 3) {
+			healthPosX = 120;
+		} else if(health == 4) {
+			healthPosX = 60;
+		} else if(health == 5) {
+			healthPosX = 0;
 		}
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
 			tileIndex+=1;
@@ -122,7 +144,7 @@ var Player = function(startX, startY, tGameAssets) {
 					spriteX += 60;
 				}
 				tick = 0;
-				ctx.drawImage(gameAssets.getCharacter,spriteX,0,60,60,x,y,60,60);
+				ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 			}
 		} else {
 			lastMove++;
@@ -131,6 +153,7 @@ var Player = function(startX, startY, tGameAssets) {
 		//spritePositionX changes depending on health
 		//IF STATEMENTS to set healthPosX
 		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
+		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 560, 60, 60);
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 
@@ -151,9 +174,11 @@ var Player = function(startX, startY, tGameAssets) {
 		getX: getX,
 		getY: getY,
 		getHealth: getHealth,
+		getPowerUps: getPowerUps,
 		setX: setX,
 		setY: setY,
 		setHealth: setHealth,
+		setPowerUps: setPowerUps,
 		getPos: getPos,
 		setTileIndex: setTileIndex,
 		update: update,

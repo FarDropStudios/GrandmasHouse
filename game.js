@@ -20,7 +20,7 @@ gui = document.getElementById("gui");
 ctxGui = gui.getContext("2d");
 canvas.height = 540;
 canvas.width = 840;
-gui.height = 660;
+gui.height = 640;
 gui.width = 960;
 
 //Start loading GameAssets
@@ -53,6 +53,15 @@ canvas.onclick = function(e) {
 	console.log("CLICK!" + " X:"+click.x + " Y:" + click.y);
 }
 
+//When GUI is clicked grab X and Y coords and send to PowerUps
+gui.onclick = function(e) {
+	var pos = gui.getBoundingClientRect();
+	var click = {
+		x: e.clientX - pos.left,
+		y: e.clientY - pos.top
+	}
+	player.setPowerUps(PowerUps.use(player.getPowerUps(), click.x, click.y));
+}
 //Event Listeners
 function setEventListeners() {
 	window.addEventListener("keydown", onKeyDown, false);
@@ -117,17 +126,17 @@ function update() {
 function draw() {
 	//Clear the screen between every draw
 	ctx.clearRect(0, 0, canvas.width, canvas.height);
+	ctxGui.clearRect(0,0,gui.width, gui.height);
 
-	if(!player.isDead()) {
-		//draw map
-		map.draw(ctx);
+	//draw map
+	map.draw(ctx);
+
+	//draw the player
+	player.draw(ctx, ctxGui);
 	
-		//draw the player
-		player.draw(ctx, ctxGui);
-		
-		//draw enemies
-		enemies.draw(ctx);
-	}
+	//draw enemies
+	enemies.draw(ctx);
+
 }
 
 var main = function() {

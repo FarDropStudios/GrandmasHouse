@@ -219,9 +219,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 997){
 				ctx.drawImage(gameAssets.getLightMagic(), blockX, blockY, 60,60);
+				///drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
 			}else if(rooms[room][i] === 996){
 				ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 995){
+				///drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
 				ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 12){
 				//bedRight

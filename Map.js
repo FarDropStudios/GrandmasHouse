@@ -113,11 +113,13 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				chance = Math.random();
 				//20 percent chance that the block is solid, else its empty.
 				if(chance < 0.20) {
-					rooms[room][i] = 1;
+					rooms[room][i] = 1; //obstacle
 				} else if(chance > 0.21 && chance < 0.25) {
-					rooms[room][i] = 10;
+					rooms[room][i] = 10; //enemy
+				} else if(chance > .25 && chance < .27){
+					rooms[room][i] = 999; ///power up
 				} else {
-					rooms[room][i] = 2;
+					rooms[room][i] = 2; //floor
 				}
 			}
 			if(rooms[room][i] === 1) {
@@ -137,6 +139,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			}else if(rooms[room][i] === 11){ 
 				//bedleft
 				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 999){ 
+				//power up
+				ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 12){
 				//bedRight
 				ctx.drawImage(gameAssets.getBedRight(), blockX, blockY, 60,60);

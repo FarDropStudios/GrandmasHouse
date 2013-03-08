@@ -10,6 +10,7 @@ var GameAssets = function() {
 	var loader = new PxLoader(),
 		couchLeft = loader.addImage('images/houseObjects/couchLeftTile.png'),
 		couchRight = loader.addImage('images/houseObjects/couchRightTile.png'),
+		borderImage = loader.addImage('images/MiscImages/border.png'),
 		tommy = loader.addImage('images/houseOccupants/tomScratchSheet.png'),
 		tiles = loader.addImage('images/MiscImages/MedallionTiles.png'),
 		rat = loader.addImage('images/houseOccupants/rat.png'),
@@ -84,6 +85,9 @@ var GameAssets = function() {
 	}
 	var getBox = function(){
 		return box;
+	}
+	var getBorderImage = function(){
+		return borderImage;
 	}
 	var getBedLeft = function(){
 		return bedLeft;
@@ -207,6 +211,7 @@ var GameAssets = function() {
 		loader: loader,
 		loadingStart: loadingStart,
 		getIsComplete: getIsComplete,
+		getBorderImage:getBorderImage,
 		getHealthMeter: getHealthMeter,
 		getMindMeter:getMindMeter,
 		getDarkMagic:getDarkMagic,

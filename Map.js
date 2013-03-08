@@ -72,16 +72,16 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				}
 			}
 		} else if(rooms[room][tile] === 998 && source === "Player" ) {
-		//SET Glove
-		var playerPowerUps = player.getPowerUps()
-		for(var i = 0; i < playerPowerUps.length; i++) {
-			if(playerPowerUps[i] === 0) {
-				playerPowerUps[i] = 2; //gloves
-				player.setPowerUps(playerPowerUps);
-				rooms[room][tile] = 2;
-				break;
-				}
-			} 
+			//SET Glove
+			var playerPowerUps = player.getPowerUps()
+			for(var i = 0; i < playerPowerUps.length; i++) {
+				if(playerPowerUps[i] === 0) {
+					playerPowerUps[i] = 2; //gloves
+					player.setPowerUps(playerPowerUps);
+					rooms[room][tile] = 2;
+					break;
+					}
+				} 
 		}else if(rooms[room][tile] === 997 && source === "Player" ) {
 			//SET Light Magic
 			var playerPowerUps = player.getPowerUps()
@@ -165,8 +165,8 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			//If block needs to be randomized
 			if(rooms[room][i] === 0) {
-				//Randomize dat hoe
 				chance = Math.random();
+				//Randomize dat hoe
 				//20 percent chance that the block is solid, else its empty.
 				if(chance < 0.20) {
 					rooms[room][i] = 1; //obstacle
@@ -197,23 +197,23 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 999){ 
 				//POWER UP LOGIC
-				if(chance > .8){
+				if(chance >= 0.8){
 					//Febreeze. Do not change index
 					ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
 					//don't change index
-				}else if(chance > .6){
+				}else if(chance >= 0.6){
 					//Rubber Gloves. Change index to 998
 					ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
 					rooms[room][i] = 998;
-				}else if(chance > .4){
+				}else if(chance >= 0.4){
 					//Light Magic. Change index to 997
 					ctx.drawImage(gameAssets.getLightMagic(), blockX, blockY, 60,60);
 					rooms[room][i] = 997;
-				}else if(chance > .2){
+				}else if(chance >= 0.2){
 					//Dark Magic. Change index to 996
 					ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
 					rooms[room][i] = 996;
-				}else if(chance > .0){
+				}else if(chance >= 0.0){
 					//Grenade. Change index to 995
 					ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
 					rooms[room][i] = 995;

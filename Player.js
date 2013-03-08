@@ -177,8 +177,9 @@ var Player = function(startX, startY, tGameAssets) {
 			lastMove++;
 			spriteX = 0;
 		}
-		guiCtx.drawImage(gameAssets.getBorderImage(), 16, 556);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 18, 555,68,69);
 		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 560, 60, 60);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 94, 555, 69, 69);
 		guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 567, 60, 60);
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}

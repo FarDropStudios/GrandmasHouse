@@ -180,12 +180,12 @@ var Player = function(startX, startY, tGameAssets) {
 			spriteX = 0;
 		}
 		//POWER UPS
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 25, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 125, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 225, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 325, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 425, 68, 69);
-		var powPosY = 25; 
+		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 26, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 126, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 226, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 326, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 426, 68, 69);
+		var powPosY = 30; 
 		for(var i = 0; i < powerUps.length; i++) {
 				switch(powerUps[i]) {
 					case 0: powPosY += 100;

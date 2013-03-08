@@ -65,9 +65,9 @@ var PowerUps = {};
 			//White Magic
 			player.setHealth(5);
 		} else if(powerUpType == 4) {
-			console.log("Dark Magic");
+			//Dark Magic
 		} else if(powerUpType == 5) {
-			console.log("Light Magic");
+			//Grenade
 		} else {
 			console.log("U dun goofed");
 		}

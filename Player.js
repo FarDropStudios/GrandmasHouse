@@ -35,6 +35,10 @@ var Player = function(startX, startY, tGameAssets) {
 	var getPowerUps = function() {
 		return powerUps;
 	}
+	
+	var getMind = function() {
+		return mind;
+	}
 
 	var setX = function(tX) {
 		x = tX;
@@ -46,6 +50,10 @@ var Player = function(startX, startY, tGameAssets) {
 
 	var setHealth = function(tH) {
 		health = tH;
+	}
+	
+	var setMind = function(tM) {
+		mind = tM;
 	}
 
 	var getPos = function() {
@@ -219,11 +227,13 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 	
 	return {
+		getMind: getMind,
 		getName: getName,
 		getX: getX,
 		getY: getY,
 		getHealth: getHealth,
 		getPowerUps: getPowerUps,
+		setMind: setMind,
 		setX: setX,
 		setY: setY,
 		setHealth: setHealth,

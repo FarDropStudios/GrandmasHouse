@@ -28,7 +28,7 @@ gameAssets = new GameAssets();
 gameAssets.loadingStart();
 
 //initialize Player
-player = new Player(60,60,gameAssets.getCharacter());
+player = new Player(60,60,gameAssets);
 
 //initialize Enemies
 var enemies = new Enemies();

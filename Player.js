@@ -10,7 +10,6 @@ var Player = function(startX, startY, tGameAssets) {
 	var x = startX,
 		health = 5;
 		gameAssets = tGameAssets,
-		sprite = gameAssets.getCharacter(),
 		y = startY,
 		lastMove = 0,
 		tileIndex = 15,
@@ -123,7 +122,11 @@ var Player = function(startX, startY, tGameAssets) {
 					spriteX += 60;
 				}
 				tick = 0;
+<<<<<<< HEAD
 				ctx.drawImage(gameAssets.getCharacter,spriteX,0,60,60,x,y,60,60);
+=======
+				ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
+>>>>>>> d42b1a2ccd8dbd5093282e3761e9a17e9b4e5b58
 			}
 		} else {
 			lastMove++;
@@ -132,7 +135,7 @@ var Player = function(startX, startY, tGameAssets) {
 		//spritePositionX changes depending on health
 		//IF STATEMENTS to set healthPosX
 		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
-		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
+		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 
 	var moved = function() {

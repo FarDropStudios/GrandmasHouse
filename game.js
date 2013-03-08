@@ -123,7 +123,7 @@ function draw() {
 		map.draw(ctx);
 	
 		//draw the player
-		player.draw(ctx, guiCtx);
+		player.draw(ctx, ctxGui);
 		
 		//draw enemies
 		enemies.draw(ctx);

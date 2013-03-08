@@ -65,16 +65,16 @@ var Player = function(startX, startY, tGameAssets) {
 	var update = function(tx, ty, map) {
 		//HEALTH BAR
 		if(health <= 0) {
-			healthPosX = 80;
+			healthPosX = 300;
 			dead = true;
 		} else if(health == 1){
-			healthPosX = 64;
+			healthPosX = 240;
 		} else if(health == 2) {
-			healthPosX = 48;
+			healthPosX = 180;
 		} else if(health == 3) {
-			healthPosX = 32;
+			healthPosX = 120;
 		} else if(health == 4) {
-			healthPosX = 16;
+			healthPosX = 60;
 		} else if(health == 5) {
 			healthPosX = 0;
 		}
@@ -153,7 +153,7 @@ var Player = function(startX, startY, tGameAssets) {
 		//spritePositionX changes depending on health
 		//IF STATEMENTS to set healthPosX
 		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
-		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 16, 16, 20, 560, 60, 60);
+		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 560, 60, 60);
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 

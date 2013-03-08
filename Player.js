@@ -181,7 +181,7 @@ var Player = function(startX, startY, tGameAssets) {
 		//IF STATEMENTS to set healthPosX
 		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
 		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 560, 60, 60);
-		guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 560, 60, 60);
+		guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 567, 60, 60);
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 

@@ -42,6 +42,12 @@ var GameAssets = function() {
 		box = loader.addImage('images/houseObjects/box.png');
 		mindMeter = loader.addImage('images/MiscImages/mind.png');
 		healthMeter = loader.addImage('images/MiscImages/Health.png');
+		darkMagic = loader.addImage('images/powerUps/darkMagic.png');
+		lightMagic = loader.addImage('images/powerUps/lightMagicSheet.png');
+		febreeze = loader.addImage('images/powerUps/febreeze.png');
+		grenade = loader.addImage('images/powerUps/grenade.png');
+		glove = loader.addImage('images/powerUps/glove.png');
+
 	loader.addCompletionListener(function() {
 		complete = true;
 	});
@@ -54,6 +60,21 @@ var GameAssets = function() {
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getDarkMagic = function(){
+		return darkMagic;
+	}
+	var getLightMagic = function(){
+		return lightMagic;
+	}
+	var getFebreeze = function(){
+		return febreeze;
+	}
+	var getGlove = function(){
+		return glove;
+	}
+	var getGrenade = function(){
+		return grenade;
 	}
 	var getHealthMeter = function(){
 		return healthMeter;
@@ -188,6 +209,11 @@ var GameAssets = function() {
 		getIsComplete: getIsComplete,
 		getHealthMeter: getHealthMeter,
 		getMindMeter:getMindMeter,
+		getDarkMagic:getDarkMagic,
+		getLightMagic:getLightMagic,
+		getFebreeze:getFebreeze,
+		getGlove:getGlove,
+		getGrenade:getGrenade,
 		getNightStand:getNightStand,
 		getBedLeft: getBedLeft,
 		getBedRight:getBedRight,

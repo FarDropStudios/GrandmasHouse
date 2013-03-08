@@ -179,11 +179,21 @@ var Player = function(startX, startY, tGameAssets) {
 			spriteX = 0;
 		}
 		//POWER UPS
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 50, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 150, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 250, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 350, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 450, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 25, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 125, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 225, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 325, 68, 69);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 850, 425, 68, 69);
+		var powPosY = 25; 
+		for(var i = 0; i < powerUps.length; i++) {
+				switch(powerUps[i]) {
+					case 0: powPosY += 100;
+							break;
+					case 1: guiCtx.drawImage(gameAssets.getFebreeze, 850, powPosY);
+							powPosY += 100;
+							break;
+				}
+		}
 		
 		//HEALTH & MENTAL BAR 
 		guiCtx.drawImage(gameAssets.getBorderImage(), 18, 548, 68, 69);

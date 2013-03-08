@@ -20,9 +20,9 @@ var PowerUps = {};
 		if(powerUpType == 0) {
 			return;
 		} else if(powerUpType == 1) {
-			console.log("Grenade");
-		} else if(powerUpType == 2) {
 			console.log("Febreeze");
+		} else if(powerUpType == 2) {
+			console.log("Grenade");
 		} else if(powerUpType == 3) {
 			console.log("Rubber Gloves");
 		} else if(powerUpType == 4) {

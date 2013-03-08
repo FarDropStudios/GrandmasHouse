@@ -59,6 +59,17 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			|| rooms[room][tile] === 13
 			|| rooms[room][tile] === 14) {
 			return true;
+		} else if(rooms[room][tile] === 999 && source === "Player" ) {
+			//SET FEBREEZE
+			var playerPowerUps = player.getPowerUps()
+			for(var i = 0; i < playerPowerUps.length; i++) {
+				if(playerPowerUps[i] === 0) {
+					playerPowerUps[i] = 1;
+					player.setPowerUps(playerPowerUps);
+					rooms[room][tile] = 2;
+					break;
+				}
+			}
 		} else {
 			for(var i = 0; i < enemyPositions.length; i++) {
 				if(player.getPos() === enemyPositions[i]) {

@@ -119,8 +119,9 @@ function onKeyDown(e) {
 
 //UPDATE AND DRAW METHODS -- WHERE DA FUN HAPPENS DOE
 function update() {
-//why is nothing updating? TG
-
+	//why is nothing updating? TG
+	//NOW IT DO, *lipsmack*, my cousin eat onehalg peg. TS
+	player.guiUpdate();
 }
 
 function draw() {

@@ -11,7 +11,7 @@ var Player = function(startX, startY, tGameAssets) {
 		mindPosX = 0,
 		powerUps = [0,0,0,0,0],
 		health = 5,
-		mind = 9;
+		mind = 4;
 		gameAssets = tGameAssets,
 		y = startY,
 		lastMove = 0,
@@ -65,47 +65,7 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 	
 	var update = function(tx, ty, map) {
-
-		//HEALTH BAR
-		if(health <= 0) {
-			healthPosX = 300;
-			dead = true;
-		} else if(health == 1){
-			healthPosX = 240;
-		} else if(health == 2) {
-			healthPosX = 180;
-		} else if(health == 3) {
-			healthPosX = 120;
-		} else if(health == 4) {
-			healthPosX = 60;
-		} else if(health == 5) {
-			healthPosX = 0;
-		}
-		
-		//MIND METER
-		if(mind <= 0) {
-			mindPosX = 540;
-		} else if(mind == 1) {
-			mindPosX = 480;
-		} else if(mind == 2) {
-			mindPosX = 420;
-		} else if(mind == 3) {
-			mindPosX = 360;
-		} else if(mind == 4) {
-			mindPosX = 300;
-		} else if(mind == 5) {
-			mindPosX = 240;
-		} else if(mind == 6) {
-			mindPosX = 180;
-		} else if(mind == 7) {
-			mindPosX = 120;
-		} else if(mind == 8) {
-			mindPosX = 60;
-		} else if(mind == 9) {
-			mindPosX = 0;
-		}
-		
-		
+				
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
 			tileIndex+=1;
 			if(!map.getCollision(tileIndex, "Player")) {
@@ -145,6 +105,47 @@ var Player = function(startX, startY, tGameAssets) {
 				map.setRoom(1);
 		}
 		console.log(tileIndex);
+	}
+
+	var guiUpdate = function() {
+				//HEALTH BAR
+		if(health <= 0) {
+			healthPosX = 300;
+			dead = true;
+		} else if(health == 1){
+			healthPosX = 240;
+		} else if(health == 2) {
+			healthPosX = 180;
+		} else if(health == 3) {
+			healthPosX = 120;
+		} else if(health == 4) {
+			healthPosX = 60;
+		} else if(health == 5) {
+			healthPosX = 0;
+		}
+		
+		//MIND METER
+		if(mind <= 0) {
+			mindPosX = 540;
+		} else if(mind == 1) {
+			mindPosX = 480;
+		} else if(mind == 2) {
+			mindPosX = 420;
+		} else if(mind == 3) {
+			mindPosX = 360;
+		} else if(mind == 4) {
+			mindPosX = 300;
+		} else if(mind == 5) {
+			mindPosX = 240;
+		} else if(mind == 6) {
+			mindPosX = 180;
+		} else if(mind == 7) {
+			mindPosX = 120;
+		} else if(mind == 8) {
+			mindPosX = 60;
+		} else if(mind == 9) {
+			mindPosX = 0;
+		}
 	}
 
 	var exitCheck = function() {
@@ -189,7 +190,7 @@ var Player = function(startX, startY, tGameAssets) {
 				switch(powerUps[i]) {
 					case 0: powPosY += 100;
 							break;
-					case 1: guiCtx.drawImage(gameAssets.getFebreeze, 850, powPosY);
+					case 1: guiCtx.drawImage(gameAssets.getFebreeze(), 850, powPosY);
 							powPosY += 100;
 							break;
 				}
@@ -230,6 +231,7 @@ var Player = function(startX, startY, tGameAssets) {
 		getPos: getPos,
 		setTileIndex: setTileIndex,
 		update: update,
+		guiUpdate: guiUpdate,
 		moved: moved,
 		exitCheck: exitCheck,
 		isDead: isDead,

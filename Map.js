@@ -21,7 +21,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		renderEnemies = true,
 		rooms = [],
 		gameAssets = tGameAssets;
-		rooms[0] = [101,303,303,303,303,303,666,303,303,303,303,303,303,102,
+		rooms[0] = [101,303,303,303,303,15,16,666,303,303,303,303,303,102,
 		    	301,2,2,11,12,13,14,0,0,0,0,0,0,302,
 		    	301,2,2,0,0,0,0,0,0,0,0,0,0,302,
 				301,2,2,0,0,0,0,0,0,0,0,0,0,302,
@@ -144,6 +144,10 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				ctx.drawImage(gameAssets.getDeskLeftWithPC(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 14){
 				ctx.drawImage(gameAssets.getDeskRightWithPC(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 15){
+				ctx.drawImage(gameAssets.getPCTopLeft(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 16){
+				ctx.drawImage(gameAssets.getPCTopRight(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 201){
 				//bottomLeftCorner
 				ctx.drawImage(gameAssets.getBottomWallLeft(),blockX,blockY,60,60);

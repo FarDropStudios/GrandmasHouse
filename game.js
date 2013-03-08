@@ -74,6 +74,9 @@ function onKeyDown(e) {
 		case 49: //Power-up 1 	
 			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player));
 			break;
+		case 50: //Power-up 1 	
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 2, player));
+			break;
 		case 65: //A?
 		case 37: //Left
 			player.setTileIndex(player.getPos()-1);

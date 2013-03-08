@@ -48,7 +48,7 @@ var GameAssets = function() {
 		febreeze = loader.addImage('images/powerUps/febreeze.png');
 		grenade = loader.addImage('images/powerUps/grenade.png');
 		glove = loader.addImage('images/powerUps/glove.png');
-		gmaNote = loader.addImage('images/MiscImages/gmaNote');
+		gmaNote = loader.addImage('images/MiscImages/gmaNote.png');
 
 	loader.addCompletionListener(function() {
 		complete = true;

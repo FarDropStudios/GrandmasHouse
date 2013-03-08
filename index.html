@@ -7,17 +7,25 @@
 			html {
 				background-color:black;
 			}
-			canvas {
+			#canvas {
 				z-index:1;
 				position:absolute;
 				top:0;
 				left:0;
+			}
+			#gui {
+				z-index: 0;
+				position: absolute;
+				top: 0;
+				left: 0;
+				background-color: gray;
 			}
 		</style>
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 	</head>
 	<body>
 		<canvas id="canvas"></canvas>
+		<canvas id="gui"></canvas>
 		<script src="PxLoader.js"></script>
 		<script src="PxLoaderImage.js"></script>
 		<script src="PxLoaderSound.js"></script>

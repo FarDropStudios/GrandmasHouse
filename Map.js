@@ -167,11 +167,8 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			//If block needs to be randomized
 			if(rooms[room][i] === 0) {
 				chance = Math.random();
-<<<<<<< HEAD
 				//Randomize dat hoe
-=======
 				chancePowerUp = Math.random();
->>>>>>> 281aeeb6d56b5a689050b2ab9be776f57c5de8f7
 				//20 percent chance that the block is solid, else its empty.
 				if(chance < 0.20) {
 					 rooms[room][i] = 1;//obstacle
@@ -216,30 +213,6 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				//bedleft
 				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 999){ 
-<<<<<<< HEAD
-				//POWER UP LOGIC
-				if(chance >= 0.8){
-					//Febreeze. Do not change index
-					ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
-					//don't change index
-				}else if(chance >= 0.6){
-					//Rubber Gloves. Change index to 998
-					ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
-					rooms[room][i] = 998;
-				}else if(chance >= 0.4){
-					//Light Magic. Change index to 997
-					ctx.drawImage(gameAssets.getLightMagic(), blockX, blockY, 60,60);
-					rooms[room][i] = 997;
-				}else if(chance >= 0.2){
-					//Dark Magic. Change index to 996
-					ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
-					rooms[room][i] = 996;
-				}else if(chance >= 0.0){
-					//Grenade. Change index to 995
-					ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
-					rooms[room][i] = 995;
-				}
-=======
 				ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 998){
 				ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
@@ -249,7 +222,6 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 995){
 				ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
->>>>>>> 281aeeb6d56b5a689050b2ab9be776f57c5de8f7
 			}else if(rooms[room][i] === 12){
 				//bedRight
 				ctx.drawImage(gameAssets.getBedRight(), blockX, blockY, 60,60);

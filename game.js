@@ -136,7 +136,7 @@ function draw() {
 	
 	//draw enemies
 	enemies.draw(ctx);
-
+	ctxGui.drawImage(gameAssets.getGmaNote(), 842, 525, 94,94);
 }
 
 var main = function() {

@@ -107,10 +107,12 @@ var Player = function(startX, startY, tGameAssets) {
 			x = 60;
 			y = 60;
 			tileIndex=15;
-			if(map.getRoom() === 1)
-				map.setRoom(-1);
-			else
-				map.setRoom(1);
+			var roomNumber = map.getRoom();
+			roomNumber++;
+			if(roomNumber >= 6){
+				roomNumber = 0;
+			}
+			map.setRoom(roomNumber);
 		}
 		console.log(tileIndex);
 	}

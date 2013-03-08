@@ -60,7 +60,7 @@ gui.onclick = function(e) {
 		x: e.clientX - pos.left,
 		y: e.clientY - pos.top
 	}
-	player.setPowerUps(PowerUps.use(player.getPowerUps(), click.x, click.y));
+	player.setPowerUps(PowerUps.use(player.getPowerUps(), click.x, click.y, player));
 }
 //Event Listeners
 function setEventListeners() {

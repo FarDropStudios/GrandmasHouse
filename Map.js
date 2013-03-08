@@ -59,18 +59,62 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 			|| rooms[room][tile] === 13
 			|| rooms[room][tile] === 14) {
 			return true;
+		//POWER UP LOGIC
 		} else if(rooms[room][tile] === 999 && source === "Player" ) {
 			//SET FEBREEZE
 			var playerPowerUps = player.getPowerUps()
 			for(var i = 0; i < playerPowerUps.length; i++) {
 				if(playerPowerUps[i] === 0) {
-					playerPowerUps[i] = 1;
+					playerPowerUps[i] = 1; //febreeze
 					player.setPowerUps(playerPowerUps);
 					rooms[room][tile] = 2;
 					break;
 				}
 			}
-		} else {
+		} else if(rooms[room][tile] === 998 && source === "Player" ) {
+		//SET Glove
+		var playerPowerUps = player.getPowerUps()
+		for(var i = 0; i < playerPowerUps.length; i++) {
+			if(playerPowerUps[i] === 0) {
+				playerPowerUps[i] = 2; //gloves
+				player.setPowerUps(playerPowerUps);
+				rooms[room][tile] = 2;
+				break;
+				}
+			} 
+		}else if(rooms[room][tile] === 997 && source === "Player" ) {
+			//SET Light Magic
+			var playerPowerUps = player.getPowerUps()
+			for(var i = 0; i < playerPowerUps.length; i++) {
+				if(playerPowerUps[i] === 0) {
+					playerPowerUps[i] = 3; //Light Magic
+					player.setPowerUps(playerPowerUps);
+					rooms[room][tile] = 2;
+					break;
+				}
+			}
+		} else if(rooms[room][tile] === 996 && source === "Player" ) {
+			//SET Dark Magic
+			var playerPowerUps = player.getPowerUps()
+			for(var i = 0; i < playerPowerUps.length; i++) {
+				if(playerPowerUps[i] === 0) {
+					playerPowerUps[i] = 4; //Dark Magic
+					player.setPowerUps(playerPowerUps);
+					rooms[room][tile] = 2;
+					break;
+					}
+				}
+			} else if(rooms[room][tile] === 999 && source === "Player" ) {
+			//SET Grenade
+			var playerPowerUps = player.getPowerUps()
+			for(var i = 0; i < playerPowerUps.length; i++) {
+				if(playerPowerUps[i] === 0) {
+					playerPowerUps[i] = 5; //Grenade
+					player.setPowerUps(playerPowerUps);
+					rooms[room][tile] = 2;
+					break;
+				}
+			}else {
 			for(var i = 0; i < enemyPositions.length; i++) {
 				if(player.getPos() === enemyPositions[i]) {
 					if(source == "Player") {
@@ -151,8 +195,28 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				//bedleft
 				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 999){ 
-				//power up
-				ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
+				//POWER UP LOGIC
+				if(chance > .8){
+					//Febreeze. Do not change index
+					ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
+					//don't change index
+				}else if(chance > .6){
+					//Rubber Gloves. Change index to 998
+					ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
+					rooms[room][i] = 998;
+				}else if(chance > .4){
+					//Light Magic. Change index to 997
+					ctx.drawImage(gameAssets.getLightMagic(), blockX, blockY, 60,60);
+					rooms[room][i] = 997;
+				}else if(chance > .2){
+					//Dark Magic. Change index to 996
+					ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
+					rooms[room][i] = 996;
+				}else if(chance > .0){
+					//Grenade. Change index to 995
+					ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
+					rooms[room][i] = 995;
+				}
 			}else if(rooms[room][i] === 12){
 				//bedRight
 				ctx.drawImage(gameAssets.getBedRight(), blockX, blockY, 60,60);

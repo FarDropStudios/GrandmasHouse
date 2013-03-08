@@ -113,6 +113,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 					player.setPowerUps(playerPowerUps);
 					rooms[room][tile] = 2;
 					break;
+					}
 				}
 			}else {
 			for(var i = 0; i < enemyPositions.length; i++) {

@@ -177,9 +177,7 @@ var Player = function(startX, startY, tGameAssets) {
 			lastMove++;
 			spriteX = 0;
 		}
-		//spritePositionX changes depending on health
-		//IF STATEMENTS to set healthPosX
-		//guiCtx.drawImage(IMAGE, spritePositionX, 0, 16, 16, X(around 10), >540, 60, 60);
+		guiCtx.drawImage(gameAssets.getBorderImage(), 17, 557);
 		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 560, 60, 60);
 		guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 567, 60, 60);
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);

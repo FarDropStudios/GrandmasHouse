@@ -53,6 +53,15 @@ canvas.onclick = function(e) {
 	console.log("CLICK!" + " X:"+click.x + " Y:" + click.y);
 }
 
+//When GUI is clicked grab X and Y coords and send to PowerUps
+gui.onclick = function(e) {
+	var pos = gui.getBoundingClientRect();
+	var click = {
+		x: e.clientX - pos.left,
+		y: e.clientY - pos.top
+	}
+	player.setPowerUps(PowerUps.use(player.getPowerUps(), click.x, click.y));
+}
 //Event Listeners
 function setEventListeners() {
 	window.addEventListener("keydown", onKeyDown, false);

@@ -8,6 +8,7 @@
 var Player = function(startX, startY, tGameAssets) {
 	var name = "Player";
 	var x = startX,
+		powerUps = [0,0,0,0,0];
 		health = 5;
 		gameAssets = tGameAssets,
 		y = startY,
@@ -26,6 +27,10 @@ var Player = function(startX, startY, tGameAssets) {
 
 	var getY = function() {
 		return y;
+	}
+
+	var getPowerUps = function() {
+		return powerUps;
 	}
 
 	var setX = function(tX) {
@@ -50,6 +55,10 @@ var Player = function(startX, startY, tGameAssets) {
 	
 	var setTileIndex = function(tTileIndex) {
 		tileIndex = tTileIndex;
+	}
+	
+	var setPowerUps = function(tPowerUps) {
+		powerUps = tPowerUps;
 	}
 	
 	var update = function(tx, ty, map) {
@@ -151,9 +160,11 @@ var Player = function(startX, startY, tGameAssets) {
 		getX: getX,
 		getY: getY,
 		getHealth: getHealth,
+		getPowerUps: getPowerUps,
 		setX: setX,
 		setY: setY,
 		setHealth: setHealth,
+		setPowerUps: setPowerUps,
 		getPos: getPos,
 		setTileIndex: setTileIndex,
 		update: update,

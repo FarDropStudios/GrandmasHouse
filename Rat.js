@@ -81,3 +81,5 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 		draw: draw
 	}	
 }
+//AI: Stick to perimeter of map. Randomly cross to other side if line of sight is clear. Once crossing continue crossing no matter what
+

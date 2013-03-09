@@ -81,3 +81,5 @@ var Cat = function(startX, startY, tTileIndex, tImage) {
 		draw: draw
 	}	
 }
+//AI:Walk Forward until collision
+//turn right

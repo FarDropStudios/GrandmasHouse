@@ -41,6 +41,7 @@ map = new Map(enemies, player, gameAssets);
 setEventListeners();
 
 //When canvas is clicked, grab the X, and Y coords and update where the player is.
+/*
 canvas.onclick = function(e) {
 	enemies.update(map);
 	player.moved();
@@ -52,6 +53,7 @@ canvas.onclick = function(e) {
 	player.update(click.x,click.y, map); //Send X, Y and the Map object so the player can detect collisions.
 	console.log("CLICK!" + " X:"+click.x + " Y:" + click.y);
 }
+*/
 
 //When GUI is clicked grab X and Y coords and send to PowerUps
 gui.onclick = function(e) {
@@ -62,9 +64,31 @@ gui.onclick = function(e) {
 	}
 	player.setPowerUps(PowerUps.use(player.getPowerUps(), click.x, click.y, player));
 }
+
+function handleHammer(e) {
+	enemies.update(map);
+	player.moved();
+	e.gesture.preventDefault();
+	switch(e.gesture.direction) {
+		case 'left': 	player.left();
+							e.gesture.stopDetect();
+							break;
+		case 'right': 	player.right();
+							e.gesture.stopDetect();
+							break;
+		case 'up': 		player.up();
+							e.gesture.stopDetect();
+							break;
+		case 'down': 	player.down();
+							e.gesture.stopDetect();
+							break;
+	}
+}
+
 //Event Listeners
 function setEventListeners() {
 	window.addEventListener("keydown", onKeyDown, false);
+	Hammer(canvas).on("swipeleft swiperight swipeup swipedown", handleHammer);
 }
 //function for movement
 //possibly add a combat check in the collision here?

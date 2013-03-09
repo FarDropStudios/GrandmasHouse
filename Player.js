@@ -117,6 +117,86 @@ var Player = function(startX, startY, tGameAssets) {
 		console.log(tileIndex);
 	}
 
+	var up = function() {
+		tileIndex-=14;
+		if(!map.getCollision(tileIndex, "Player")) {
+			y-=moveAmount;
+		} else {
+			tileIndex+=14;
+		}
+		if(tileIndex === map.getExit()) {
+			x = 60;
+			y = 60;
+			tileIndex=15;
+			var roomNumber = map.getRoom();
+			roomNumber++;
+			if(roomNumber >= 6){
+				roomNumber = 0;
+			}
+			map.setRoom(roomNumber);
+		}
+	}
+	
+	var down = function() {
+		tileIndex+=14;
+		if(!map.getCollision(tileIndex, "Player")) {
+			y+=moveAmount;
+		} else {
+			tileIndex-=14;
+		}
+		if(tileIndex === map.getExit()) {
+			x = 60;
+			y = 60;
+			tileIndex=15;
+			var roomNumber = map.getRoom();
+			roomNumber++;
+			if(roomNumber >= 6){
+				roomNumber = 0;
+			}
+			map.setRoom(roomNumber);
+		}		
+	}
+	
+	var right = function() {
+		tileIndex++;
+		if(!map.getCollision(tileIndex, "Player")) {
+			x+=moveAmount;
+		} else {
+			tileIndex--;
+		}
+		if(tileIndex === map.getExit()) {
+			x = 60;
+			y = 60;
+			tileIndex=15;
+			var roomNumber = map.getRoom();
+			roomNumber++;
+			if(roomNumber >= 6){
+				roomNumber = 0;
+			}
+			map.setRoom(roomNumber);
+		}		
+	}
+	
+	var left = function() {
+		tileIndex--;
+		if(!map.getCollision(tileIndex, "Player")) {
+			x-=moveAmount;
+		} else {
+			tileIndex++;
+		}
+		if(tileIndex === map.getExit()) {
+			x = 60;
+			y = 60;
+			tileIndex=15;
+			var roomNumber = map.getRoom();
+			roomNumber++;
+			if(roomNumber >= 6){
+				roomNumber = 0;
+			}
+			map.setRoom(roomNumber);
+		}
+	}
+	
 	var guiUpdate = function() {
 				//HEALTH BAR
 		if(health <= 0) {
@@ -243,6 +323,10 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 	
 	return {
+		left: left,
+		right: right,
+		up: up,
+		down: down,
 		getMind: getMind,
 		getName: getName,
 		getX: getX,

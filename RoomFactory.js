@@ -18,6 +18,7 @@ var RoomFactory = function() {
 	}
 	var junkRoomGenerate = function(){
 		//returns the room directly after the bedroom
+		
 	}
 	var bathRoomGenerate = function(){
 		//returns the bathroom

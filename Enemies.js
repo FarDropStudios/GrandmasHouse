@@ -37,10 +37,18 @@ var Enemies = function() {
 	var update = function(map) {
 		for(var i = 0; i < enemies.length; i++) {
 			if(enemies[i].getHealth() <= 0) {
-					enemies.splice(i,1);
-			}
+					if(enemies[i] instanceof PileOfMeat){
+						enemies.splice(i,1);
+					} else if( enemies[i] instanceof Dog){
+						enemies.splice(i,1,new PileOfMeat(startX, startY, startTileIndex, gameAssets.getDeadDog()));
+					} else if( enemies[i] instanceof Rat){
+						enemies.splice(i,1,new PileOfMeat(startX, startY, startTileIndex, gameAssets.getDeadRat()));
+					} else if( enemies[i] instanceof Cat){
+						enemies.splice(i,1,new PileOfMeat(startX, startY, startTileIndex, gameAssets.getDeadCat()));
+					}
+				}
 			enemies[i].update(map);
-		}
+			}
 	}
 	
 	var addRat = function(startX, startY, startTileIndex) {
@@ -55,7 +63,6 @@ var Enemies = function() {
 	var addWigDemon = function(startX, startY, startTileIndex) {
 		enemies.push(new WigMonster(startX, startY, startTileIndex, gameAssets.getWigDemon()));
 	}
-	
 	var draw = function(ctx) {
 		for(var i = 0; i < enemies.length; i++) {
 			enemies[i].draw(ctx);

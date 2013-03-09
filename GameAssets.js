@@ -51,6 +51,10 @@ var GameAssets = function() {
 		gmaNote = loader.addImage('images/MiscImages/gmaNote.png');
 		pcTopLeft = loader.addImage('images/wallsFloor/pcTopLeft.png');
 		pcTopRight = loader.addImage('images/wallsFloor/pcTopRight.png');
+		deadCat = loader.addImage('images/houseOccupants/deadCat.png');
+		deadDog = loader.addImage('images/houseOccupants/deadDog.png');
+		deadRat = loader.addImage('images/houseOccupants/deadRat.png');
+		deadTom = loader.addImage('images/houseOccupants/deadThomas.png');
 
 	loader.addCompletionListener(function() {
 		complete = true;
@@ -60,10 +64,21 @@ var GameAssets = function() {
 	var loadingStart = function() {
 		loader.start();
 	}
-	
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getDeadDog = function() {
+		return deadDog;
+	}
+	var getDeadCat = function() {
+		return deadCat;
+	}
+	var getDeadTom = function() {
+		return deadTom;
+	}
+	var getDeadRat = function() {
+		return deadRat;
 	}
 	var getGmaNote = function() {
 		return gmaNote;
@@ -173,12 +188,10 @@ var GameAssets = function() {
 	var getCharacter = function() {
 		return tommy;
 	}
-
 	//Return rat
 	var getRat = function() {
 		return rat;
 	}
-
 	//Returns the tile sheet.
 	var getTiles = function() {
 		return tiles;
@@ -226,6 +239,10 @@ var GameAssets = function() {
 		getPCTopRight: getPCTopRight,
 		getPCTopLeft: getPCTopLeft,
 		getBorderImage:getBorderImage,
+		getDeadTom:getDeadTom,
+		getDeadCat:getDeadCat,
+		getDeadDog:getDeadDog,
+		getDeadRat:getDeadRat,
 		getHealthMeter: getHealthMeter,
 		getMindMeter:getMindMeter,
 		getDarkMagic:getDarkMagic,

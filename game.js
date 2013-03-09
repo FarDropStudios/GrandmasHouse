@@ -74,8 +74,17 @@ function onKeyDown(e) {
 		case 49: //Power-up 1 	
 			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player));
 			break;
-		case 50: //Power-up 1 	
+		case 50: //Power-up 2 	
 			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 2, player));
+			break;
+		case 51: //Power-up 3
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 3, player));
+			break;
+		case 52: //Power-up 4
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 4, player));
+			break;
+		case 53: //Power-up 5
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 5, player));
 			break;
 		case 65: //A?
 		case 37: //Left

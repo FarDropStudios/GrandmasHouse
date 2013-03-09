@@ -18,7 +18,12 @@ var Cat = function(startX, startY, tTileIndex, tImage) {
 	var getPos = function() {
 		return tileIndex;
 	}
-	
+	var getX = function(){
+		return x;
+	}
+	var getY = function(){
+		return y;
+	}
 	var getHealth = function() {
 		return health;
 	}

@@ -177,6 +177,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 				if(player.getPos() === enemyPositions[i]) {
 					if(source == "Player") {
 						Combat.attack(player, enemy.getInstanceOfEnemy(enemyPositions[i]));
+						if(enemy.getInstanceOfEnemy(enemyPositions[i]).getName() === "Pile of Meat") {
+							player.setMind(player.getMind() - 1);
+						}
 					} else {
 						Combat.attack(enemy.getInstanceOfEnemy(enemyPositions[i]), player);
 					}

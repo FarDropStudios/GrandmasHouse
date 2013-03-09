@@ -78,6 +78,8 @@ var Cat = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	return {
+		getX: getX,
+		getY: getY,
 		getName: getName,
 		getPos: getPos,
 		getHealth: getHealth,

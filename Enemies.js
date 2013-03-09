@@ -36,23 +36,22 @@ var Enemies = function() {
 	
 	var update = function(map) {
 		for(var i = 0; i < enemies.length; i++) {
-			var tX = enemies[i].getX();
-			var tY = enemies[i].getY();
-			var tTileIndex = enemies[i].getPos();
-			
 			if(enemies[i].getHealth() <= 0) {
-					if(enemies[i] instanceof PileOfMeat){
+					if(enemies[i].getName() === "Pile of Meat" || enemies[i].getName() === "WigDemon"){
 						enemies.splice(i,1);
-					} else if( enemies[i] instanceof Dog){
-						enemies.splice(i,1,new PileOfMeat(tX, tY, , gameAssets.getDeadDog()));
-					} else if( enemies[i] instanceof Rat){
-						enemies.splice(i,1,new PileOfMeat(startX, startY, startTileIndex, gameAssets.getDeadRat()));
-					} else if( enemies[i] instanceof Cat){
-						enemies.splice(i,1,new PileOfMeat(startX, startY, startTileIndex, gameAssets.getDeadCat()));
+					} else if(enemies[i].getName() === "Dog") {
+						console.log("dog");
+						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadDog()));
+					} else if(enemies[i].getName() === "Rat") {
+						console.log("rat");
+						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadRat()));
+					} else if(enemies[i].getName() === "Cat") {
+						console.log("cat");
+						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadCat()));
 					}
-				}
-			enemies[i].update(map);
 			}
+		enemies[i].update(map);
+		}
 	}
 	
 	var addRat = function(startX, startY, startTileIndex) {

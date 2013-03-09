@@ -290,7 +290,7 @@ var Player = function(startX, startY, tGameAssets) {
 						//drawImage(gameAssets.getLightMagic(),0,60,480,60,850,powPosY,60,60); help
 							powPosY += 100;
 							break;
-					case 4: guiCtx.drawImage(gameAssets.getDarkMagic(),0,0,60,60,850,powPosY,60,60);;
+					case 4: guiCtx.drawImage(gameAssets.getDarkMagic(),0,0,60,60,850,powPosY,60,60);
 						///drawImage(gameAssets.getLightMagic(),0,60,600,60,850,powPosY,60,60);	help
 							powPosY += 100;
 							break;

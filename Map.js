@@ -10,7 +10,10 @@
 //Could add a check for health at each valid index to see method if health is < 1. If so change tile index to remains/ground etc.
 
 var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
+	var lightMagI = 0,
+		darkMagI = 0;
 	var blockX = 0,
+		tick = 0,
 		index = 0,
 		chance,
 		chancePowerUp,
@@ -214,6 +217,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		blockX = 0;
 		blockY = 0;
 		index = 0;
+		if(tick > 10) {
+			tick = 0;
+		}
 		for(var i = 0; i < rooms[room].length; i++) {
 			ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			//If block needs to be randomized
@@ -269,10 +275,24 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			}else if(rooms[room][i] === 998){
 				ctx.drawImage(gameAssets.getGlove(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 997){
-				ctx.drawImage(gameAssets.getLightMagic(), blockX, blockY, 60,60);
+				if(tick == 10) {
+					if(lightMagI < 420) {
+						lightMagI += 60;
+					} else {
+						lightMagI = 0;
+					}
+				} 
+				ctx.drawImage(gameAssets.getLightMagic(),lightMagI,0,60,60,blockX, blockY, 60,60);
 				///drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
 			}else if(rooms[room][i] === 996){
-				ctx.drawImage(gameAssets.getDarkMagic(), blockX, blockY, 60,60);
+				if(tick == 10) {
+					if(darkMagI < 420) {
+						darkMagI += 60;
+					} else {
+						darkMagI = 0;
+					}
+				} 
+				ctx.drawImage(gameAssets.getDarkMagic(),darkMagI,0,60,60,blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 995){
 				///drawImage(img,sx,sy,swidth,sheight,x,y,width,height);
 				ctx.drawImage(gameAssets.getGrenade(), blockX, blockY, 60,60);
@@ -344,6 +364,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			}
 			
 		}
+		tick++;
 		renderEnemies = false;
 	};
 	return {

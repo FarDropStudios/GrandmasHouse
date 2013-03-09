@@ -34,8 +34,11 @@ player = new Player(60,60,gameAssets);
 var enemies = new Enemies();
 enemies.setGameAssets(gameAssets);
 
+//initialize RoomFactory
+roomFactory = new RoomFactory();
+
 //initialize maps
-map = new Map(enemies, player, gameAssets);
+map = new Map(enemies, player, gameAssets, roomFactory);
 
 //set event listeners
 setEventListeners();

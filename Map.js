@@ -9,7 +9,7 @@
 
 //Could add a check for health at each valid index to see method if health is < 1. If so change tile index to remains/ground etc.
 
-var Map = function(tempEnemies, tempPlayer, tGameAssets) {
+var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 	var blockX = 0,
 		index = 0,
 		chance,
@@ -19,18 +19,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets) {
 		enemy = tempEnemies,
 		player = tempPlayer, 
 		room = 0,
+		factory = tRoomFactory;
 		renderEnemies = true,
 		rooms = [],
 		gameAssets = tGameAssets;
-		rooms[0] = [101,303,303,303,303,15,16,666,303,303,303,303,303,102,
-		    	301,2,2,11,12,13,14,19,0,0,0,0,0,302,			//2 = ground           11 = bed left
-		    	301,2,2,2,2,2,2,2,2,2,2,0,0,302,				//3 = exit				12 = bed right
-				301,2,2,0,0,0,2,2,2,0,2,0,0,302,				//301 = left side wall   13 = deskWithPC Left
-				301,0,2,0,0,0,2,2,2,0,2,0,0,302,				//302 = right side wall  14 = deskWithPC Right
-				301,0,2,2,2,0,2,2,2,0,2,0,0,302, //bedroom		//303 = top wall         19 = night stand
-		    	301,0,0,0,0,0,2,2,2,0,2,2,2,3,					//304 = bottom wall      15 = Monitor Left
-		    	301,0,0,0,0,0,2,2,2,2,2,2,2,302,				// 666 = Window			16 = Monitor Right
-		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202,];
+		rooms[0] = factory.bedRoomGenerate();
 		rooms[1] = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
 		    	301,2,2,1,8,9,1,1,0,0,2,2,2,302,
 		    	301,2,2,1,1,1,1,1,1,0,2,2,2,3,

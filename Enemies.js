@@ -50,7 +50,7 @@ var Enemies = function() {
 						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadCat()));
 					}
 			}
-		enemies[i].update(map);
+					enemies[i].update(map);
 		}
 	}
 	

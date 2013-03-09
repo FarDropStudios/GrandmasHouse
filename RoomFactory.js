@@ -3,7 +3,7 @@
 //RoomFactory.js
 //Has room archetype and room sequence logic
 
-var RoomFactory = new function(map){
+var RoomFactory = new function(){
 	
 	var powerUpRoomGenerate = new function(){
 		//has types of power up rooms
@@ -26,13 +26,25 @@ var RoomFactory = new function(map){
 		//returns a high risk - reward room that is not required
 	}
 	var livingRoomGenerate = new function(){
-		//returns mini - boss room with differe
+		//returns mini - boss room with different
 	}
 	var basicRoomGenerate = new function(){
 		//returns basic room
 	}
 	var shopKeeper = new function(){
 		//returns room with shop man
+	}
+	var bedRoomGenerate = new function(){
+		//returns bedroom
+		return [101,303,303,303,303,15,16,666,303,303,303,303,303,102,
+		    	301,2,2,11,12,13,14,19,0,0,0,0,0,302,			//2 = ground           11 = bed left
+		    	301,2,2,2,2,2,2,2,2,2,2,0,0,302,				//3 = exit				12 = bed right
+				301,2,2,0,0,0,2,2,2,0,2,0,0,302,				//301 = left side wall   13 = deskWithPC Left
+				301,0,2,0,0,0,2,2,2,0,2,0,0,302,				//302 = right side wall  14 = deskWithPC Right
+				301,0,2,2,2,0,2,2,2,0,2,0,0,302, //bedroom		//303 = top wall         19 = night stand
+		    	301,0,0,0,0,0,2,2,2,0,2,2,2,3,					//304 = bottom wall      15 = Monitor Left
+		    	301,0,0,0,0,0,2,2,2,2,2,2,2,302,				// 666 = Window			16 = Monitor Right
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202,];
 	}
 	var assignRandomRoom = new function(){
 		//assigns which misc room gets added
@@ -41,4 +53,16 @@ var RoomFactory = new function(map){
 		//ShopKeeper
 		//
 	}
+	return {
+		bedRoomGenerate: bedRoomGenerate,
+		assignRandomRoom: assignRandomRoom,
+		shopKeeper:shopKeeper,
+		basicRoomGenerate: basicRoomGenerate,
+		livingRoomGenerate: livingRoomGenerate,
+		joesRoomGenerate: joesRoomGenerate,
+		bathRoomGenerate: bathRoomGenerate,
+		junkRoomGenerate: junkRoomGenerate,
+		kitchenGenerate: kitchenGenerate,
+		powerUpRoomGenerate: powerUpRoomGenerate
+		}
 }

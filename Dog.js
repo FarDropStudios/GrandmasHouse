@@ -81,3 +81,6 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 		draw: draw
 	}	
 }
+//AI: If player walks in line of sight walk down that row/column until player is in line of sight
+
+

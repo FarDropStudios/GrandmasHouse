@@ -41,6 +41,7 @@ map = new Map(enemies, player, gameAssets);
 setEventListeners();
 
 //When canvas is clicked, grab the X, and Y coords and update where the player is.
+/*
 canvas.onclick = function(e) {
 	enemies.update(map);
 	player.moved();
@@ -52,6 +53,21 @@ canvas.onclick = function(e) {
 	player.update(click.x,click.y, map); //Send X, Y and the Map object so the player can detect collisions.
 	console.log("CLICK!" + " X:"+click.x + " Y:" + click.y);
 }
+*/
+
+Hammer(canvas).on("tap", function(e) {
+	var touches = e.gesture.touches;
+	e.gesture.preventDefault();
+	enemies.update(map);
+	player.moved();
+	var position = canvas.getBoundingClientRect();
+	var click = {
+		x: e.center.pageX,
+		y: e.center.pageY
+	}
+	player.update(click.x,click.y, map); //Send X, Y and the Map object so the player can detect collisions.
+	console.log("CLICK!" + " X:"+click.x + " Y:" + click.y);	
+});
 
 //When GUI is clicked grab X and Y coords and send to PowerUps
 gui.onclick = function(e) {

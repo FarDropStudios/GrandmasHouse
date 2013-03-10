@@ -3,7 +3,45 @@
 //RoomFactory.js
 //Has room archetype and room sequence logic
 
+/* ROOM KEY
+ * 
+ * R0 = JUNK ROOM
+ * R1 = BASIC ROOM
+ * R2 =  BED ROOM
+ */
+
 var RoomFactory = function() {
+		var room = [];
+		//JUNKROOM
+		room[0] = [101,303,303,303,303,666,
+				303,303,303,303,303,303,303,102,
+		    	301,2,2,1,8,9,1,1,0,0,2,2,2,302,
+		    	301,2,2,1,1,1,1,1,1,0,2,2,2,3,
+				301,0,2,1,1,1,0,0,1,0,1,2,2,302, //junk room
+				301,0,2,1,1,1,1,1,1,1,0,2,0,302,
+				301,0,2,1,2,2,2,2,2,2,2,2,0,302,
+		    	301,0,2,1,2,0,1,1,1,0,0,2,2,302,
+		    	301,0,2,2,2,0,1,1,1,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+		room[1]  = [101,303,303,303,666,303,303,303,303,303,303,303,303,102,
+		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
+		    	301,2,2,0,0,0,0,0,0,0,2,2,2,302,
+				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
+				301,0,2,0,0,0,0,0,0,0,0,2,2,3,
+				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
+		room[2] = [101,303,303,303,303,15,16,666,303,303,303,303,303,102,
+		    	301,2,2,11,12,13,14,19,0,0,0,0,0,302,			//2 = ground           11 = bed left
+		    	301,2,2,2,2,2,2,2,2,2,2,0,0,302,				//3 = exit				12 = bed right
+				301,2,2,0,0,0,2,2,2,0,2,0,0,302,				//301 = left side wall   13 = deskWithPC Left
+				301,0,2,0,0,0,2,2,2,0,2,0,0,302,				//302 = right side wall  14 = deskWithPC Right
+				301,0,2,2,2,0,2,2,2,0,2,0,0,302, //bedroom		//303 = top wall         19 = night stand
+		    	301,0,0,0,0,0,2,2,2,0,2,2,2,3,					//304 = bottom wall      15 = Monitor Left
+		    	301,0,0,0,0,0,2,2,2,2,2,2,2,302,				// 666 = Window			16 = Monitor Right
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202,];	
+	
 	
 	var powerUpRoomGenerate = function(){
 		//has types of power up rooms
@@ -18,16 +56,7 @@ var RoomFactory = function() {
 	}
 	var junkRoomGenerate = function(){
 		//returns the room directly after the bedroom
-		var room = [101,303,303,303,303,666,303,303,303,303,303,303,303,102,
-		    	301,2,2,1,8,9,1,1,0,0,2,2,2,302,
-		    	301,2,2,1,1,1,1,1,1,0,2,2,2,3,
-				301,0,2,1,1,1,0,0,1,0,1,2,2,302, //junk room
-				301,0,2,1,1,1,1,1,1,1,0,2,0,302,
-				301,0,2,1,2,2,2,2,2,2,2,2,0,302,
-		    	301,0,2,1,2,0,1,1,1,0,0,2,2,302,
-		    	301,0,2,2,2,0,1,1,1,0,0,2,2,302,
-		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
-		 return room;
+		return room[0];
 	}
 	var bathRoomGenerate = function(){
 		//returns the bathroom
@@ -39,33 +68,14 @@ var RoomFactory = function() {
 		//returns mini - boss room with different
 	}
 	var basicRoomGenerate = function(){
-		var room  = [101,303,303,303,666,303,303,303,303,303,303,303,303,102,
-		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
-		    	301,2,2,0,0,0,0,0,0,0,2,2,2,302,
-				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
-				301,0,2,0,0,0,0,0,0,0,0,2,2,3,
-				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
-		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
-		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
-		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
-		 return room;	
-		    
+		 return room[1];	
 	}
 	var shopKeeper = function(){
 		//returns room with shop man
 	}
 	var bedRoomGenerate = function(){
 		//returns bedroom
-		var room = [101,303,303,303,303,15,16,666,303,303,303,303,303,102,
-		    	301,2,2,11,12,13,14,19,0,0,0,0,0,302,			//2 = ground           11 = bed left
-		    	301,2,2,2,2,2,2,2,2,2,2,0,0,302,				//3 = exit				12 = bed right
-				301,2,2,0,0,0,2,2,2,0,2,0,0,302,				//301 = left side wall   13 = deskWithPC Left
-				301,0,2,0,0,0,2,2,2,0,2,0,0,302,				//302 = right side wall  14 = deskWithPC Right
-				301,0,2,2,2,0,2,2,2,0,2,0,0,302, //bedroom		//303 = top wall         19 = night stand
-		    	301,0,0,0,0,0,2,2,2,0,2,2,2,3,					//304 = bottom wall      15 = Monitor Left
-		    	301,0,0,0,0,0,2,2,2,2,2,2,2,302,				// 666 = Window			16 = Monitor Right
-		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202,];
-		return room;
+		return room[2];
 	}
 	var assignRandomRoom = function(){
 		//assigns which misc room gets added
@@ -75,7 +85,12 @@ var RoomFactory = function() {
 		//
 	}
 	
+	var changeBlockAt = function(room, index, newBlock) {
+		room[room][index] === newBlock;
+	}
+	
 	return {
+			// changeBlockAt: changeBlockAt,
 			bedRoomGenerate: bedRoomGenerate,
 			assignRandomRoom: assignRandomRoom,
 			shopKeeper:shopKeeper,

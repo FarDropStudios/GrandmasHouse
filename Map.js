@@ -313,6 +313,17 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		renderEnemies = false;
 	};
 	
+	var flatten = function(center) {
+		var indexMods = [-15,-14,-13,-1,1,13,14,15];
+		for(var i = 0; i < indexMods.length; i++) {
+			var tempIndex = indexMods[i]
+			var tempIndex = center + tempIndex
+			if(rooms[room][tempIndex] === 1 || rooms[room][tempIndex] === 11) {
+				rooms[room][tempIndex] = 2;
+			}
+		}
+	};
+	
 	var grenade = function(center) {
 		enemiesPositions = enemies.getEnemyPos();
 		for(var i = 0; i < enemiesPositions.length; i++) {
@@ -325,11 +336,13 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				|| enemiesPositions[i] === center + 14
 				|| enemiesPositions[i] === center + 15) {
 					Combat.kill(enemy.getInstanceOfEnemy(enemiesPositions[i]));
-				}
-		}	
+			}
+		}
+		flatten(center);	
 	};
 	
 	return {
+		flatten: flatten,
 		getRoomsLength: getRoomsLength,
 		getCollision: getCollision,
 		getExit: getExit,

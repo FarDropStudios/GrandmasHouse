@@ -243,10 +243,10 @@ var Player = function(startX, startY, tGameAssets) {
 			x = 60;
 			y = 60;
 			tileIndex=15;
-			if(map.getRoom() === 1)
-				map.setRoom(-1);
+			if(map.getRoom() === map.getRoomsLenth)
+				map.setRoom(0);
 			else
-				map.setRoom(1);
+				map.setRoom(map.getRoom() + 1);
 		}
 	}
 

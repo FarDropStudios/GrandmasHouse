@@ -29,16 +29,13 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		
 		for(var i = 0; i < 15; i++){
 			if(i === 0){//Bedroom
-				rooms[0] = factory.bedRoomGenerate();
+				rooms[i] = factory.bedRoomGenerate();
 			}else if(i === 1){//Junk Room
-				rooms[1] === factory.junkRoomGenerate();
+				rooms[i] = factory.junkRoomGenerate();
 			}else{//Basic Rooms
-				rooms[i] === factory.basicRoomGenerate();
+				rooms[i] = factory.basicRoomGenerate();
 			}
 		}	
-	var getRoomsLenth = function(){
-		return rooms.length;
-	}
 	//Returns true if the block is solid
 	var getCollision = function(tile, source) {
 		enemyPositions = enemy.getEnemyPos();
@@ -141,7 +138,10 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			return false;
 		}
 	};
-
+	var getRoomsLength = function(){
+		return rooms.length;
+	}
+	
 	var getExit = function() {
 		return exit;
 	}
@@ -167,7 +167,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		if(tick > 10) {
 			tick = 0;
 		}
-		for(var i = 0; i < rooms[room].length; i++) {
+		for(var i = 0; i < 126; i++) {
 			ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			//If block needs to be randomized
 			if(rooms[room][i] === 0) {
@@ -315,6 +315,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		renderEnemies = false;
 	};
 	return {
+		getRoomsLength: getRoomsLength,
 		getCollision: getCollision,
 		getExit: getExit,
 		draw: draw,

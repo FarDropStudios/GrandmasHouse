@@ -25,7 +25,6 @@ var PileOfMeat = function(startX, startY, tTileIndex, tImage) {
 	var draw = function(ctx) {
 		ctx.drawImage(image, x, y, 60, 60);
 	}
-
 	var getName = function() {
 		return name;
 	}

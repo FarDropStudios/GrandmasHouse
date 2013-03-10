@@ -249,6 +249,7 @@ var Player = function(startX, startY, tGameAssets) {
 
 	var exitCheck = function() {
 		if(tileIndex === map.getExit()) {
+			wearingGloves = false;
 			x = 60;
 			y = 60;
 			tileIndex=15;
@@ -257,9 +258,6 @@ var Player = function(startX, startY, tGameAssets) {
 				map.setRoom(0);
 			else
 				map.setRoom(map.getRoom() + 1);
-			
-			if(wearingRubberGloves)
-				wearingRubberGloves = false;
 		}
 	}
 

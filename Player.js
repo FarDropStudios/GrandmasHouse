@@ -84,33 +84,13 @@ var Player = function(startX, startY, tGameAssets) {
 	var update = function(tx, ty, map) {
 				
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
-			tileIndex+=1;
-			if(!map.getCollision(tileIndex, "Player")) {
-				x+=moveAmount; //Right
-			} else {
-				tileIndex-=1;
-			}
+			right();
 		}else if(tx < x && tx > x-60 && ty > y && ty < y+60) {
-			tileIndex-=1;
-			if(!map.getCollision(tileIndex, "Player")) {
-				x-=moveAmount; //Left
-			} else {
-				tileIndex+=1;
-			}
+			left();
 		}else if(ty < y+120 && ty > y+60 && tx > x && tx < x+60) {
-			tileIndex+=14;
-			if(!map.getCollision(tileIndex, "Player")) {
-				y+=moveAmount; //Down
-			} else {
-				tileIndex-=14;
-			}
+			down();
 		}else if(ty < y && ty > y-60 && tx > x && tx < x+60) {
-			tileIndex-=14;
-			if(!map.getCollision(tileIndex, "Player")) {
-				y-=moveAmount; //Up
-			} else {
-				tileIndex+=14;
-			}
+			up();
 		}
 		if(tileIndex === map.getExit()) {
 			x = 60;
@@ -121,6 +101,8 @@ var Player = function(startX, startY, tGameAssets) {
 			if(roomNumber >= 6){
 				roomNumber = 0;
 			}
+			console.log(wearingGloves);
+			wearingGloves = false;
 			map.setRoom(roomNumber);
 		}
 		console.log(tileIndex);

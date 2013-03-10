@@ -43,8 +43,8 @@ var RoomFactory = function() {
 		    	301,2,2,0,0,0,0,0,0,0,8,9,2,302,
 		    	301,2,2,0,0,0,0,0,0,0,2,2,2,302,
 				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
-				301,0,2,0,0,0,0,0,0,0,0,0,0,3,
-				301,0,2,0,0,0,0,0,0,0,0,0,0,302,
+				301,0,2,0,0,0,0,0,0,0,0,2,2,3,
+				301,0,2,0,0,0,0,0,0,0,0,0,2,302,
 		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
 		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
 		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
@@ -76,15 +76,15 @@ var RoomFactory = function() {
 	}
 	
 	return {
-		bedRoomGenerate: bedRoomGenerate,
-		assignRandomRoom: assignRandomRoom,
-		shopKeeper:shopKeeper,
-		basicRoomGenerate: basicRoomGenerate,
-		livingRoomGenerate: livingRoomGenerate,
-		joesRoomGenerate: joesRoomGenerate,
-		bathRoomGenerate: bathRoomGenerate,
-		junkRoomGenerate: junkRoomGenerate,
-		kitchenGenerate: kitchenGenerate,
-		powerUpRoomGenerate: powerUpRoomGenerate
+			bedRoomGenerate: bedRoomGenerate,
+			assignRandomRoom: assignRandomRoom,
+			shopKeeper:shopKeeper,
+			basicRoomGenerate: basicRoomGenerate,
+			livingRoomGenerate: livingRoomGenerate,
+			joesRoomGenerate: joesRoomGenerate,
+			bathRoomGenerate: bathRoomGenerate,
+			junkRoomGenerate: junkRoomGenerate,
+			kitchenGenerate: kitchenGenerate,
+			powerUpRoomGenerate: powerUpRoomGenerate
 		}
 }

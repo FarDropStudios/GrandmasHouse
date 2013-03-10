@@ -60,6 +60,7 @@ var PowerUps = {};
 			}
 		} else if(powerUpType == 2) {
 			//Glove
+			//toggleWearingGloves
 			console.log("glove");
 		} else if(powerUpType == 3) {
 			//White Magic

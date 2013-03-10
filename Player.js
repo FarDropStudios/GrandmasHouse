@@ -14,6 +14,7 @@ var Player = function(startX, startY, tGameAssets) {
 		mind = 6;
 		gameAssets = tGameAssets,
 		y = startY,
+		wearingGloves = false;
 		lastMove = 0,
 		tileIndex = 15,
 		moveTimer = 15,
@@ -27,11 +28,19 @@ var Player = function(startX, startY, tGameAssets) {
 	var getX = function() {
 		return x;
 	}
-
 	var getY = function() {
 		return y;
 	}
-
+	var getGloveState = function(){
+		return wearingGloves;
+	}
+	var toggleGloveState = function(){
+		if(wearingGloves){
+			wearingGloves = false;
+		} else if(!wearingGloves){
+			wearingGloves = true;
+		}
+	}
 	var getPowerUps = function() {
 		return powerUps;
 	}
@@ -243,10 +252,14 @@ var Player = function(startX, startY, tGameAssets) {
 			x = 60;
 			y = 60;
 			tileIndex=15;
+			
 			if(map.getRoom() === map.getRoomsLenth)
 				map.setRoom(0);
 			else
 				map.setRoom(map.getRoom() + 1);
+			
+			if(wearingRubberGloves)
+				wearingRubberGloves = false;
 		}
 	}
 
@@ -329,6 +342,8 @@ var Player = function(startX, startY, tGameAssets) {
 		down: down,
 		getMind: getMind,
 		getName: getName,
+		getGloveState:getGloveState,
+		toggleGloveState:toggleGloveState,
 		getX: getX,
 		getY: getY,
 		getHealth: getHealth,

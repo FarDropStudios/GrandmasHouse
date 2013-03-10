@@ -52,6 +52,7 @@ var PowerUps = {};
 	function determinePowerUpType(powerUpType, player) {
 		if(powerUpType == 0) {
 			return; // do nothing
+		
 		} else if(powerUpType == 1) {
 			//Febreeze
 			player.setMind(player.getMind() + 3);
@@ -60,7 +61,11 @@ var PowerUps = {};
 			}
 		} else if(powerUpType == 2) {
 			//Glove
-			//toggleWearingGloves
+			if(player.getGloveState() === true){
+				console.log("Gloves On Already")
+			} else if(player.getGloveState() === false){
+				player.toggleGloveState();
+			}
 			console.log("glove");
 		} else if(powerUpType == 3) {
 			//White Magic

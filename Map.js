@@ -28,11 +28,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		gameAssets = tGameAssets;
 		
 		for(var i = 0; i < 15; i++){
-			if(i === 0){//Bedroom
+			if(i === 0){		//Bedroom
 				rooms[i] = factory.bedRoomGenerate();
 			}else if(i === 1){//Junk Room
 				rooms[i] = factory.junkRoomGenerate();
-			}else{//Basic Rooms
+			}else{				//Basic Rooms
 				rooms[i] = factory.basicRoomGenerate();
 			}
 		}	
@@ -118,16 +118,14 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					if(source == "Player") {
 						Combat.attack(player, enemy.getInstanceOfEnemy(enemyPositions[i]));
 						if(enemy.getInstanceOfEnemy(enemyPositions[i]).getName() === "Pile of Meat") {
-							player.setMind(player.getMind() - 1);
+							if(!player.getGloveState()){
+								player.setMind(player.getMind() - 1);
+							}
 						}
 					} else {
 						Combat.attack(enemy.getInstanceOfEnemy(enemyPositions[i]), player);
 					}
 					return true;
-				//combat(player,get enemy location at position i)
-				//deal damage to enemy at pos with combat method
-				//animate with combat method
-				
 				}
 			}
 			for(var ii = 0; ii < enemyPositions.length - 1; ii++) {

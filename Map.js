@@ -314,13 +314,31 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		tick++;
 		renderEnemies = false;
 	};
+	
+	var grenade = function(center) {
+		enemiesPositions = enemies.getEnemyPos();
+		for(var i = 0; i < enemiesPositions.length; i++) {
+			if(enemiesPositions[i] === center - 15 
+				|| enemiesPositions[i] === center - 14
+				|| enemiesPositions[i] === center - 13
+				|| enemiesPositions[i] === center - 1
+				|| enemiesPositions[i] === center + 1
+				|| enemiesPositions[i] === center + 13
+				|| enemiesPositions[i] === center + 14
+				|| enemiesPositions[i] === center + 15) {
+					Combat.kill(enemy.getInstanceOfEnemy(enemiesPositions[i]));
+				}
+		}	
+	};
+	
 	return {
 		getRoomsLength: getRoomsLength,
 		getCollision: getCollision,
 		getExit: getExit,
 		draw: draw,
 		getRoom: getRoom,
-		setRoom: setRoom
+		setRoom: setRoom,
+		grenade: grenade
 	};
 
 };

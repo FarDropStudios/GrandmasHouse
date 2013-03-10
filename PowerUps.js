@@ -9,7 +9,7 @@ var PowerUps = {};
 	/**
 	 *	Usage of power ups 
 	 */
-	PowerUps.use = function(powerUps, x, y, player) {
+	PowerUps.use = function(powerUps, x, y, player, map) {
 		if(x > 850 && x < 918 && y > 25 && y < 94) {
 			determinePowerUpType(powerUps[0], player);
 			powerUps[0] = 0;
@@ -29,27 +29,27 @@ var PowerUps = {};
 		return powerUps;
 	};
 	
-	PowerUps.useShortcut = function(powerUps, num, player) {
+	PowerUps.useShortcut = function(powerUps, num, player, map) {
 		if(num === 1) {
-			determinePowerUpType(powerUps[0], player);
+			determinePowerUpType(powerUps[0], player, map);
 			powerUps[0] = 0;
 		} else if(num === 2) {
-			determinePowerUpType(powerUps[1], player);
+			determinePowerUpType(powerUps[1], player, map);
 			powerUps[1] = 0;
 		} else if(num === 3) {
-			determinePowerUpType(powerUps[2], player);
+			determinePowerUpType(powerUps[2], player, map);
 			powerUps[2] = 0;
 		} else if(num === 4) {
-			determinePowerUpType(powerUps[3], player);
+			determinePowerUpType(powerUps[3], player, map);
 			powerUps[3] = 0;
 		} else if(num === 5) {
-			determinePowerUpType(powerUps[4], player);
+			determinePowerUpType(powerUps[4], player, map);
 			powerUps[4] = 0;
 		}
 		return powerUps;
 	};
 	
-	function determinePowerUpType(powerUpType, player) {
+	function determinePowerUpType(powerUpType, player, map) {
 		if(powerUpType == 0) {
 			return; // do nothing
 		} else if(powerUpType == 1) {
@@ -69,6 +69,7 @@ var PowerUps = {};
 			//Dark Magic
 		} else if(powerUpType == 5) {
 			//Grenade
+			map.grenade(player.getPos());
 		} else {
 			console.log("U dun goofed");
 		}

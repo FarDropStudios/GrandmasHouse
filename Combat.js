@@ -24,3 +24,7 @@ var Combat = {};
 		console.log("!ATTACK! Striker: "+striker.getName()+" // Struck: "+struck.getName());
 		console.log(struck.getHealth());
 	};
+
+	Combat.kill = function(victim) {
+		victim.setHealth(0);
+	};

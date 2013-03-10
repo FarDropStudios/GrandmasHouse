@@ -65,7 +65,7 @@ gui.onclick = function(e) {
 		x: e.clientX - pos.left,
 		y: e.clientY - pos.top
 	}
-	player.setPowerUps(PowerUps.use(player.getPowerUps(), click.x, click.y, player));
+	player.setPowerUps(PowerUps.use(player.getPowerUps(), click.x, click.y, player, map));
 }
 
 function handleHammer(e) {
@@ -99,19 +99,19 @@ function onKeyDown(e) {
 	key = e.keyCode;
 	switch(key) {
 		case 49: //Power-up 1 	
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player));
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player, map));
 			break;
 		case 50: //Power-up 2 	
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 2, player));
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 2, player, map));
 			break;
 		case 51: //Power-up 3
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 3, player));
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 3, player, map));
 			break;
 		case 52: //Power-up 4
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 4, player));
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 4, player, map));
 			break;
 		case 53: //Power-up 5
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 5, player));
+			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 5, player, map));
 			break;
 		case 65: //A?
 		case 37: //Left

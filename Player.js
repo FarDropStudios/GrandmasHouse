@@ -363,3 +363,4 @@ var Player = function(startX, startY, tGameAssets) {
 		draw: draw
 	}
 }
+

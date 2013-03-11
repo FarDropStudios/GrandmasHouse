@@ -33,40 +33,22 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	var update = function(map) {
-		chance = Math.random();
-		if(chance <= 0.20) {
-			//DOWN
-			tileIndex+=14;
-			if(!map.getCollision(tileIndex)) {
-				y+=moveAmount;
-			} else {
-				tileIndex-=14;
-			}
-		} else if(chance > 0.20 && chance <= 0.30) {
-			//UP
-			tileIndex-=14;
-			if(!map.getCollision(tileIndex)) {
-				y-=moveAmount;
-			} else {
-				tileIndex+=14;
-			}
-		} else if(chance > 0.40 && chance <= 0.70) {
-			//LEFT
-			tileIndex-=1;
-			if(!map.getCollision(tileIndex)) {
-				x-=moveAmount;
-			} else {
-				tileIndex+=1;
-			}
-		} else {
-			//RIGHT
-			tileIndex+=1;
-			if(!map.getCollision(tileIndex)) {
-				x+=moveAmount;
-			} else {
-				tileIndex-=1;
-			}
+
+		var movingRight = false;
+		
+		if(map.getCollision(tileIndex + 1)){
+			movingRight = false;
+		} else if(map.getCollision(tileIndex - 1)){
+			movingRight = true;
 		}
+		
+		if(movingRight) {
+			tileIndex+=1;
+			x+=moveAmount;
+		} else if(!movingRight) {
+			tileIndex-=1;
+			x-=moveAmount;
+		} else { }
 	}
 
 	var draw = function(ctx) {

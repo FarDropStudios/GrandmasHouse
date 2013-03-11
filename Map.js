@@ -27,7 +27,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		rooms = [],
 		gameAssets = tGameAssets;
 		
-		for(var i = 0; i < 15; i++){
+		for(var i = 0; i < 30; i++){
 			if(i === 0){		//Bedroom
 				rooms[i] = factory.bedRoomGenerate();
 			}else if(i === 1){//Junk Room

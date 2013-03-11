@@ -98,7 +98,7 @@ var Player = function(startX, startY, tGameAssets) {
 			tileIndex=15;
 			var roomNumber = map.getRoom();
 			roomNumber++;
-			if(roomNumber >= 6){
+			if(roomNumber >= map.getRoomsLength()){
 				roomNumber = 0;
 			}
 			console.log(wearingGloves);

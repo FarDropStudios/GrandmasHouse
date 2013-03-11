@@ -342,9 +342,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 	};
 	
 	var darkMagicSplash = function(){
-		for(var i = 0; i < enemies.length; i++) {
-			enemy.getInstanceOfEnemy(enemies[i]).setHealth(0);
-		}
+		enemies.emptyEnemies();
 		console.log("DarkMagicHere")
 	};
 	return {

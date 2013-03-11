@@ -341,12 +341,19 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		flatten(center);	
 	};
 	
+	var darkMagicSplash = function(){
+		for(var i = 0; i < enemies.length; i++) {
+			enemy.getInstanceOfEnemy(enemies[i]).setHealth(0);
+		}
+		console.log("DarkMagicHere")
+	};
 	return {
 		flatten: flatten,
 		getRoomsLength: getRoomsLength,
 		getCollision: getCollision,
 		getExit: getExit,
 		draw: draw,
+		darkMagicSplash: darkMagicSplash,
 		getRoom: getRoom,
 		setRoom: setRoom,
 		grenade: grenade

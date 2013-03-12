@@ -35,19 +35,24 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 
 	var update = function(map) {
 		
-		if(!map.getCollision(tileIndex - 1) && leftBound) {
-			//GO LEFT
+		if(leftBound) {
 			tileIndex--;
-			x-=moveAmount;
+			if(!map.getCollision(tileIndex)) {
+				//GO LEFT
+				x-=moveAmount;
+			} else {
+				tileIndex++;
+				leftBound = false;
+			}
 		} else {
-			leftBound = false;
-		}
-		
-		if(!map.getCollision(tileIndex + 1) && !leftBound) {
 			tileIndex++;
-			x+=moveAmount;
-		} else {
-			leftBound = true;
+			if(!map.getCollision(tileIndex)) {
+				//GO RIGHT
+				x+=moveAmount;
+			} else {
+				tileIndex--;
+				leftBound = true;
+			}
 		}
 	}
 

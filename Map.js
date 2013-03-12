@@ -113,7 +113,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					}
 				}
 			}else {
-			for(var i = 0; i < enemyPositions.length; i++) {
+			for(var i = 0; i < enemyPositions.length; i++) { //Rubber Gloves logics
 				if(player.getPos() === enemyPositions[i]) {
 					if(source == "Player") {
 						Combat.attack(player, enemy.getInstanceOfEnemy(enemyPositions[i]));

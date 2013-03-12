@@ -7,6 +7,9 @@
  */
  
 var WigMonster = function(startX, startY, tTileIndex, tImage) {
+	var attackImage,
+	attackTimer = 0,
+	attackDraw = false;
 	var name = "WigDemon";
 	var x = startX,
 		sprite = tImage,
@@ -90,11 +93,31 @@ var WigMonster = function(startX, startY, tTileIndex, tImage) {
 			tick = 0;
 		}
 		ctx.drawImage(sprite,spriteX,0,60,60,x,y,60,60);
+		if(attackDraw && attackTimer < 15) {
+			attackTimer++;
+			ctx.drawImage(attackImage, x, y);
+		} else {
+			attackTimer = 0;
+			attackDraw = false; 
+		}
 	}
 	
 	var getName = function() {
 		return name;
 	}
+
+	var drawAttack = function(direction) {
+		switch(direction) {
+			case "left": attackImage = gameAssets.getAtkArrowRightToLeft();
+				break;
+			case "right": attackImage = gameAssets.getAtkArrowLeftToRight();
+				break;
+			case "up": attackImage = gameAssets.getAtkArrowDownToUp();
+				break;
+			case "down": attackImage = gameAssets.getAtkArrowUpToDown();
+				break;
+		}
+		attackDraw = true;
 
 	return {
 		getX: getX,

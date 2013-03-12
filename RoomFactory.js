@@ -3,12 +3,6 @@
 //RoomFactory.js
 //Has room archetype and room sequence logic
 
-/* ROOM KEY
- * 
- * R0 = JUNK ROOM
- * R1 = BASIC ROOM
- * R2 =  BED ROOM
- */
 
 var RoomFactory = function() {
 	
@@ -19,16 +13,23 @@ var RoomFactory = function() {
 		chance = Math.random();	
 	}
 	var kitchenGenerate = function(){
-		//holds basic archetype for kitchens
-		chance = Math.random
-		//randomize room
+		//returns basic archetype for kitchens
+		 return [101,303,303,303,666,303,303,303,303,303,303,303,303,102,
+	    	301,72,72,71,71,71,71,71,71,71,78,78,71,302,
+	    	301,72,72,71,71,71,71,71,71,71,72,72,72,302, //72 safe linolium 
+			301,71,72,71,71,71,71,71,71,71,71,71,72,302, //71 spawn linolium
+			301,71,72,71,71,71,71,71,71,71,71,72,72,3,	//78 counter with sink
+			301,71,72,71,71,71,71,71,71,71,71,71,72,302,
+	    	301,71,72,71,71,71,71,71,71,71,71,72,72,302,
+	    	301,71,72,71,71,71,71,71,71,71,71,72,72,302,
+	    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];
 	}
 	var junkRoomGenerate = function(){
 		//returns the room directly after the bedroom
 		return [101,303,303,303,303,666,
 				303,303,303,303,303,303,303,102,
-		    	301,2,2,1,8,9,1,1,0,0,2,2,2,302,
-		    	301,2,2,1,1,1,1,1,1,0,2,2,2,3,
+		    	301,2,2,1,8,9,1,1,0,0,2,2,2,302, //73 stairs
+		    	301,2,2,1,1,1,1,1,1,0,2,2,73,302,
 				301,0,2,1,1,1,0,0,1,0,1,2,2,302, //junk room
 				301,0,2,1,1,1,1,1,1,1,0,2,0,302,
 				301,0,2,1,2,2,2,2,2,2,2,2,0,302,

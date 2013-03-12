@@ -29,8 +29,12 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		for(var i = 0; i < 30; i++){
 			if(i === 0){		//Bedroom
 				rooms[i] = factory.bedRoomGenerate();
-			}else if(i === 1){//Junk Room
+			}else if(i === 1){	//Junk Room
 				rooms[i] = factory.junkRoomGenerate();
+			}else if(i === 2){	//Basic Rooms
+				rooms[i] = factory.basicRoomGenerate();
+			}else if(i === 3){	//Kitchen
+				rooms[i] = factory.kitchenGenerate();
 			}else{				//Basic Rooms
 				rooms[i] = factory.basicRoomGenerate();
 			}
@@ -53,6 +57,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			|| rooms[room][tile] === 12
 			|| rooms[room][tile] === 13
 			|| rooms[room][tile] === 14
+			|| rooms[room][tile] === 78
 			|| rooms[room][tile] === 19) {
 			return true;
 		//POWER UP LOGIC
@@ -167,16 +172,16 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		for(var i = 0; i < 126; i++) {
 			ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			//If block needs to be randomized
-			if(rooms[room][i] === 0) {
+			if(rooms[room][i] === 0 || rooms[room][i] === 71 ) {
 				var chance = Math.random();
 				//Randomize dat hoe
 				chancePowerUp = Math.random();
 				//20 percent chance that the block is solid, else its empty.
-				if(Math.random() < 0.20) {
+				if(chance < 0.20) {
 					 rooms[room][i] = 1;//obstacle
-				} else if(Math.random() > 0.21 && Math.random() < 0.25) {
+				} else if(chance > 0.21 && chance < 0.25) {
 					rooms[room][i] = 10; //enemy
-				} else if(Math.random() > .25 && Math.random() < .27){
+				} else if(chance > .25 && chance < .27){
 					 rooms[room][i] = 999;///power up
 					if(chancePowerUp > 0.8){
 					//do nothing -- its FEBREEZE
@@ -208,6 +213,10 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				//EXIT BLOCK
 				exit = index;
 				ctx.drawImage(gameAssets.getRightDoor(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 73) {
+				//EXIT BLOCK
+				exit = index;
+				ctx.drawImage(gameAssets.getStairs(),blockX,blockY,60,60);
 			}else if(rooms[room][i] === 11){ 
 				//bedleft
 				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
@@ -278,6 +287,15 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			} else if(rooms[room][i] === 666){
 				//Window
 				ctx.drawImage(gameAssets.getBasicWallWindow(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 78){
+				//Counter With Sink
+				ctx.drawImage(gameAssets.getCounterBasicWithSink(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 71){
+				//Linolium
+				ctx.drawImage(gameAssets.getLinolium(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 71){
+				//Linolium
+				ctx.drawImage(gameAssets.getLinolium(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 8) {
 				//CouchLeft
 				ctx.drawImage(gameAssets.getCouchLeft(),blockX,blockY,60,60);

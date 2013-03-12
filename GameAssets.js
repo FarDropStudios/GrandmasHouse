@@ -62,7 +62,7 @@ var GameAssets = function() {
 		oven = loader.addImage('images/houseObjects/oven.png');
 		linolium = loader.addImage('images/wallsFloor/linolium.png');
 		stairs = loader.addImage('images/wallsFloor/stairs.png');
-		counterBasic = loader.addImage('images/wallsFloor/counterBasicWithSink.png');
+		counterBasicWithSink = loader.addImage('images/wallsFloor/counterBasicWithSink.png');
 
 	loader.addCompletionListener(function() {
 		complete = true;

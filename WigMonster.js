@@ -123,6 +123,7 @@ var WigMonster = function(startX, startY, tTileIndex, tImage) {
 		getX: getX,
 		getY: getY,
 		getName: getName,
+		drawAttack: drawAttack,
 		getPos: getPos,
 		getHealth: getHealth,
 		setHealth: setHealth,

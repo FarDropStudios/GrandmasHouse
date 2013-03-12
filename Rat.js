@@ -34,7 +34,6 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	var update = function(map) {
-		
 		if(leftBound) {
 			tileIndex--;
 			if(!map.getCollision(tileIndex)) {

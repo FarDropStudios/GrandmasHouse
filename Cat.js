@@ -13,7 +13,9 @@ var Cat = function(startX, startY, tTileIndex, tImage) {
 		tileIndex = tTileIndex, 
 		health = 3,
 		moveAmount = 60,
-		chance;
+		chance,
+		leftBound = true,
+		upBound = false;
 
 	var getPos = function() {
 		return tileIndex;
@@ -33,38 +35,42 @@ var Cat = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	var update = function(map) {
-		chance = Math.random();
-		if(chance <= 0.20) {
-			//DOWN
-			tileIndex+=14;
+		if(leftBound && !upBound) {
+			tileIndex--;
 			if(!map.getCollision(tileIndex)) {
-				y+=moveAmount;
-			} else {
-				tileIndex-=14;
-			}
-		} else if(chance > 0.20 && chance <= 0.30) {
-			//UP
-			tileIndex-=14;
-			if(!map.getCollision(tileIndex)) {
-				y-=moveAmount;
-			} else {
-				tileIndex+=14;
-			}
-		} else if(chance > 0.40 && chance <= 0.70) {
-			//LEFT
-			tileIndex-=1;
-			if(!map.getCollision(tileIndex)) {
+				//GO LEFT
 				x-=moveAmount;
 			} else {
-				tileIndex+=1;
+				tileIndex++;
+				leftBound = false;
 			}
 		} else {
-			//RIGHT
-			tileIndex+=1;
+			tileIndex++;
 			if(!map.getCollision(tileIndex)) {
+				//GO RIGHT
 				x+=moveAmount;
 			} else {
-				tileIndex-=1;
+				tileIndex--;
+				leftBound = true;
+			}
+		}
+		if(!leftBound && upBound) {
+			tileIndex -= 14;
+			if(!map.getCollision(tileIndex)) {
+				//GO Up
+				x-=moveAmount;
+			} else {
+				tileIndex += 14;
+				upBound = false;
+			}
+		} else {
+			tileIndex += 14;
+			if(!map.getCollision(tileIndex)) {
+				//GO RIGHT
+				x+=moveAmount;
+			} else {
+				tileIndex -= 14;
+				upBound = true;
 			}
 		}
 	}

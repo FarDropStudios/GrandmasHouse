@@ -51,6 +51,7 @@ var GameAssets = function() {
 		gmaNote = loader.addImage('images/MiscImages/gmaNote.png');
 		pcTopLeft = loader.addImage('images/wallsFloor/pcTopLeft.png');
 		pcTopRight = loader.addImage('images/wallsFloor/pcTopRight.png');
+		atkArrow = loader.addImage('images/MiscImages/AtkArrow.png');
 		deadCat = loader.addImage('images/houseOccupants/deadCat.png');
 		deadDog = loader.addImage('images/houseOccupants/deadDog.png');
 		deadRat = loader.addImage('images/houseOccupants/deadRat.png');
@@ -67,6 +68,9 @@ var GameAssets = function() {
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getAtkArrow = function(){
+		return atkArrow;
 	}
 	var getDeadDog = function() {
 		return deadDog;
@@ -262,6 +266,7 @@ var GameAssets = function() {
 		getDog:getDog,
 		getCat:getCat,
 		getBox:getBox,
+		getAtkArrow: getAtkArrow,
 		getCharacter: getCharacter,
 		getTomLeft: getTomLeft,
 		getTomBack: getTomBack,

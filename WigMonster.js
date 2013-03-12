@@ -131,4 +131,4 @@ var WigMonster = function(startX, startY, tTileIndex, tImage) {
 		draw: draw
 	}	
 }
-//AI: Divebomb towards player.
+//AI: Divebomb towards player

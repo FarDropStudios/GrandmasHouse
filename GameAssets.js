@@ -97,6 +97,9 @@ var GameAssets = function() {
 	var getStairs = function(){
 		return stairs;
 	}
+	var getLinolium = function(){
+		return linolium;
+	}
 	var getDeadDog = function() {
 		return deadDog;
 	}
@@ -307,6 +310,7 @@ var GameAssets = function() {
 		getCouchRight: getCouchRight,
 		getFloorTile: getFloorTile,
 		getWigDemon: getWigDemon,
+		getLinolium: getLinolium,
 		getBasicWallBottom: getBasicWallBottom,
 		getBasicWallTop: getBasicWallTop,
 		getBasicWallLeft: getBasicWallLeft,

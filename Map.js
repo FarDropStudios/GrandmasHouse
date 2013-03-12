@@ -290,7 +290,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			} else if(rooms[room][i] === 78){
 				//Counter With Sink
 				ctx.drawImage(gameAssets.getCounterBasicWithSink(),blockX,blockY,60,60);
-			} else if(rooms[room][i] === 71){
+			} else if(rooms[room][i] === 72){
 				//Linolium
 				ctx.drawImage(gameAssets.getLinolium(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 71){

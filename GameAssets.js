@@ -51,10 +51,15 @@ var GameAssets = function() {
 		gmaNote = loader.addImage('images/MiscImages/gmaNote.png');
 		pcTopLeft = loader.addImage('images/wallsFloor/pcTopLeft.png');
 		pcTopRight = loader.addImage('images/wallsFloor/pcTopRight.png');
+		atkArrowLeftToRight = loader.addImage('images/MiscImages/AtkArrowLeftToRight.png');
+		atkArrowRightToLeft = loader.addImage('images/MiscImages/AtkArrowRightToLeft.png');
+		atkArrowDownToUp = loader.addImage('images/MiscImages/AtkArrowDownToUp.png');
+		atkArrowUpToDown = loader.addImage('images/MiscImages/AtkArrowUpToDown.png');
 		deadCat = loader.addImage('images/houseOccupants/deadCat.png');
 		deadDog = loader.addImage('images/houseOccupants/deadDog.png');
 		deadRat = loader.addImage('images/houseOccupants/deadRat.png');
 		deadTom = loader.addImage('images/houseOccupants/deadThomas.png');
+		
 
 	loader.addCompletionListener(function() {
 		complete = true;
@@ -67,6 +72,18 @@ var GameAssets = function() {
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getAtkArrowLeftToRight = function(){
+		return atkArrowLeftToRight;
+	}
+	var getAtkArrowRightToLeft = function(){
+		return atkArrowRightToLeft;
+	}
+	var getAtkArrowUpToDown = function(){
+		return atkArrowUptoDown;
+	}
+	var getAtkArrowDownToUp = function(){
+		return atkArrowDownToUp;
 	}
 	var getDeadDog = function() {
 		return deadDog;
@@ -262,6 +279,10 @@ var GameAssets = function() {
 		getDog:getDog,
 		getCat:getCat,
 		getBox:getBox,
+		getAtkArrowLeftToRight: getAtkArrowLeftToRight,
+		getAtkArrowRightToLeft: getAtkArrowRightToLeft,
+		getAtkArrowDownToUp: getAtkArrowDownToUp,
+		getAtkArrowUpToDown: getAtkArrowUpToDown,
 		getCharacter: getCharacter,
 		getTomLeft: getTomLeft,
 		getTomBack: getTomBack,

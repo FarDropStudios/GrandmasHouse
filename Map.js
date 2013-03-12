@@ -15,7 +15,6 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 	var blockX = 0,
 		tick = 0,
 		index = 0,
-		chance,
 		chancePowerUp,
 		exit,
 		blockY = 0,
@@ -113,7 +112,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					}
 				}
 			}else {
-			for(var i = 0; i < enemyPositions.length; i++) {
+			for(var i = 0; i < enemyPositions.length; i++) { //Rubber Gloves logics
 				if(player.getPos() === enemyPositions[i]) {
 					if(source == "Player") {
 						Combat.attack(player, enemy.getInstanceOfEnemy(enemyPositions[i]));
@@ -169,15 +168,15 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			//If block needs to be randomized
 			if(rooms[room][i] === 0) {
-				chance = Math.random();
+				var chance = Math.random();
 				//Randomize dat hoe
 				chancePowerUp = Math.random();
 				//20 percent chance that the block is solid, else its empty.
-				if(chance < 0.20) {
+				if(Math.random() < 0.20) {
 					 rooms[room][i] = 1;//obstacle
-				} else if(chance > 0.21 && chance < 0.25) {
+				} else if(Math.random() > 0.21 && Math.random() < 0.25) {
 					rooms[room][i] = 10; //enemy
-				} else if(chance > .25 && chance < .27){
+				} else if(Math.random() > .25 && Math.random() < .27){
 					 rooms[room][i] = 999;///power up
 					if(chancePowerUp > 0.8){
 					//do nothing -- its FEBREEZE

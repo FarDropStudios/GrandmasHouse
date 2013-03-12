@@ -304,6 +304,19 @@ var Player = function(startX, startY, tGameAssets) {
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 
+	var drawAttack(direction) {
+		switch(direction) {
+			case "left": //Draw attack Image
+				break;
+			case "right": //Draw attack Image
+				break;
+			case "up": //Draw
+				break;
+			case "down": //Draw
+				break;
+		}
+	}
+	
 	var moved = function() {
 		lastMove = 0;	
 	}

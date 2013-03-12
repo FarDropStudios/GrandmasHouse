@@ -118,7 +118,7 @@ var WigMonster = function(startX, startY, tTileIndex, tImage) {
 				break;
 		}
 		attackDraw = true;
-
+	}
 	return {
 		getX: getX,
 		getY: getY,

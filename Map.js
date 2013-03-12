@@ -345,6 +345,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		enemies.emptyEnemies();
 		console.log("DarkMagicHere")
 	};
+	
 	return {
 		flatten: flatten,
 		getRoomsLength: getRoomsLength,

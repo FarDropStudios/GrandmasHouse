@@ -230,6 +230,7 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 
 	var exitCheck = function() {
+		console.log("exit");
 		if(tileIndex === map.getExit()) {
 			wearingGloves = false;
 			x = 60;

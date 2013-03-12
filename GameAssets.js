@@ -59,7 +59,10 @@ var GameAssets = function() {
 		deadDog = loader.addImage('images/houseOccupants/deadDog.png');
 		deadRat = loader.addImage('images/houseOccupants/deadRat.png');
 		deadTom = loader.addImage('images/houseOccupants/deadThomas.png');
-		
+		oven = loader.addImage('images/houseObjects/oven.png');
+		linolium = loader.addImage('images/wallsFloor/linolium.png');
+		stairs = loader.addImage('images/wallsFloor/stairs.png');
+		counterBasic = loader.addImage('images/wallsFloor/counterBasicWithSink.png');
 
 	loader.addCompletionListener(function() {
 		complete = true;
@@ -84,6 +87,15 @@ var GameAssets = function() {
 	}
 	var getAtkArrowDownToUp = function(){
 		return atkArrowDownToUp;
+	}
+	var getCounterBasicWithSink = function() {
+		return counterBasicWithSink;
+	}
+	var getOven = function() {
+		return oven;
+	}
+	var getStairs = function(){
+		return stairs;
 	}
 	var getDeadDog = function() {
 		return deadDog;
@@ -303,6 +315,9 @@ var GameAssets = function() {
 		getUpperWallRight: getUpperWallRight,
 		getBottomWallRight: getBottomWallRight,
 		getBottomWallLeft: getBottomWallLeft,
+		getStairs: getStairs,
+		getOven: getOven,
+		getCounterBasicWithSink: getCounterBasicWithSink,
 		getBasicWallWindow: getBasicWallWindow
 	}	
 }

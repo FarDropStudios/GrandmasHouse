@@ -74,17 +74,19 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 		return name;
 	}
 	var drawAttack = function(direction) {
-	switch(direction) {
-		case "left": attackImage = gameAssets.getAtkArrowRightToLeft();
-			break;
-		case "right": attackImage = gameAssets.getAtkArrowLeftToRight();
-			break;
-		case "up": attackImage = gameAssets.getAtkArrowDownToUp();
-			break;
-		case "down": attackImage = gameAssets.getAtkArrowUpToDown();
-			break;
-	}
+		switch(direction) {
+			case "left": attackImage = gameAssets.getAtkArrowRightToLeft();
+				break;
+			case "right": attackImage = gameAssets.getAtkArrowLeftToRight();
+				break;
+			case "up": attackImage = gameAssets.getAtkArrowDownToUp();
+				break;
+			case "down": attackImage = gameAssets.getAtkArrowUpToDown();
+				break;
+		}
 	attackDraw = true;
+	}
+	
 	return {
 		drawAttack: drawAttack,
 		getX: getX,

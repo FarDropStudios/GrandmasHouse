@@ -80,7 +80,7 @@ var GameAssets = function() {
 		return atkArrowRightToLeft;
 	}
 	var getAtkArrowUpToDown = function(){
-		return atkArrowUptoDown;
+		return atkArrowUpToDown;
 	}
 	var getAtkArrowDownToUp = function(){
 		return atkArrowDownToUp;

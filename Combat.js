@@ -18,18 +18,23 @@ var Combat = {};
 	//call the drawAttack
 	//update health and UI
 	Combat.attack = function(striker, struck) {
-		//-1: Right, +1 = Left, +14 = Up, -14 = Down
-		var difference = striker.getPos() - struck.getPos();
-		switch(difference) {
-			case -1: //striker.drawAttack("right");
-				break;
-			case 1: //striker.drawAttack("left");
-				break;
-			case 14: //striker.drawAttack("up");
-				break;
-			case -14: //stricker.drawAttack("down");
-				break;
+		var xDif = striker.getX() - struck.getX();
+		var yDif = striker.getY() - struck.getY();
+		
+		if(xDif < 0 && yDif === 0 ) {
+			//RIGHT
+			striker.drawAttack("right");
+		} else if(xDif > 0 && yDif === 0) {
+			//LEFT
+			striker.drawAttack("left");
+		} else if(xDif === 0 && yDif > 0) {
+			//DOWN
+			striker.drawAttack("down");
+		} else if(xDif === 0 && yDif < 0) {
+			//UP
+			striker.drawAttack("up");
 		}
+		
 		//struck.drawDefend();
 		struck.setHealth(struck.getHealth() - 1);
 		console.log("!ATTACK! Striker: "+striker.getName()+" // Struck: "+struck.getName());

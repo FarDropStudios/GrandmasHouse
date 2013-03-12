@@ -7,6 +7,10 @@
 
 var Player = function(startX, startY, tGameAssets) {
 	var name = "Player";
+	//Attack Animation Variables
+	var attackImage,
+		attackTimer = 0,
+		attackDraw = false;
 	var x = startX,
 		mindPosX = 0,
 		powerUps = [0,0,0,0,0],
@@ -105,7 +109,6 @@ var Player = function(startX, startY, tGameAssets) {
 			wearingGloves = false;
 			map.setRoom(roomNumber);
 		}
-		console.log(tileIndex);
 	}
 
 	var up = function() {
@@ -230,7 +233,6 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 
 	var exitCheck = function() {
-		console.log("exit");
 		if(tileIndex === map.getExit()) {
 			wearingGloves = false;
 			x = 60;
@@ -302,22 +304,32 @@ var Player = function(startX, startY, tGameAssets) {
 		
 		//CHARACTER
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
-	}
-
-	/*
-	var drawAttack(direction) {
-		switch(direction) {
-			case "left": //Draw attack Image
-				break;
-			case "right": //Draw attack Image
-				break;
-			case "up": //Draw
-				break;
-			case "down": //Draw
-				break;
+		
+		//DRAW ATTK
+		if(attackDraw && attackTimer < 15) {
+			attackTimer++;
+			ctx.drawImage(attackImage, x, y);
+		} else {
+			attackTimer = 0;
+			attackDraw = false; 
 		}
 	}
-	*/
+
+
+	var drawAttack = function(direction) {
+		switch(direction) {
+			case "left": attackImage = gameAssets.getAtkArrowRightToLeft();
+				break;
+			case "right": attackImage = gameAssets.getAtkArrowLeftToRight();
+				break;
+			case "up": attackImage = gameAssets.getAtkArrowDownToUp();
+				break;
+			case "down": attackImage = gameAssets.getAtkArrowUpToDown();
+				break;
+		}
+		attackDraw = true;
+	}
+
 	var moved = function() {
 		lastMove = 0;	
 	}
@@ -331,6 +343,7 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 	
 	return {
+		drawAttack: drawAttack,
 		left: left,
 		right: right,
 		up: up,

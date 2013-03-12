@@ -12,6 +12,7 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 		y = startY,
 		tileIndex = tTileIndex, 
 		health = 3,
+		leftBound = true,
 		moveAmount = 60,
 		chance;
 
@@ -33,22 +34,21 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	var update = function(map) {
-
-		var movingRight = false;
 		
-		if(map.getCollision(tileIndex + 1)){
-			movingRight = false;
-		} else if(map.getCollision(tileIndex - 1)){
-			movingRight = true;
+		if(!map.getCollision(tileIndex - 1) && leftBound) {
+			//GO LEFT
+			tileIndex--;
+			x-=moveAmount;
+		} else {
+			leftBound = false;
 		}
 		
-		if(movingRight) {
-			tileIndex+=1;
+		if(!map.getCollision(tileIndex + 1) && !leftBound) {
+			tileIndex++;
 			x+=moveAmount;
-		} else if(!movingRight) {
-			tileIndex-=1;
-			x-=moveAmount;
-		} else { }
+		} else {
+			leftBound = true;
+		}
 	}
 
 	var draw = function(ctx) {

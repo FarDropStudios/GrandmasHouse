@@ -84,7 +84,7 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 			case "down": attackImage = gameAssets.getAtkArrowUpToDown();
 				break;
 		}
-	attackDraw = true;
+		attackDraw = true;
 	}
 	
 	return {

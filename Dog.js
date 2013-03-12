@@ -6,6 +6,9 @@
  */
  
 var Dog = function(startX, startY, tTileIndex, tImage) {
+	var attackImage,
+	attackTimer = 0,
+	attackDraw = false;
 	var name = "Dog";
 	var x = startX,
 		image = tImage,
@@ -72,15 +75,37 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 
 	var draw = function(ctx) {
 		ctx.drawImage(image, x, y, 60, 60);
+		if(attackDraw && attackTimer < 15) {
+			attackTimer++;
+			ctx.drawImage(attackImage, x, y);
+		} else {
+			attackTimer = 0;
+			attackDraw = false; 
+		}
 	}
 	
 	var getName = function() {
 		return name;
 	}
-
+	
+	var drawAttack = function(direction) {
+		switch(direction) {
+			case "left": attackImage = gameAssets.getAtkArrowRightToLeft();
+				break;
+			case "right": attackImage = gameAssets.getAtkArrowLeftToRight();
+				break;
+			case "up": attackImage = gameAssets.getAtkArrowDownToUp();
+				break;
+			case "down": attackImage = gameAssets.getAtkArrowUpToDown();
+				break;
+		}
+		attackDraw = true;
+	}
+	
 	return {
 		getX: getX,
 		getY: getY,
+		drawAttack: drawAttack,
 		getName: getName,
 		getPos: getPos,
 		getHealth: getHealth,

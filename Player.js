@@ -304,6 +304,7 @@ var Player = function(startX, startY, tGameAssets) {
 		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 	}
 
+	/*
 	var drawAttack(direction) {
 		switch(direction) {
 			case "left": //Draw attack Image
@@ -316,7 +317,7 @@ var Player = function(startX, startY, tGameAssets) {
 				break;
 		}
 	}
-	
+	*/
 	var moved = function() {
 		lastMove = 0;	
 	}

@@ -19,7 +19,7 @@ var Combat = {};
 	//update health and UI
 	Combat.attack = function(striker, struck) {
 		//-1: Right, +1 = Left, +14 = Up, -14 = Down
-		var difference = striker.getPos() - stuck.getPos();
+		var difference = striker.getPos() - struck.getPos();
 		switch(difference) {
 			case -1: //striker.drawAttack("right");
 				break;

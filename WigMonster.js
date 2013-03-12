@@ -24,6 +24,14 @@ var WigMonster = function(startX, startY, tTileIndex, tImage) {
 		return tileIndex;
 	}
 	
+	var getX = function() {
+		return x;
+	}
+	
+	var getY = function() {
+		return y;
+	}
+	
 	var getHealth = function() {
 		return health;
 	}
@@ -89,6 +97,8 @@ var WigMonster = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	return {
+		getX: getX,
+		getY: getY,
 		getName: getName,
 		getPos: getPos,
 		getHealth: getHealth,

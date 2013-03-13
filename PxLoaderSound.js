@@ -51,7 +51,7 @@ function PxLoaderSound(id, url, tags, priority) {
         if (iDevice) {
             loader.onTimeout(self);
         } else {
-            this.sound['load']();
+            //this.sound['load']();
         }
     };
 

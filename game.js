@@ -68,7 +68,16 @@ gui.onclick = function(e) {
 soundManager.onready(function() {
   if (soundManager.supported()) {
     // SM2 is ready to go!
-    // soundManager.createSound(), etc. <<<<THIS IS WHAT I CHANGED TO CAUSE ERROR TG
+    soundManager.createSound({
+  id: 'mySound',
+  url: '/GrandmasHouse/Sound/sadBoy.mp3',
+  autoLoad: true,
+  autoPlay: false,
+  onload: function() {
+    alert('The sound '+this.id+' loaded!');
+  },
+  volume: 50
+	});// soundManager.createSound(), etc. <<<<THIS IS WHAT I CHANGED TO CAUSE ERROR TG
   } else {
     // unsupported/error case
   }

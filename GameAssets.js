@@ -63,7 +63,8 @@ var GameAssets = function() {
 		linolium = loader.addImage('images/wallsFloor/linolium.png');
 		stairs = loader.addImage('images/wallsFloor/stairs.png');
 		counterBasicWithSink = loader.addImage('images/wallsFloor/counterBasicWithSink.png');
-
+		sadBoy = loader.addSound('sadBoy.mp3');
+		
 	loader.addCompletionListener(function() {
 		complete = true;
 	});

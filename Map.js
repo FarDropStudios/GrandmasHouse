@@ -203,7 +203,12 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					rooms[room][i] = 2; //floor
 				}
 			}
-			if(rooms[room][i] === 1) {
+			if(rooms[room][i] === 0) {
+				ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
+			} else if(rooms[room][i] === 71){
+				//Linolium
+				ctx.drawImage(gameAssets.getLinolium(),blockX,blockY,60,60);
+			}else if(rooms[room][i] === 1) {
 				//WALL BLOCK
 				ctx.drawImage(gameAssets.getBox(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 2) {
@@ -293,9 +298,6 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			} else if(rooms[room][i] === 72){
 				//Linolium
 				ctx.drawImage(gameAssets.getLinolium(),blockX,blockY,60,60);
-			} else if(rooms[room][i] === 71){
-				//Linolium
-				ctx.drawImage(gameAssets.getLinolium(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 8) {
 				//CouchLeft
 				ctx.drawImage(gameAssets.getCouchLeft(),blockX,blockY,60,60);
@@ -306,13 +308,15 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				//Draw an enemy
 				if(renderEnemies) {
 					if(Math.random() > 0.65){
-						enemy.addCat(blockX, blockY, index);
+						enemy.addGmaEnemy(blockX,blockY,index);
 					} else if(Math.random() > .35){ 
 						enemy.addRat(blockX,blockY, index);	
 					} else if(Math.random() > .20) {
 					  	enemy.addDog(blockX,blockY, index);
-					} else {  	
+					} else if(Math.random() > .10){  	
 						enemy.addWigDemon(blockX, blockY, index); 
+					} else if(Math.random() < .05){
+						enemy.addCat(blockX, blockY, index);
 					}	
 				}
 			}

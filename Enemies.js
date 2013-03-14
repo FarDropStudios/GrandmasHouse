@@ -66,6 +66,9 @@ var Enemies = function() {
 	var addWigDemon = function(startX, startY, startTileIndex) {
 		enemies.push(new WigMonster(startX, startY, startTileIndex, gameAssets.getWigDemon()));
 	}
+	var addGmaEnemy = function(startX, startY, startTileIndex) {
+		enemies.push(new GrandmaEnemy(startX, startY, startTileIndex, gameAssets.getGrandma()));
+	}
 	var draw = function(ctx) {
 		for(var i = 0; i < enemies.length; i++) {
 			enemies[i].draw(ctx);
@@ -76,6 +79,7 @@ var Enemies = function() {
 		getInstanceOfEnemy: getInstanceOfEnemy,
 		setGameAssets: setGameAssets,
 		emptyEnemies: emptyEnemies,
+		addGmaEnemy: addGmaEnemy,
 		getEnemyPos: getEnemyPos,
 		update: update,
 		addRat: addRat,

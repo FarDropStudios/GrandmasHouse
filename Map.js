@@ -47,6 +47,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		if(rooms[room][tile] === 1 
 			|| rooms[room][tile] === 8 
 			|| rooms[room][tile] === 9
+			|| rooms[room][tile] === 1001
+			|| rooms[room][tile] === 1002
+			|| rooms[room][tile] === 1003
 			|| rooms[room][tile] === 301
 			|| rooms[room][tile] === 302
 			|| rooms[room][tile] === 303
@@ -364,7 +367,8 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		for(var i = 0; i < indexMods.length; i++) {
 			var tempIndex = indexMods[i]
 			var tempIndex = center + tempIndex
-			if(rooms[room][tempIndex] === 1 || rooms[room][tempIndex] === 11) {
+			if(rooms[room][tempIndex] === 1 || rooms[room][tempIndex] === 11 || rooms[room][tempIndex] === 1001 
+				|| rooms[room][tempIndex] === 1002 || rooms[room][tempIndex] === 1003 ) {
 				rooms[room][tempIndex] = 2;
 			}
 		}

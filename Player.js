@@ -108,6 +108,10 @@ var Player = function(startX, startY, tGameAssets) {
 			console.log(wearingGloves);
 			wearingGloves = false;
 			map.setRoom(roomNumber);
+			if(this.getHealth() === 0){
+				dead = true;
+				ctx.drawImage(getDeadTom(),60,60);
+			}
 		}
 	}
 
@@ -247,71 +251,75 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 
 	var draw = function(ctx, guiCtx) {
-		if(lastMove > 250) {
-			if(tick < moveTimer) {
-				tick++;
-			}
-			if(tick === moveTimer) {
-				if(spriteX === spriteLength) {
-					spriteX = 0;
-					lastMove = 0;
-				} else {
-					spriteX += 60;
+		if(!dead) {
+			if(lastMove > 250) {
+				if(tick < moveTimer) {
+					tick++;
 				}
-				tick = 0;
-				ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
-			}
-		} else {
-			lastMove++;
-			spriteX = 0;
-		}
-		//POWER UPS
-		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 26, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 126, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 226, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 326, 68, 69);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 847, 426, 68, 69);
-		var powPosY = 30; 
-		for(var i = 0; i < powerUps.length; i++) {
-				switch(powerUps[i]) {
-					case 0: powPosY += 100;
-							break;
-					case 1: guiCtx.drawImage(gameAssets.getFebreeze(), 850, powPosY);
-							powPosY += 100;
-							break;
-					case 2: guiCtx.drawImage(gameAssets.getGlove(), 850, powPosY);
-							powPosY += 100;
-							break;
-					case 3: guiCtx.drawImage(gameAssets.getLightMagic(),0,0,60,60,850,powPosY,60,60);
-						//drawImage(gameAssets.getLightMagic(),0,60,480,60,850,powPosY,60,60); help
-							powPosY += 100;
-							break;
-					case 4: guiCtx.drawImage(gameAssets.getDarkMagic(),0,0,60,60,850,powPosY,60,60);
-						///drawImage(gameAssets.getLightMagic(),0,60,600,60,850,powPosY,60,60);	help
-							powPosY += 100;
-							break;
-					case 5: guiCtx.drawImage(gameAssets.getGrenade(), 850, powPosY);
-							powPosY += 100;
-							break;
+				if(tick === moveTimer) {
+					if(spriteX === spriteLength) {
+						spriteX = 0;
+						lastMove = 0;
+					} else {
+						spriteX += 60;
+					}
+					tick = 0;
+					ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 				}
-		}
-		
-		//HEALTH & MENTAL BAR 
-		guiCtx.drawImage(gameAssets.getBorderImage(), 18, 548, 68, 69);
-		guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 550, 60, 60);
-		guiCtx.drawImage(gameAssets.getBorderImage(), 94, 548, 69, 69);
-		guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 558, 60, 60);
-		
-		//CHARACTER
-		ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
-		
-		//DRAW ATTK
-		if(attackDraw && attackTimer < 15) {
-			attackTimer++;
-			ctx.drawImage(attackImage, x, y);
-		} else {
-			attackTimer = 0;
-			attackDraw = false; 
+			} else {
+				lastMove++;
+				spriteX = 0;
+			}
+			//POWER UPS
+			guiCtx.drawImage(gameAssets.getBorderImage(), 847, 26, 68, 69);
+			guiCtx.drawImage(gameAssets.getBorderImage(), 847, 126, 68, 69);
+			guiCtx.drawImage(gameAssets.getBorderImage(), 847, 226, 68, 69);
+			guiCtx.drawImage(gameAssets.getBorderImage(), 847, 326, 68, 69);
+			guiCtx.drawImage(gameAssets.getBorderImage(), 847, 426, 68, 69);
+			var powPosY = 30; 
+			for(var i = 0; i < powerUps.length; i++) {
+					switch(powerUps[i]) {
+						case 0: powPosY += 100;
+								break;
+						case 1: guiCtx.drawImage(gameAssets.getFebreeze(), 850, powPosY);
+								powPosY += 100;
+								break;
+						case 2: guiCtx.drawImage(gameAssets.getGlove(), 850, powPosY);
+								powPosY += 100;
+								break;
+						case 3: guiCtx.drawImage(gameAssets.getLightMagic(),0,0,60,60,850,powPosY,60,60);
+							//drawImage(gameAssets.getLightMagic(),0,60,480,60,850,powPosY,60,60); help
+								powPosY += 100;
+								break;
+						case 4: guiCtx.drawImage(gameAssets.getDarkMagic(),0,0,60,60,850,powPosY,60,60);
+							///drawImage(gameAssets.getLightMagic(),0,60,600,60,850,powPosY,60,60);	help
+								powPosY += 100;
+								break;
+						case 5: guiCtx.drawImage(gameAssets.getGrenade(), 850, powPosY);
+								powPosY += 100;
+								break;
+					}
+			}
+			
+			//HEALTH & MENTAL BAR 
+			guiCtx.drawImage(gameAssets.getBorderImage(), 18, 548, 68, 69);
+			guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 550, 60, 60);
+			guiCtx.drawImage(gameAssets.getBorderImage(), 94, 548, 69, 69);
+			guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 558, 60, 60);
+			
+			//CHARACTER
+			ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
+			
+			//DRAW ATTK
+			if(attackDraw && attackTimer < 15) {
+				attackTimer++;
+				ctx.drawImage(attackImage, x, y);
+			} else {
+				attackTimer = 0;
+				attackDraw = false; 
+			}
+		}else{
+			ctx.drawImage(gameAssets.getDeadTom(),x,y,60,60);
 		}
 	}
 

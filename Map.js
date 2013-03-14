@@ -228,7 +228,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			}else if(rooms[room][i] === 11){ 
 				//bedleft
 				ctx.drawImage(gameAssets.getBedLeft(), blockX, blockY, 60,60);
-			}else if(rooms[room][i] === 11){ 
+			}else if(rooms[room][i] === 19){ 
 				//night stand
 				ctx.drawImage(gameAssets.getNightStand(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 999){ 
@@ -317,11 +317,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					} else if(Math.random() > .35){ 
 						enemy.addRat(blockX,blockY, index);	
 					} else if(Math.random() > .20) {
-					  	enemy.addDog(blockX,blockY, index);
+					  	enemy.addCat(blockX,blockY, index);
 					} else if(Math.random() > .10){  	
-						enemy.addWigDemon(blockX, blockY, index); 
+						enemy.addDog(blockX, blockY, index); 
 					} else if(Math.random() < .05){
-						enemy.addCat(blockX, blockY, index);
+						enemy.addWigDemon(blockX, blockY, index);
 					}	
 				}
 			}

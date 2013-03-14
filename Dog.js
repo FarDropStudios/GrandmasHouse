@@ -59,6 +59,7 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 			tileIndex-=1;
 			if(!map.getCollision(tileIndex)) {
 				x-=moveAmount;
+				image = gameAssets.getDog();
 			} else {
 				tileIndex+=1;
 			}
@@ -67,6 +68,7 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 			tileIndex+=1;
 			if(!map.getCollision(tileIndex)) {
 				x+=moveAmount;
+				image = gameAssets.getOppositeDog();
 			} else {
 				tileIndex-=1;
 			}

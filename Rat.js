@@ -41,6 +41,7 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 			tileIndex--;
 			if(!map.getCollision(tileIndex)) {
 				//GO LEFT
+				image = gameAssets.getRat();
 				x-=moveAmount;
 			} else {
 				tileIndex++;
@@ -50,6 +51,7 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 			tileIndex++;
 			if(!map.getCollision(tileIndex)) {
 				//GO RIGHT
+				image = gameAssets.getOppositeRat();
 				x+=moveAmount;
 			} else {
 				tileIndex--;

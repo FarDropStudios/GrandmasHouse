@@ -58,6 +58,9 @@ var GameAssets = function() {
 		deadCat = loader.addImage('images/houseOccupants/deadCat.png');
 		deadDog = loader.addImage('images/houseOccupants/deadDog.png');
 		deadRat = loader.addImage('images/houseOccupants/deadRat.png');
+		oppositeRat = loader.addImage('images/houseOccupants/oppositeRat.png');
+		oppositeCat = loader.addImage('images/houseOccupants/oppositeCat.png');
+		oppositeDog = loader.addImage('images/houseOccupants/oppositeDog.png');
 		deadTom = loader.addImage('images/houseOccupants/deadThomas.png');
 		oven = loader.addImage('images/houseObjects/oven.png');
 		linolium = loader.addImage('images/wallsFloor/linolium.png');
@@ -135,6 +138,15 @@ var GameAssets = function() {
 	}
 	var getDeadRat = function() {
 		return deadRat;
+	}
+	var getOppositeRat = function() {
+		return oppositeRat;
+	}
+	var getOppositeCat = function() {
+		return oppositeCat;
+	}
+	var getOppositeDog = function() {
+		return oppositeDog;
 	}
 	var getGmaNote = function() {
 		return gmaNote;
@@ -299,6 +311,9 @@ var GameAssets = function() {
 		getDeadCat:getDeadCat,
 		getDeadDog:getDeadDog,
 		getDeadRat:getDeadRat,
+		getOppositeRat:getOppositeRat,
+		getOppositeCat:getOppositeCat,
+		getOppositeDog:getOppositeDog,
 		getHealthMeter: getHealthMeter,
 		getMindMeter:getMindMeter,
 		getDarkMagic:getDarkMagic,

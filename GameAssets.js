@@ -39,7 +39,11 @@ var GameAssets = function() {
 		deskRight = loader.addImage('images/houseObjects/deskRight.png');
 		deskLeftWithPC = loader.addImage('images/houseObjects/deskLeftWithPC.png');
 		deskRightWithPC = loader.addImage('images/houseObjects/deskRightWithPC.png');
-		nightStand = loader.addImage('images/houseObjects/nightStand.png'); 
+		nightStand = loader.addImage('images/houseObjects/nightStand.png');
+		chair = loader.addImage('images/houseObjects/chair.png');
+		nightStand = loader.addImage('images/houseObjects/nightStand.png');
+		boxA0 = loader.addImage('images/houseObjects/boxA0.png');
+		laundryBasket = loader.addImage('images/houseObjects/laundryBasket.png');   
 		box = loader.addImage('images/houseObjects/box.png');
 		mindMeter = loader.addImage('images/MiscImages/mind.png');
 		healthMeter = loader.addImage('images/MiscImages/Health.png');
@@ -120,6 +124,15 @@ var GameAssets = function() {
 	}
 	var getOven = function() {
 		return oven;
+	}
+	var getBoxA0 = function() {
+		return boxA0;
+	}
+	var getChair = function() {
+		return chair;
+	}
+	var getLaundryBasket = function() {
+		return laundryBasket;
 	}
 	var getStairs = function(){
 		return stairs;
@@ -306,6 +319,9 @@ var GameAssets = function() {
 		getIsComplete: getIsComplete,
 		getPCTopRight: getPCTopRight,
 		getPCTopLeft: getPCTopLeft,
+		getLaundryBasket: getLaundryBasket,
+		getChair: getChair,
+		getBoxA0: getBoxA0,
 		getBorderImage:getBorderImage,
 		getDeadTom:getDeadTom,
 		getDeadCat:getDeadCat,

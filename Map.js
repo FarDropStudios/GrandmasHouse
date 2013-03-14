@@ -17,6 +17,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		grandmaCount = 0,
 		index = 0,
 		chancePowerUp,
+		obstacleChance,
 		exit,
 		blockY = 0,
 		enemy = tempEnemies,
@@ -178,9 +179,19 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				var chance = Math.random();
 				//Randomize dat hoe
 				chancePowerUp = Math.random();
+				obstacleChance = Math.random();
 				//20 percent chance that the block is solid, else its empty.
 				if(chance < 0.20) {
-					 rooms[room][i] = 1;//obstacle
+					 if(obstacleChance > .6){
+					 	rooms[room][i] = 1;//obstacle
+					 } else if(obstacleChance > .4 && obstacleChance < .6){
+					 	rooms[room][i] = 1001;//boxA0
+					 } else if(obstacleChance < .4 && obstacleChance > .2){
+					 	rooms[room][i] = 1002; //Chair
+					 } else if(obstacleChance < .2 && obstacleChance > .0){
+					 	rooms[room][i] = 1003; //Laundry
+					 }
+					 
 				} else if(chance > 0.21 && chance < 0.25) {
 					rooms[room][i] = 10; //enemy
 				} else if(chance > .25 && chance < .27){
@@ -212,8 +223,17 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				console.log("Should be making a lot of linolium");
 				ctx.drawImage(gameAssets.getLinolium(),blockX,blockY,60,60);
 			}else if(rooms[room][i] === 1) {
-				//WALL BLOCK
+				//OBSTACLE
 				ctx.drawImage(gameAssets.getBox(),blockX,blockY,60,60);
+			}else if(rooms[room][i] === 1001) {
+			//OBSTACLE
+			ctx.drawImage(gameAssets.getBoxA0(),blockX,blockY,60,60);
+			}else if(rooms[room][i] === 1002) {
+			//OBSTACLE
+			ctx.drawImage(gameAssets.getChair(),blockX,blockY,60,60);
+			}else if(rooms[room][i] === 1003) {
+			//OBSTACLE
+			ctx.drawImage(gameAssets.getLaundryBasket(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 2) {
 				//FLOOR BLOCK
 				ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);

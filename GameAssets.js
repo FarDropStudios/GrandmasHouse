@@ -85,7 +85,7 @@ var GameAssets = function() {
  
 	soundManager.onready(function() { 
 	    // ok to show the button to run the sound sample 
-	    soundManager.play('Fuck', 'Sound/StayNeutral.wav');
+	    //soundManager.play('Fuck', 'Sound/StayNeutral.wav');
 	}); 
 		
 	loader.addCompletionListener(function() {

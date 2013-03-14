@@ -174,7 +174,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		for(var i = 0; i < 126; i++) {
 			ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			//If block needs to be randomized
-			if(rooms[room][i] === 0 || rooms[room][i] === 71 ) {
+			if(rooms[room][i] === 0 || rooms[room][i] === 81 ) {
 				var chance = Math.random();
 				//Randomize dat hoe
 				chancePowerUp = Math.random();
@@ -207,8 +207,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			}
 			if(rooms[room][i] === 0) {
 				ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
-			} else if(rooms[room][i] === 71){
+			} else if(rooms[room][i] === 81){
 				//Linolium
+				console.log("Should be making a lot of linolium");
 				ctx.drawImage(gameAssets.getLinolium(),blockX,blockY,60,60);
 			}else if(rooms[room][i] === 1) {
 				//WALL BLOCK

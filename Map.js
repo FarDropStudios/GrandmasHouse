@@ -14,6 +14,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		darkMagI = 0;
 	var blockX = 0,
 		tick = 0,
+		grandmaCount = 0,
 		index = 0,
 		chancePowerUp,
 		exit,
@@ -158,6 +159,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		room = roomNum;
 		enemies.emptyEnemies();
 		renderEnemies = true;
+		grandmaCount = 0;
 	};
 	//The draw function for the room, it takes the context as a parameter which
 	//enables the method to draw on the canvas.
@@ -307,8 +309,10 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			} else if(rooms[room][i] === 10) {
 				//Draw an enemy
 				if(renderEnemies) {
-					if(Math.random() > 0.65){
+					if(Math.random() > 0.65 && grandmaCount < 1){
 						enemy.addGmaEnemy(blockX,blockY,index);
+						grandmaCount++;
+						console.log("spawnGma");
 					} else if(Math.random() > .35){ 
 						enemy.addRat(blockX,blockY, index);	
 					} else if(Math.random() > .20) {

@@ -8,7 +8,7 @@ var PileOfMeat = function(startX, startY, tTileIndex, tImage) {
 		image = tImage,
 		y = startY,
 		tileIndex = tTileIndex, 
-		health = 10,
+		health = 3,
 		chance;
 
 	var getPos = function() {

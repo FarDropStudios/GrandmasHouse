@@ -37,6 +37,8 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				rooms[i] = factory.basicRoomGenerate();
 			}else if(i === 3){	//Kitchen
 				rooms[i] = factory.kitchenGenerate();
+			}else if(i === 6){
+				rooms[i] = factory.shopKeeperRoomGenerate();
 			}else{				//Basic Rooms
 				rooms[i] = factory.basicRoomGenerate();
 			}
@@ -58,6 +60,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			|| rooms[room][tile] === 102
 			|| rooms[room][tile] === 201
 			|| rooms[room][tile] === 202
+			|| rooms[room][tile] === 444
 			|| rooms[room][tile] === 11
 			|| rooms[room][tile] === 12
 			|| rooms[room][tile] === 13
@@ -306,6 +309,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			} else if(rooms[room][i] === 303){
 				//Top Wall
 				ctx.drawImage(gameAssets.getBasicWallTop(), blockX, blockY,60,60);
+			} else if(rooms[room][i] === 444){
+				//ShopKeeper
+				ctx.drawImage(gameAssets.getShopMan(), blockX, blockY,60,60);
 			} else if(rooms[room][i] === 301){
 				//Left Wall
 				ctx.drawImage(gameAssets.getBasicWallLeft(),blockX,blockY,60,60);

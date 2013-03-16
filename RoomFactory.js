@@ -57,9 +57,6 @@ var RoomFactory = function() {
 		    	301,0,2,0,0,0,0,0,0,0,0,2,2,302,
 		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];	
 	}
-	var shopKeeper = function(){
-		//returns room with shop man
-	}
 	var bedRoomGenerate = function(){
 		//returns bedroom
 		return [101,303,303,303,303,15,16,666,303,303,303,303,303,102,
@@ -79,6 +76,17 @@ var RoomFactory = function() {
 		//ShopKeeper
 		//
 	}
+	var shopKeeperRoomGenerate = function(){
+		return [101,303,303,303,303,303,303,303,303,303,303,303,303,102,
+		    	301,2,2,2,2,2,2,2,2,2,2,2,2,302,
+		    	301,2,2,2,2,2,2,2,2,2,2,2,2,302,
+				301,2,2,2,2,2,2,2,2,2,2,2,2,302,
+				301,2,2,2,2,2,444,2,2,2,2,2,2,3,
+				301,2,2,2,995,2,995,2,995,2,2,2,2,302,
+		    	301,2,2,2,2,2,2,2,2,2,2,2,2,302,
+		    	301,2,2,2,2,2,2,2,2,2,2,2,2,302,
+		    	201,304,304,304,304,304,304,304,304,304,304,304,304,202];	
+	}
 	
 	var changeBlockAt = function(room, index, newBlock) {
 		room[room][index] === newBlock;
@@ -88,7 +96,7 @@ var RoomFactory = function() {
 			// changeBlockAt: changeBlockAt,
 			bedRoomGenerate: bedRoomGenerate,
 			assignRandomRoom: assignRandomRoom,
-			shopKeeper:shopKeeper,
+			shopKeeperRoomGenerate:shopKeeperRoomGenerate,
 			basicRoomGenerate: basicRoomGenerate,
 			livingRoomGenerate: livingRoomGenerate,
 			joesRoomGenerate: joesRoomGenerate,

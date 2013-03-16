@@ -29,6 +29,7 @@ var GameAssets = function() {
 		cat = loader.addImage('images/houseOccupants/cat.png');
 		dog = loader.addImage('images/houseOccupants/dog.png');
 		grandma = loader.addImage('images/houseOccupants/grandMa.png');
+		shopKeeperMan = loader.addImage('images/houseOccupants/shopAtHomeMan.png');
 		doorRight = loader.addImage('images/wallsFloor/doorRight.png');
 		tomLeft = loader.addImage('images/houseOccupants/thomasLeft.png');
 		tomBack = loader.addImage('images/houseOccupants/thomasBack.png');
@@ -112,6 +113,9 @@ var GameAssets = function() {
 	}
 	var getAtkArrowRightToLeft = function(){
 		return atkArrowRightToLeft;
+	}
+	var getShopMan = function(){
+		return shopKeeperMan;
 	}
 	var getAtkArrowUpToDown = function(){
 		return atkArrowUpToDown;
@@ -361,6 +365,7 @@ var GameAssets = function() {
 		getRat: getRat,
 		getCouch: getCouch,
 		getGmaNote: getGmaNote,
+		getShopMan: getShopMan,
 		getCouchLeft: getCouchLeft,
 		getCouchRight: getCouchRight,
 		getFloorTile: getFloorTile,

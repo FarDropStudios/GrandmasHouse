@@ -30,6 +30,9 @@ var GameAssets = function() {
 		dog = loader.addImage('images/houseOccupants/dog.png');
 		grandma = loader.addImage('images/houseOccupants/grandMa.png');
 		shopKeeperMan = loader.addImage('images/houseOccupants/shopAtHomeMan.png');
+		nickel = loader.addImage('images/MiscImages/nickel.png');
+		penny = loader.addImage('images/MiscImages/penny.png');
+		shopSign = loader.addImage('images/MiscImages/shopSign.png');
 		doorRight = loader.addImage('images/wallsFloor/doorRight.png');
 		tomLeft = loader.addImage('images/houseOccupants/thomasLeft.png');
 		tomBack = loader.addImage('images/houseOccupants/thomasBack.png');
@@ -68,6 +71,7 @@ var GameAssets = function() {
 		oppositeDog = loader.addImage('images/houseOccupants/oppositeDog.png');
 		deadTom = loader.addImage('images/houseOccupants/deadThomas.png');
 		oven = loader.addImage('images/houseObjects/oven.png');
+		wallOutletRight = loader.addImage('images/wallsFloor/basicWallRightWithPowerOutlet.png');
 		linolium = loader.addImage('images/wallsFloor/linolium.png');
 		stairs = loader.addImage('images/wallsFloor/stairs.png');
 		counterBasicWithSink = loader.addImage('images/wallsFloor/counterBasicWithSink.png');
@@ -93,7 +97,7 @@ var GameAssets = function() {
  
 	soundManager.onready(function() { 
 	    // ok to show the button to run the sound sample 
-	    //soundManager.play('Fuck', 'Sound/StayNeutral.wav');
+	    soundManager.play('Fuck', 'Sound/StayNeutral.wav');
 	}); 
 		
 	loader.addCompletionListener(function() {
@@ -117,6 +121,18 @@ var GameAssets = function() {
 	var getShopMan = function(){
 		return shopKeeperMan;
 	}
+	var getShopSign = function(){
+		return shopSign;
+	}
+	var getNickel = function(){
+		return nickel;
+	}
+	var getPenny = function(){
+		return penny;
+	}
+	var getNickle = function(){
+		return nickle;
+	}
 	var getAtkArrowUpToDown = function(){
 		return atkArrowUpToDown;
 	}
@@ -128,6 +144,9 @@ var GameAssets = function() {
 	}
 	var getOven = function() {
 		return oven;
+	}
+	var getWallOutletRight = function(){
+		return wallOutletRight;
 	}
 	var getBoxA0 = function() {
 		return boxA0;
@@ -339,6 +358,9 @@ var GameAssets = function() {
 		getDarkMagic:getDarkMagic,
 		getLightMagic:getLightMagic,
 		getFebreeze:getFebreeze,
+		getShopSign: getShopSign,
+		getPenny: getPenny,
+		getNickel: getNickle,
 		getGlove:getGlove,
 		getGrenade:getGrenade,
 		getNightStand:getNightStand,
@@ -352,6 +374,7 @@ var GameAssets = function() {
 		getGrandma:getGrandma,
 		getDog:getDog,
 		getCat:getCat,
+		getWallOutletRight: getWallOutletRight,
 		getBox:getBox,
 		getAtkArrowLeftToRight: getAtkArrowLeftToRight,
 		getAtkArrowRightToLeft: getAtkArrowRightToLeft,

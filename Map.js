@@ -61,6 +61,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			|| rooms[room][tile] === 201
 			|| rooms[room][tile] === 202
 			|| rooms[room][tile] === 444
+			|| rooms[room][tile] === 445
 			|| rooms[room][tile] === 11
 			|| rooms[room][tile] === 12
 			|| rooms[room][tile] === 13
@@ -312,6 +313,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			} else if(rooms[room][i] === 444){
 				//ShopKeeper
 				ctx.drawImage(gameAssets.getShopMan(), blockX, blockY,60,60);
+			} else if(rooms[room][i] === 445){
+				//Shop Sign
+				ctx.drawImage(gameAssets.getShopSign(), blockX, blockY,60,60);
 			} else if(rooms[room][i] === 301){
 				//Left Wall
 				ctx.drawImage(gameAssets.getBasicWallLeft(),blockX,blockY,60,60);
@@ -347,9 +351,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 						enemy.addRat(blockX,blockY, index);	
 					} else if(Math.random() > .20) {
 					  	enemy.addCat(blockX,blockY, index);
-					} else if(Math.random() > .10){  	
+					} else if(Math.random() > .18){  	
 						enemy.addDog(blockX, blockY, index); 
-					} else if(Math.random() < .05){
+					} else if(Math.random() < .10){
 						enemy.addWigDemon(blockX, blockY, index);
 					}	
 				}

@@ -56,6 +56,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			|| rooms[room][tile] === 302
 			|| rooms[room][tile] === 303
 			|| rooms[room][tile] === 304
+			|| rooms[room][tile] === 309
 			|| rooms[room][tile] === 101
 			|| rooms[room][tile] === 102
 			|| rooms[room][tile] === 201
@@ -310,6 +311,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			} else if(rooms[room][i] === 303){
 				//Top Wall
 				ctx.drawImage(gameAssets.getBasicWallTop(), blockX, blockY,60,60);
+			} else if(rooms[room][i] === 309){
+				//Top Wall
+				ctx.drawImage(gameAssets.getWallOutletRight(), blockX, blockY,60,60);
 			} else if(rooms[room][i] === 444){
 				//ShopKeeper
 				ctx.drawImage(gameAssets.getShopMan(), blockX, blockY,60,60);

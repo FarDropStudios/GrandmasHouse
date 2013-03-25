@@ -54,6 +54,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			|| rooms[room][tile] === 1003
 			|| rooms[room][tile] === 301
 			|| rooms[room][tile] === 302
+			|| rooms[room][tile] === 666
 			|| rooms[room][tile] === 303
 			|| rooms[room][tile] === 304
 			|| rooms[room][tile] === 309

@@ -108,6 +108,7 @@ var Player = function(startX, startY, tGameAssets) {
 			up();
 		}
 		if(tileIndex === map.getExit()) {
+			health++;
 			x = 60;
 			y = 60;
 			tileIndex=15;
@@ -135,6 +136,7 @@ var Player = function(startX, startY, tGameAssets) {
 			tileIndex+=14;
 		}
 		if(tileIndex === map.getExit()) {
+			health++;
 			x = 60;
 			y = 60;
 			tileIndex=15;
@@ -156,6 +158,7 @@ var Player = function(startX, startY, tGameAssets) {
 			tileIndex-=14;
 		}
 		if(tileIndex === map.getExit()) {
+			health++;
 			x = 60;
 			y = 60;
 			tileIndex=15;
@@ -177,6 +180,7 @@ var Player = function(startX, startY, tGameAssets) {
 			tileIndex--;
 		}
 		if(tileIndex === map.getExit()) {
+			health++;
 			x = 60;
 			y = 60;
 			tileIndex=15;
@@ -198,6 +202,7 @@ var Player = function(startX, startY, tGameAssets) {
 			tileIndex++;
 		}
 		if(tileIndex === map.getExit()) {
+			health++;
 			x = 60;
 			y = 60;
 			tileIndex=15;

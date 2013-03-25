@@ -33,6 +33,7 @@ player = new Player(60,60,gameAssets);
 //initialize Enemies
 var enemies = new Enemies();
 enemies.setGameAssets(gameAssets);
+enemies.setPlayer(player);
 
 //initialize RoomFactory
 roomFactory = new RoomFactory();

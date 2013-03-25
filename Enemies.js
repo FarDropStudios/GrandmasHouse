@@ -6,11 +6,16 @@
  */
 var Enemies = function() {
 	var enemies = [],
-		gameAssets;
+		gameAssets,
+		player;
 	
 	var setGameAssets = function(tempGameAssets) {
 		gameAssets = tempGameAssets;
 	}
+	
+	var setPlayer = function(tPlayer) {
+		player = tPlayer;
+	} 
 	
 	var emptyEnemies = function() {
 		enemies = [];
@@ -37,7 +42,7 @@ var Enemies = function() {
 	var update = function(map) {
 		for(var i = 0; i < enemies.length; i++) {
 			if(enemies[i].getHealth() <= 0) {
-					if(enemies[i].getName() === "Penny" || enemies[i].getName() === "WigDemon"){
+					if(enemies[i].getName() === "WigDemon"){
 						enemies.splice(i,1);
 					}else if(enemies[i].getName() === "Pile of Meat"){
 						//coinDrop
@@ -51,6 +56,9 @@ var Enemies = function() {
 					} else if(enemies[i].getName() === "Cat") {
 						console.log("cat");
 						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadCat()));
+					} else if(enemies[i].getName() === "Penny") {
+						player.addCoin(1);
+						enemies.splice(i,1);
 					}
 			}
 					enemies[i].update(map);
@@ -79,6 +87,7 @@ var Enemies = function() {
 	}
 	
 	return {
+		setPlayer: setPlayer,
 		getInstanceOfEnemy: getInstanceOfEnemy,
 		setGameAssets: setGameAssets,
 		emptyEnemies: emptyEnemies,

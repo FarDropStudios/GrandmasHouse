@@ -87,12 +87,15 @@ var Player = function(startX, startY, tGameAssets) {
 	var setPowerUps = function(tPowerUps) {
 		powerUps = tPowerUps;
 	}
-	var addCoin = function(howMany){
-		coins++;
+	
+	var addCoin = function(howMany) {
+		coins += howMany;
 	}
-	var subtractCoin = function(howMany){
-		coins--;
+	
+	var subtractCoin = function(howMany) {
+		coins -= howMany;
 	}
+	
 	var update = function(tx, ty, map) {
 				
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
@@ -325,6 +328,9 @@ var Player = function(startX, startY, tGameAssets) {
 			guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 550, 60, 60);
 			guiCtx.drawImage(gameAssets.getBorderImage(), 94, 548, 69, 69);
 			guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 558, 60, 60);
+			guiCtx.drawImage(gameAssets.getBorderImage(), 172, 548, 69, 69);
+			guiCtx.fillText("Coins", 190, 570);
+			guiCtx.fillText("$"+coins, 190, 585);
 			
 			//Coin Count
 			

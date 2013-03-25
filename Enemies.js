@@ -37,8 +37,11 @@ var Enemies = function() {
 	var update = function(map) {
 		for(var i = 0; i < enemies.length; i++) {
 			if(enemies[i].getHealth() <= 0) {
-					if(enemies[i].getName() === "Pile of Meat" || enemies[i].getName() === "WigDemon"){
+					if(enemies[i].getName() === "Penny" || enemies[i].getName() === "WigDemon"){
 						enemies.splice(i,1);
+					}else if(enemies[i].getName() === "Pile of Meat"){
+						//coinDrop
+						enemies.splice(i,1,new Penny(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getPenny()));
 					} else if(enemies[i].getName() === "Dog") {
 						console.log("dog");
 						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadDog()));

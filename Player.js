@@ -1,6 +1,7 @@
 /*
  *	Player.js
  *	Tyler St. Onge
+ *  Tommy Guererri
  *
  *	Takes the parameters startX and startY, which initialize where the player is.
  */
@@ -16,6 +17,7 @@ var Player = function(startX, startY, tGameAssets) {
 		mindPosX = 0,
 		powerUps = [0,0,0,0,0],
 		health = 5,
+		coins = 0,
 		mind = 6;
 		gameAssets = tGameAssets,
 		y = startY,
@@ -85,7 +87,12 @@ var Player = function(startX, startY, tGameAssets) {
 	var setPowerUps = function(tPowerUps) {
 		powerUps = tPowerUps;
 	}
-	
+	var addCoin = function(howMany){
+		coins++;
+	}
+	var subtractCoin = function(howMany){
+		coins--;
+	}
 	var update = function(tx, ty, map) {
 				
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
@@ -110,7 +117,7 @@ var Player = function(startX, startY, tGameAssets) {
 			wearingGloves = false;
 			map.setRoom(roomNumber);
 			if(this.getHealth() === 0){
-				dead = true;
+				dead = true; //implement further
 				ctx.drawImage(getDeadTom(),60,60);
 			}
 		}
@@ -239,6 +246,12 @@ var Player = function(startX, startY, tGameAssets) {
 		} else if(mind == 9) {
 			mindPosX = 0;
 		}
+		
+		//COINS
+		//if coin == farts
+		//coinNumberImageX = 0
+	
+		
 	}
 
 	var exitCheck = function() {
@@ -313,6 +326,8 @@ var Player = function(startX, startY, tGameAssets) {
 			guiCtx.drawImage(gameAssets.getBorderImage(), 94, 548, 69, 69);
 			guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 558, 60, 60);
 			
+			//Coin Count
+			
 			//CHARACTER
 			ctx.drawImage(playerImage,spriteX,0,60,60,x,y,60,60);
 			
@@ -376,6 +391,8 @@ var Player = function(startX, startY, tGameAssets) {
 		setHealth: setHealth,
 		setPowerUps: setPowerUps,
 		getPos: getPos,
+		addCoin: addCoin,
+		subtractCoin: subtractCoin,
 		setTileIndex: setTileIndex,
 		update: update,
 		guiUpdate: guiUpdate,

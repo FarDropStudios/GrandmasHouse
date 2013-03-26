@@ -75,6 +75,7 @@ var GameAssets = function() {
 		linolium = loader.addImage('images/wallsFloor/linolium.png');
 		stairs = loader.addImage('images/wallsFloor/stairs.png');
 		counterBasicWithSink = loader.addImage('images/wallsFloor/counterBasicWithSink.png');
+		crazyTom = loader.addImage('images/houseOccupants/thomasCrazy.png');
 		
 	//SOUNDS
 	soundManager.url = 'soundManagerFiles/';
@@ -111,6 +112,9 @@ var GameAssets = function() {
 	//Returns true if the images are loaded
 	var getIsComplete = function() {
 		return complete;
+	}
+	var getCrazyTom = function(){
+		return crazyTom;
 	}
 	var getAtkArrowLeftToRight = function(){
 		return atkArrowLeftToRight;
@@ -392,6 +396,7 @@ var GameAssets = function() {
 		getCouchLeft: getCouchLeft,
 		getCouchRight: getCouchRight,
 		getFloorTile: getFloorTile,
+		getCrazyTom: getCrazyTom,
 		getWigDemon: getWigDemon,
 		getLinolium: getLinolium,
 		getBasicWallBottom: getBasicWallBottom,

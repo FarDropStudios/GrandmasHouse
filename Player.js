@@ -98,13 +98,13 @@ var Player = function(startX, startY, tGameAssets) {
 	
 	var update = function(tx, ty, map) {
 				
-		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60) {
+		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60 && !dead) {
 			right();
-		}else if(tx < x && tx > x-60 && ty > y && ty < y+60) {
+		}else if(tx < x && tx > x-60 && ty > y && ty < y+60 && !dead) {
 			left();
-		}else if(ty < y+120 && ty > y+60 && tx > x && tx < x+60) {
+		}else if(ty < y+120 && ty > y+60 && tx > x && tx < x+60 && !dead) {
 			down();
-		}else if(ty < y && ty > y-60 && tx > x && tx < x+60) {
+		}else if(ty < y && ty > y-60 && tx > x && tx < x+60 && !dead) {
 			up();
 		}
 		if(tileIndex === map.getExit()) {
@@ -334,10 +334,10 @@ var Player = function(startX, startY, tGameAssets) {
 			guiCtx.drawImage(gameAssets.getBorderImage(), 94, 548, 69, 69);
 			guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 558, 60, 60);
 			guiCtx.drawImage(gameAssets.getBorderImage(), 172, 548, 69, 69);
-			guiCtx.fillText("Coins", 190, 570);
-			guiCtx.fillText("$"+coins, 190, 585);
 			
 			//Coin Count
+			guiCtx.fillText("Coins", 190, 570);
+			guiCtx.fillText("$ "+coins, 190, 585);
 			
 			//CHARACTER
 			ctx.drawImage(playerImage,spriteX,0,60,60,x,y,60,60);

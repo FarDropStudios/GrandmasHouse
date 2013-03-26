@@ -98,66 +98,68 @@ function setEventListeners() {
 //possibly add a combat check in the collision here?
 function onKeyDown(e) {
 	key = e.keyCode;
-	switch(key) {
-		case 49: //Power-up 1 	
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player, map));
-			break;
-		case 50: //Power-up 2 	
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 2, player, map));
-			break;
-		case 51: //Power-up 3
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 3, player, map));
-			break;
-		case 52: //Power-up 4
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 4, player, map));
-			break;
-		case 53: //Power-up 5
-			player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 5, player, map));
-			break;
-		case 65: //A?
-		case 37: //Left
-			player.setTileIndex(player.getPos()-1);
-			if(!map.getCollision(player.getPos(), "Player")) {
-				player.setX(player.getX()-60);
-				player.update(null,null,map);
-			} else {
-				player.setTileIndex(player.getPos()+1);
-			}
-			break;
-		case 87: //W?
-		case 38: //Up
-			player.setTileIndex(player.getPos()-14);
-			if(!map.getCollision(player.getPos(),"Player")) {
-				player.setY(player.getY()-60);
-				player.update(null,null,map);
-			} else {
-				player.setTileIndex(player.getPos()+14);
-			}
-			break;
-		case 68: // D?
-		case 39: //Right
-			player.setTileIndex(player.getPos()+1);
-			if(!map.getCollision(player.getPos(),"Player")) {
-				player.setX(player.getX()+60);
-				player.update(null,null,map);
-			} else {
+	if(player.isDead() != true){
+		switch(key) {
+			case 49: //Power-up 1 	
+				player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player, map));
+				break;
+			case 50: //Power-up 2 	
+				player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 2, player, map));
+				break;
+			case 51: //Power-up 3
+				player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 3, player, map));
+				break;
+			case 52: //Power-up 4
+				player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 4, player, map));
+				break;
+			case 53: //Power-up 5
+				player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 5, player, map));
+				break;
+			case 65: 
+			case 37: //Left
 				player.setTileIndex(player.getPos()-1);
-			}
-			break;
-		case 83: //S?
-		case 40: //Down
-			player.setTileIndex(player.getPos()+14);
-			if(!map.getCollision(player.getPos(), "Player")) {
-				player.setY(player.getY()+60);
-				player.update(null,null,map);
-			} else {
+				if(!map.getCollision(player.getPos(), "Player")) {
+					player.setX(player.getX()-60);
+					player.update(null,null,map);
+				} else {
+					player.setTileIndex(player.getPos()+1);
+				}
+				break;
+			case 87: 
+			case 38: //Up
 				player.setTileIndex(player.getPos()-14);
-			}
-			break;
-	}
-	player.exitCheck();
-	player.moved();
-	enemies.update(map);		
+				if(!map.getCollision(player.getPos(),"Player")) {
+					player.setY(player.getY()-60);
+					player.update(null,null,map);
+				} else {
+					player.setTileIndex(player.getPos()+14);
+				}
+				break;
+			case 68: 
+			case 39: //Right
+				player.setTileIndex(player.getPos()+1);
+				if(!map.getCollision(player.getPos(),"Player")) {
+					player.setX(player.getX()+60);
+					player.update(null,null,map);
+				} else {
+					player.setTileIndex(player.getPos()-1);
+				}
+				break;
+			case 83: 
+			case 40: //Down
+				player.setTileIndex(player.getPos()+14);
+				if(!map.getCollision(player.getPos(), "Player")) {
+					player.setY(player.getY()+60);
+					player.update(null,null,map);
+				} else {
+					player.setTileIndex(player.getPos()-14);
+				}
+				break;
+		}
+		player.exitCheck();
+		player.moved();
+		enemies.update(map);
+	}		
 }
 
 //UPDATE AND DRAW METHODS -- WHERE DA FUN HAPPENS DOE

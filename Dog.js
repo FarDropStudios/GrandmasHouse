@@ -39,6 +39,54 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	var update = function(map) {
+		if (tileIndex >= 0 && tileIndex <= 13 && map.getPlayerPos() >= 0 && map.getPlayerPos() <= 13 ||
+			tileIndex >= 14 && tileIndex <= 27 && map.getPlayerPos() >= 14 && map.getPlayerPos() <= 27 ||
+			tileIndex >= 28 && tileIndex <= 41 && map.getPlayerPos() >= 28 && map.getPlayerPos() <= 41 ||
+			tileIndex >= 42 && tileIndex <= 55 && map.getPlayerPos() >= 42 && map.getPlayerPos() <= 55 ||
+			tileIndex >= 56 && tileIndex <= 69 && map.getPlayerPos() >= 56 && map.getPlayerPos() <= 69 ||
+			tileIndex >= 70 && tileIndex <= 83 && map.getPlayerPos() >= 70 && map.getPlayerPos() <= 83 ||
+			tileIndex >= 84 && tileIndex <= 97 && map.getPlayerPos() >= 84 && map.getPlayerPos() <= 97 ||
+			tileIndex >= 98 && tileIndex <= 112 && map.getPlayerPos() >= 98 && map.getPlayerPos() <= 112 ||
+			tileIndex >= 113 && tileIndex <= 126 && map.getPlayerPos() >= 113 && map.getPlayerPos() <= 126) {
+			if(tileIndex - map.getPlayerPos() > 0) {
+				//LEFT
+				tileIndex-=1;
+				if(!map.getCollision(tileIndex)) {
+					x-=moveAmount;
+					image = gameAssets.getDog();
+				} else {
+					tileIndex+=1;
+				}				
+			} else {
+				//RIGHT
+				tileIndex+=1;
+				if(!map.getCollision(tileIndex)) {
+					x+=moveAmount;
+					image = gameAssets.getOppositeDog();
+				} else {
+					tileIndex-=1;
+				}				
+			}
+		} else if(tileIndex % 14 === map.getPlayerPos() % 14) {
+			if(tileIndex - map.getPlayerPos() > 0) {
+				//UP
+				tileIndex-=14;
+				if(!map.getCollision(tileIndex)) {
+					y-=moveAmount;
+				} else {
+					tileIndex+=14;
+				}				
+			} else {
+				//DOWN
+				tileIndex+=14;
+				if(!map.getCollision(tileIndex)) {
+					y+=moveAmount;
+				} else {
+					tileIndex-=14;
+				}				
+			}
+		} //else {
+		/*
 		chance = Math.random();
 		if(chance <= 0.20) {
 			//DOWN
@@ -75,6 +123,7 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 				tileIndex-=1;
 			}
 		}
+		*/
 	}
 
 	var draw = function(ctx) {

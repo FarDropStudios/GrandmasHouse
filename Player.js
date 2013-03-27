@@ -35,6 +35,7 @@ var Player = function(startX, startY, tGameAssets) {
 	var getX = function() {
 		return x;
 	}
+	
 	var getY = function() {
 		return y;
 	}

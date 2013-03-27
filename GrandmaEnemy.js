@@ -16,6 +16,8 @@ var GrandmaEnemy = function(startX, startY, tTileIndex, tImage) {
 		tileIndex = tTileIndex, 
 		health = 1,
 		moveAmount = 60,
+		tick = 0,
+		imageX = 0,
 		chance,
 		leftBound = true,
 		horizBound = true;
@@ -91,7 +93,17 @@ var GrandmaEnemy = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	var draw = function(ctx) {
-		ctx.drawImage(image, x, y, 60, 60);
+		if(tick < 15) {
+			tick++;
+		} else {
+			tick = 0;
+			if(imageX < 300) {
+				imageX += 60;
+			} else {
+				imageX = 0;
+			}
+		}
+		ctx.drawImage(image, imageX, 0, 60, 60, x, y, 60, 60);
 		if(attackDraw && attackTimer < 15) {
 			attackTimer++;
 			ctx.drawImage(attackImage, x, y);

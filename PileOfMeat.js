@@ -10,6 +10,8 @@ var PileOfMeat = function(startX, startY, tTileIndex, tImage) {
 		tileIndex = tTileIndex, 
 		health = 3,
 		chance;
+	var tick = 0,
+		imageX = 0;
 
 	var getPos = function() {
 		return tileIndex;
@@ -31,7 +33,17 @@ var PileOfMeat = function(startX, startY, tTileIndex, tImage) {
 		health = tHealth;
 	}
 	var draw = function(ctx) {
-		ctx.drawImage(image, x, y, 60, 60);
+		if(tick < 15) {
+			tick++;
+		} else {
+			tick = 0;
+			if(imageX < 300) {
+				imageX += 60;
+			} else {
+				imageX = 0;
+			}
+		}
+		ctx.drawImage(image, imageX, 0, 60, 60, x, y, 60, 60);
 	}
 	var getName = function() {
 		return name;

@@ -46,13 +46,16 @@ var Enemies = function() {
 						enemies.splice(i,1);
 					}else if(enemies[i].getName() === "Pile of Meat"){
 						//coinDrop
-						enemies.splice(i,1,new Penny(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getPenny()));
+						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadCat()));
+						//enemies.splice(i,1,new Penny(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getPenny()));
 					} else if(enemies[i].getName() === "Dog") {
 						console.log("dog");
-						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadDog()));
+						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadCat()));
+						//enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadDog()));
 					} else if(enemies[i].getName() === "Rat") {
 						console.log("rat");
-						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadRat()));
+						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadCat()));
+						//enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadRat()));
 					} else if(enemies[i].getName() === "Cat") {
 						console.log("cat");
 						enemies.splice(i,1,new PileOfMeat(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getDeadCat()));

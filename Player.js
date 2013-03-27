@@ -292,8 +292,7 @@ var Player = function(startX, startY, tGameAssets) {
 						spriteX += 60;
 					}
 					tick = 0;
-					ctx.drawImage(playerImage,x,y,60,60)
-					//ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
+					ctx.drawImage(gameAssets.getCharacter(),spriteX,0,60,60,x,y,60,60);
 				}
 			} else {
 				lastMove++;

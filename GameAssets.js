@@ -79,7 +79,10 @@ var GameAssets = function() {
 		borderLongLeft = loader.addImage('images/MiscImages/borderLongLeft.png');
 		borderLongRight = loader.addImage('images/MiscImages/borderLongRight.png');
 		borderLongMiddle = loader.addImage('images/MiscImages/borderLongMiddle.png');
-		
+		tvBottomLeft = loader.addImage('images/houseObjects/televisionBottomLeft.png');
+		tvBottomRight = loader.addImage('images/houseObjects/televisionBottomRight.png');
+		tvTopLeft = loader.addImage('images/houseObjects/televisionTopLeft.png');
+		tvTopRight = loader.addImage('images/houseObjects/televisionTopRight.png');
 		
 	//SOUNDS
 	soundManager.url = 'soundManagerFiles/';
@@ -128,6 +131,18 @@ var GameAssets = function() {
 	}
 	var getShopMan = function(){
 		return shopKeeperMan;
+	}
+	var getTVBottomLeft = function(){
+		return tvBottomLeft;
+	}
+	var getTVBottomRight = function(){
+		return tvBottomRight;
+	}
+	var getTVTopLeft = function(){
+		return tvTopLeft;
+	}
+	var getTVTopRight = function(){
+		return tvTopRight;
 	}
 	var getBorderLongLeft = function(){
 		return borderLongLeft;
@@ -412,6 +427,10 @@ var GameAssets = function() {
 		getCrazyTom: getCrazyTom,
 		getWigDemon: getWigDemon,
 		getLinolium: getLinolium,
+		getTVTopRight: getTVTopRight,
+		getTVBottomRight: getTVBottomRight,
+		getTVBottomLeft: getTVBottomLeft,
+		getTVTopLeft: getTVTopLeft,
 		getBorderLongLeft: getBorderLongLeft,
 		getBorderLongRight: getBorderLongRight,
 		getBorderLongMiddle: getBorderLongMiddle,

@@ -76,6 +76,10 @@ var GameAssets = function() {
 		stairs = loader.addImage('images/wallsFloor/stairs.png');
 		counterBasicWithSink = loader.addImage('images/wallsFloor/counterBasicWithSink.png');
 		crazyTom = loader.addImage('images/houseOccupants/thomasCrazy.png');
+		borderLongLeft = loader.addImage('images/MiscImages/borderLongLeft.png');
+		borderLongRight = loader.addImage('images/MiscImages/borderLongRight.png');
+		borderLongMiddle = loader.addImage('images/MiscImages/borderLongMiddle.png');
+		
 		
 	//SOUNDS
 	soundManager.url = 'soundManagerFiles/';
@@ -124,6 +128,15 @@ var GameAssets = function() {
 	}
 	var getShopMan = function(){
 		return shopKeeperMan;
+	}
+	var getBorderLongLeft = function(){
+		return borderLongLeft;
+	}
+	var getBorderLongRight = function(){
+		return borderLongRight;
+	}
+	var getBorderLongMiddle = function(){
+		return borderLongMiddle;
 	}
 	var getShopSign = function(){
 		return shopSign;
@@ -399,6 +412,9 @@ var GameAssets = function() {
 		getCrazyTom: getCrazyTom,
 		getWigDemon: getWigDemon,
 		getLinolium: getLinolium,
+		getBorderLongLeft: getBorderLongLeft,
+		getBorderLongRight: getBorderLongRight,
+		getBorderLongMiddle: getBorderLongMiddle,
 		getBasicWallBottom: getBasicWallBottom,
 		getBasicWallTop: getBasicWallTop,
 		getBasicWallLeft: getBasicWallLeft,

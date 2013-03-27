@@ -335,12 +335,18 @@ var Player = function(startX, startY, tGameAssets) {
 			guiCtx.drawImage(gameAssets.getHealthMeter(), healthPosX, 0, 60, 60, 20, 550, 60, 60);
 			guiCtx.drawImage(gameAssets.getBorderImage(), 94, 548, 69, 69);
 			guiCtx.drawImage(gameAssets.getMindMeter(), mindPosX, 0, 60, 60, 100, 558, 60, 60);
-			guiCtx.drawImage(gameAssets.getBorderImage(), 172, 548, 69, 69);
+			
 			
 			//Coin Count
+			guiCtx.drawImage(gameAssets.getBorderImage(), 172, 548, 69, 69);
 			guiCtx.fillText("Coins", 190, 570);
 			guiCtx.fillText("$ "+coins, 190, 585);
 			
+			guiCtx.drawImage(gameAssets.getBorderLongLeft(), 532, 548);
+			guiCtx.drawImage(gameAssets.getBorderLongMiddle(), 592, 548);
+			guiCtx.drawImage(gameAssets.getBorderLongMiddle(), 652, 548);
+			guiCtx.drawImage(gameAssets.getBorderLongMiddle(), 712, 548);
+			guiCtx.drawImage(gameAssets.getBorderLongRight(), 772, 548);
 			//CHARACTER
 			ctx.drawImage(playerImage,spriteX,0,60,60,x,y,60,60);
 			
@@ -354,7 +360,6 @@ var Player = function(startX, startY, tGameAssets) {
 			}
 		}else if(dead){
 			ctx.drawImage(gameAssets.getDeadTom(),x,y,60,60);
-		}else if(mind <= 0){
 			ctx.drawImage(gameAssets.getCrazyTom(),x,y,60,60);
 		}
 	}

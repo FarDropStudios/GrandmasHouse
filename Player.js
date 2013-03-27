@@ -279,7 +279,7 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 
 	var draw = function(ctx, guiCtx) {
-		if(!dead && mind > 0) {
+		if(!dead) {
 			if(lastMove > 250) {
 				if(tick < moveTimer) {
 					tick++;
@@ -359,6 +359,7 @@ var Player = function(startX, startY, tGameAssets) {
 			}
 		}else if(dead){
 			ctx.drawImage(gameAssets.getDeadTom(),x,y,60,60);
+		}else if(mind < 0){
 			ctx.drawImage(gameAssets.getCrazyTom(),x,y,60,60);
 		}
 	}

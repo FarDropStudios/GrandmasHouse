@@ -33,11 +33,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				rooms[i] = factory.bedRoomGenerate();
 			}else if(i === 1){	//Junk Room
 				rooms[i] = factory.junkRoomGenerate();
-			}else if(i === 2){	//Basic Rooms
-				rooms[i] = factory.basicRoomGenerate();
+			}else if(i === 3){	//Living Room
+				rooms[i] = factory.livingRoomGenerate();
 			}else if(i === 3){	//Kitchen
 				rooms[i] = factory.kitchenGenerate();
-			}else if(i === 6){
+			}else if(i === 6){ //Shop Keeper
 				rooms[i] = factory.shopKeeperRoomGenerate();
 			}else{				//Basic Rooms
 				rooms[i] = factory.basicRoomGenerate();
@@ -64,6 +64,10 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			|| rooms[room][tile] === 202
 			|| rooms[room][tile] === 444
 			|| rooms[room][tile] === 445
+			|| rooms[room][tile] === 1999 //TV Top Left
+			|| rooms[room][tile] === 1998 //TV  Top Right
+			|| rooms[room][tile] === 2999 //TV Bottom Left
+			|| rooms[room][tile] === 2998 //TV Bottom Right
 			|| rooms[room][tile] === 11
 			|| rooms[room][tile] === 12
 			|| rooms[room][tile] === 13
@@ -260,6 +264,18 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			}else if(rooms[room][i] === 19){ 
 				//night stand
 				ctx.drawImage(gameAssets.getNightStand(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 2998){ 
+				//TV Bottom Right
+				ctx.drawImage(gameAssets.getTVBottomRight(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 2999){ 
+				//TV Bottom Left
+				ctx.drawImage(gameAssets.getTVBottomLeft(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 1999){ 
+				//TV Top Left
+				ctx.drawImage(gameAssets.getTVTopLeft(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 1998){ 
+				//TV Top Right
+				ctx.drawImage(gameAssets.getTVTopRight(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 999){ 
 				ctx.drawImage(gameAssets.getFebreeze(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 998){

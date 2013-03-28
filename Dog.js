@@ -85,45 +85,44 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 					tileIndex-=14;
 				}				
 			}
-		} //else {
-		/*
-		chance = Math.random();
-		if(chance <= 0.20) {
-			//DOWN
-			tileIndex+=14;
-			if(!map.getCollision(tileIndex)) {
-				y+=moveAmount;
-			} else {
-				tileIndex-=14;
-			}
-		} else if(chance > 0.20 && chance <= 0.30) {
-			//UP
-			tileIndex-=14;
-			if(!map.getCollision(tileIndex)) {
-				y-=moveAmount;
-			} else {
-				tileIndex+=14;
-			}
-		} else if(chance > 0.40 && chance <= 0.70) {
-			//LEFT
-			tileIndex-=1;
-			if(!map.getCollision(tileIndex)) {
-				x-=moveAmount;
-				image = gameAssets.getDog();
-			} else {
-				tileIndex+=1;
-			}
 		} else {
-			//RIGHT
-			tileIndex+=1;
-			if(!map.getCollision(tileIndex)) {
-				x+=moveAmount;
-				image = gameAssets.getOppositeDog();
-			} else {
+			chance = Math.random();
+			if(chance <= 0.20) {
+				//DOWN
+				tileIndex+=14;
+				if(!map.getCollision(tileIndex)) {
+					y+=moveAmount;
+				} else {
+					tileIndex-=14;
+				}
+			} else if(chance > 0.20 && chance <= 0.30) {
+				//UP
+				tileIndex-=14;
+				if(!map.getCollision(tileIndex)) {
+					y-=moveAmount;
+				} else {
+					tileIndex+=14;
+				}
+			} else if(chance > 0.40 && chance <= 0.70) {
+				//LEFT
 				tileIndex-=1;
+				if(!map.getCollision(tileIndex)) {
+					x-=moveAmount;
+					image = gameAssets.getDog();
+				} else {
+					tileIndex+=1;
+				}
+			} else {
+				//RIGHT
+				tileIndex+=1;
+				if(!map.getCollision(tileIndex)) {
+					x+=moveAmount;
+					image = gameAssets.getOppositeDog();
+				} else {
+					tileIndex-=1;
+				}
 			}
 		}
-		*/
 	}
 
 	var draw = function(ctx) {

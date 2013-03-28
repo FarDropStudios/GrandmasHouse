@@ -431,7 +431,12 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		return player.getPos();
 	}
 	
+	var getPlayer = function() {
+		return player;
+	}
+	
 	return {
+		getPlayer: getPlayer,
 		getPlayerPos: getPlayerPos,
 		flatten: flatten,
 		getRoomsLength: getRoomsLength,

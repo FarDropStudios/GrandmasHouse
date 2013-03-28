@@ -44,3 +44,4 @@ var Combat = {};
 	Combat.kill = function(victim) {
 		victim.setHealth(0);
 	};
+	

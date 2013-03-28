@@ -37,6 +37,16 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	var update = function(map) {
+		var player = map.getPlayer();
+		if(tileIndex === player.getPos() + 14) {
+			player.setHealth(player.getHealth() - 1);
+		} else if(tileIndex === player.getPos() - 14) {
+			player.setHealth(player.getHealth() - 1);
+		} else if(tileIndex === player.getPos() - 1) {
+			player.setHealth(player.getHealth() - 1);
+		} else if(tileIndex === player.getPos() + 1) {
+			player.setHealth(player.getHealth() - 1);
+		}	
 		if(leftBound) {
 			tileIndex--;
 			if(!map.getCollision(tileIndex)) {

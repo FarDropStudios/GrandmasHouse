@@ -208,7 +208,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					 
 				} else if(chance > 0.35 && chance < 0.45) {
 					rooms[room][i] = 10; //enemy
-				} else if(chance > 0.0 && chance < .05){
+				} else if(chance > .45 && chance < .5){
 					 rooms[room][i] = 999;///power up
 					if(chancePowerUp > 0.8){
 					//do nothing -- its FEBREEZE

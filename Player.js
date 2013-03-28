@@ -253,12 +253,6 @@ var Player = function(startX, startY, tGameAssets) {
 		} else if(mind == 9) {
 			mindPosX = 0;
 		}
-		
-		//COINS
-		//if coin == farts
-		//coinNumberImageX = 0
-	
-		
 	}
 
 	var exitCheck = function() {
@@ -317,11 +311,14 @@ var Player = function(startX, startY, tGameAssets) {
 		guiCtx.fillText("Coins", 190, 570);
 		guiCtx.fillText("$ "+coins, 190, 585);
 		
+		//TERMINAL
 		guiCtx.drawImage(gameAssets.getBorderLongLeft(), 532, 548);
 		guiCtx.drawImage(gameAssets.getBorderLongMiddle(), 592, 548);
 		guiCtx.drawImage(gameAssets.getBorderLongMiddle(), 652, 548);
 		guiCtx.drawImage(gameAssets.getBorderLongMiddle(), 712, 548);
 		guiCtx.drawImage(gameAssets.getBorderLongRight(), 772, 548);
+		
+		
 		if(!dead && mind > 0) {
 			if(lastMove > 250) {
 				if(tick < moveTimer) {

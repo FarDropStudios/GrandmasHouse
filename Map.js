@@ -194,11 +194,11 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				//Randomize dat hoe
 				chancePowerUp = Math.random();
 				obstacleChance = Math.random();
-				//20 percent chance that the block is solid, else its empty.
-				if(chance < 0.20) {
+				//35 percent chance that the block is solid, else its empty.
+				if(chance < 0.35) {
 					 if(obstacleChance > .6){
 					 	rooms[room][i] = 1;//obstacle
-					 } else if(obstacleChance > .4 && obstacleChance < .6){
+					 } else if(obstacleChance > .4 && obstacleChance < .8){
 					 	rooms[room][i] = 1001;//boxA0
 					 } else if(obstacleChance < .4 && obstacleChance > .2){
 					 	rooms[room][i] = 1002; //Chair
@@ -206,9 +206,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					 	rooms[room][i] = 1003; //Laundry
 					 }
 					 
-				} else if(chance > 0.21 && chance < 0.25) {
+				} else if(chance > 0.35 && chance < 0.45) {
 					rooms[room][i] = 10; //enemy
-				} else if(chance > .25 && chance < .27){
+				} else if(chance > 0.0 && chance < .05){
 					 rooms[room][i] = 999;///power up
 					if(chancePowerUp > 0.8){
 					//do nothing -- its FEBREEZE

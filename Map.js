@@ -33,9 +33,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				rooms[i] = factory.bedRoomGenerate();
 			}else if(i === 1){	//Junk Room
 				rooms[i] = factory.junkRoomGenerate();
-			}else if(i === 3){	//Living Room
+			}else if(i === 4){	//Living Room
 				rooms[i] = factory.livingRoomGenerate();
-			}else if(i === 3){	//Kitchen
+			}else if(i === 15){	//Kitchen
 				rooms[i] = factory.kitchenGenerate();
 			}else if(i === 6){ //Shop Keeper
 				rooms[i] = factory.shopKeeperRoomGenerate();
@@ -73,6 +73,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			|| rooms[room][tile] === 13
 			|| rooms[room][tile] === 14
 			|| rooms[room][tile] === 78
+			|| rooms[room][tile] === 88 //Oven
 			|| rooms[room][tile] === 19) {
 			return true;
 		//POWER UP LOGIC
@@ -188,7 +189,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		for(var i = 0; i < 126; i++) {
 			ctx.drawImage(gameAssets.getFloorTile(),blockX,blockY,60,60);
 			//If block needs to be randomized
-			if(rooms[room][i] === 0 || rooms[room][i] === 81 ) {
+			if(rooms[room][i] === 0) {
 				var chance = Math.random();
 				//Randomize dat hoe
 				chancePowerUp = Math.random();
@@ -313,6 +314,9 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				ctx.drawImage(gameAssets.getPCTopLeft(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 16){
 				ctx.drawImage(gameAssets.getPCTopRight(), blockX, blockY, 60,60);
+			}else if(rooms[room][i] === 88){
+				//oven
+				ctx.drawImage(gameAssets.getOven(), blockX, blockY, 60,60);
 			}else if(rooms[room][i] === 201){
 				//bottomLeftCorner
 				ctx.drawImage(gameAssets.getBottomWallLeft(),blockX,blockY,60,60);

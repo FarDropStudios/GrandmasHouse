@@ -84,30 +84,6 @@ var GameAssets = function() {
 		tvTopLeft = loader.addImage('images/houseObjects/televisionTopLeft.png');
 		tvTopRight = loader.addImage('images/houseObjects/televisionTopRight.png');
 		
-	//SOUNDS
-	soundManager.url = 'soundManagerFiles/';
-	soundManager.flashVersion = 9; 
-	soundManager.useHighPerformance = true; // reduces delays 
- 
-	// reduce the default 1 sec delay to 500 ms 
-	soundManager.flashLoadTimeout = 500; 
- 
-	// mp3 is required by default, but we don't want any requirements 
-	soundManager.audioFormats.mp3.required = false; 
-	 
-	// flash may timeout if not installed or when flashblock is installed 
-	soundManager.ontimeout(function(status) { 
-	    // no flash, go with HTML5 audio 
-	    soundManager.useHTML5Audio = true; 
-	    soundManager.preferFlash = false; 
-	    soundManager.reboot(); 
-	}); 
- 
-	soundManager.onready(function() { 
-	    // ok to show the button to run the sound sample 
-	    soundManager.play('Fuck', 'Sound/StayNeutral.wav');
-	}); 
-		
 	loader.addCompletionListener(function() {
 		complete = true;
 	});
@@ -161,9 +137,6 @@ var GameAssets = function() {
 	}
 	var getPenny = function(){
 		return penny;
-	}
-	var getNickle = function(){
-		return nickle;
 	}
 	var getAtkArrowUpToDown = function(){
 		return atkArrowUpToDown;
@@ -392,7 +365,7 @@ var GameAssets = function() {
 		getFebreeze:getFebreeze,
 		getShopSign: getShopSign,
 		getPenny: getPenny,
-		getNickel: getNickle,
+		getNickel: getNickel,
 		getGlove:getGlove,
 		getGrenade:getGrenade,
 		getNightStand:getNightStand,

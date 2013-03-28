@@ -9,6 +9,7 @@ var canvas,
 	gui,
 	ctxGui,
 	ctx,
+	lastMove,
 	w = window.innerWidth,
 	h = window.innerHeight,
 	scaleFactor = 1;
@@ -98,7 +99,7 @@ function setEventListeners() {
 //possibly add a combat check in the collision here?
 function onKeyDown(e) {
 	key = e.keyCode;
-	if(player.isDead() != true && player.getMind() > 0){
+	if(player.isDead() != true && player.getMind() > 0 && lastMove > 16){
 		switch(key) {
 			case 49: //Power-up 1 	
 				player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player, map));
@@ -159,7 +160,9 @@ function onKeyDown(e) {
 		player.exitCheck();
 		player.moved();
 		enemies.update(map);
-	}		
+	} else {
+		lastMove++;
+	} 		
 }
 
 //UPDATE AND DRAW METHODS -- WHERE DA FUN HAPPENS DOE
@@ -189,6 +192,5 @@ var main = function() {
 	update();
 	draw();
 }
-
 //Run the Main method every 20ms.
 setInterval("main()",20);

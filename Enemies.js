@@ -61,6 +61,14 @@ var Enemies = function() {
 					} else if(enemies[i].getName() === "Penny") {
 						player.addCoin(1);
 						enemies.splice(i,1);
+					} else if(enemies[i].getName() === "PurchaseBlock"){
+						if(player.getCoin() >= 3){
+							player.subtractCoin(3);
+							//add random power up
+							enemies.splice(i,1);
+						}else{
+							enemies.splice(i,1,new PurchaseBlock(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getNickle()));
+						}
 					}
 			}
 					enemies[i].update(map);
@@ -69,6 +77,9 @@ var Enemies = function() {
 	
 	var addRat = function(startX, startY, startTileIndex) {
 		enemies.push(new Rat(startX, startY, startTileIndex, gameAssets.getRat()));
+	}
+	var addPurchaseBlock = function(startX, startY, startTileIndex) {
+		enemies.push(new PurchaseBlock(startX, startY, startTileIndex, gameAssets.getNickel()));
 	}
 	var addDog = function(startX, startY, startTileIndex) {
 		enemies.push(new Dog(startX, startY, startTileIndex, gameAssets.getDog()));
@@ -97,6 +108,7 @@ var Enemies = function() {
 		getEnemyPos: getEnemyPos,
 		update: update,
 		addRat: addRat,
+		addPurchaseBlock: addPurchaseBlock,
 		addWigDemon: addWigDemon,
 		addDog: addDog,
 		addCat: addCat,

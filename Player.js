@@ -12,6 +12,8 @@ var Player = function(startX, startY, tGameAssets) {
 	var attackImage,
 		attackTimer = 0,
 		attackDraw = false;
+	var terminal = [];
+		terminal[0] = "", terminal[1] = "", terminal[2] = "", terminal[3] = "", terminal[4] = "";
 	var x = startX,
 		playerImage = gameAssets.getCharacter();
 		mindPosX = 0,
@@ -112,6 +114,7 @@ var Player = function(startX, startY, tGameAssets) {
 			up();
 		}
 		if(tileIndex === map.getExit()) {
+			setMessage("new room");
 			health++;
 			x = 60;
 			y = 60;
@@ -243,7 +246,7 @@ var Player = function(startX, startY, tGameAssets) {
     soundManager.play('Fuck', 'Sound/StayNeutral.wav');
 }); 
 	var guiUpdate = function() {
-				//HEALTH BAR
+		//HEALTH BAR
 		if(health <= 0) {
 			healthPosX = 300;
 			dead = true;
@@ -347,6 +350,11 @@ var Player = function(startX, startY, tGameAssets) {
 		guiCtx.drawImage(gameAssets.getBorderLongMiddle(), 712, 548);
 		guiCtx.drawImage(gameAssets.getBorderLongRight(), 772, 548);
 		
+		guiCtx.fillText(terminal[0], 540, 565);
+		guiCtx.fillText(terminal[1], 540, 575);
+		guiCtx.fillText(terminal[2], 540, 585);
+		guiCtx.fillText(terminal[3], 540, 595);
+		guiCtx.fillText(terminal[4], 540, 605);
 		
 		if(!dead && mind > 0) {
 			if(lastMove > 250) {
@@ -417,7 +425,28 @@ var Player = function(startX, startY, tGameAssets) {
 		return dead;
 	}
 	
+	var setMessage = function(message) {
+		if(terminal[0] === "") {
+			terminal[0] = message;
+		} else if(terminal[1] === "") {
+			terminal[1] = message;
+		} else if(terminal[2] === "") {
+			terminal[2] = message;
+		} else if(terminal[3] === "") {
+			terminal[3] = message;
+		} else if(terminal[4] === "") {
+			terminal[4] = message;
+		} else {
+			terminal[0] = terminal[1];
+			terminal[1] = terminal[2];
+			terminal[2] = terminal[3];
+			terminal[3] = terminal[4];
+			terminal[4] = message;
+		}
+	} 
+	
 	return {
+		setMessage: setMessage,
 		drawAttack: drawAttack,
 		left: left,
 		right: right,

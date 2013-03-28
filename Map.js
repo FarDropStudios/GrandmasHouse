@@ -427,7 +427,12 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		console.log("DarkMagicHere")
 	};
 	
+	var getPlayerPos = function() {
+		return player.getPos();
+	}
+	
 	return {
+		getPlayerPos: getPlayerPos,
 		flatten: flatten,
 		getRoomsLength: getRoomsLength,
 		getCollision: getCollision,

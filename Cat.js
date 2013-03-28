@@ -39,56 +39,86 @@ var Cat = function(startX, startY, tTileIndex, tImage) {
 	}
 
 	var update = function(map) {
-		if(horizBound) {
-			if(leftBound) {
-				tileIndex--;
-				if(!map.getCollision(tileIndex)) {
-					//GO LEFT
-					image = gameAssets.getCat();
-					x-=moveAmount;
-				} else {
-					tileIndex++;
-					leftBound = false;
-					horizBound = false;
-					upBound = true;
-				}
-			} else {
-				tileIndex++;
-				if(!map.getCollision(tileIndex)) {
-					//GO RIGHT
-					image = gameAssets.getOppositeCat();
-					x+=moveAmount;
-				} else {
-					tileIndex--;
-					leftBound = true;
-					horizBound = false;
-					upBound = false;
-				}
-			}
-		} else {
-			if(upBound) {
-				tileIndex -= 14;
-				if(!map.getCollision(tileIndex)) {
-					//GO UP
-					y-=moveAmount;
-				} else {
-					tileIndex += 14;
-					upBound= false;
-					horizBound = true;
-					leftBound = false;
-				}
+		if(tileIndex === map.getPlayerPos() + 14) {
+			tileIndex -= 14;
+			if(!map.getCollision(tileIndex)) {
+				y-=moveAmount;
 			} else {
 				tileIndex += 14;
-				if(!map.getCollision(tileIndex)) {
-					//GO DOWN
-					y+=moveAmount;
+			}
+		} else if(tileIndex === map.getPlayerPos() - 14) {
+			tileIndex += 14;
+			if(!map.getCollision(tileIndex)) {
+				y+=moveAmount;
+			} else {
+				tileIndex -= 14;
+			}
+		} else if(tileIndex === map.getPlayerPos() - 1) {
+			tileIndex += 1;
+			if(!map.getCollision(tileIndex)) {
+				x+=moveAmount;
+			} else {
+				tileIndex -= 1;
+			} 
+		} else if(tileIndex === map.getPlayerPos() + 1) {
+			tileIndex -= 1;
+			if(!map.getCollision(tileIndex)) {
+				x-=moveAmount;
+			} else {
+				tileIndex += 1;
+			} 
+		} else {
+			if(horizBound) {
+				if(leftBound) {
+					tileIndex--;
+					if(!map.getCollision(tileIndex)) {
+						//GO LEFT
+						image = gameAssets.getCat();
+						x-=moveAmount;
+					} else {
+						tileIndex++;
+						leftBound = false;
+						horizBound = false;
+						upBound = true;
+					}
 				} else {
-					tileIndex -= 14;
-					upBound = true;
-					horizBound = true;
-					leftBound = true;
+					tileIndex++;
+					if(!map.getCollision(tileIndex)) {
+						//GO RIGHT
+						image = gameAssets.getOppositeCat();
+						x+=moveAmount;
+					} else {
+						tileIndex--;
+						leftBound = true;
+						horizBound = false;
+						upBound = false;
+					}
 				}
-			}			
+			} else {
+				if(upBound) {
+					tileIndex -= 14;
+					if(!map.getCollision(tileIndex)) {
+						//GO UP
+						y-=moveAmount;
+					} else {
+						tileIndex += 14;
+						upBound= false;
+						horizBound = true;
+						leftBound = false;
+					}
+				} else {
+					tileIndex += 14;
+					if(!map.getCollision(tileIndex)) {
+						//GO DOWN
+						y+=moveAmount;
+					} else {
+						tileIndex -= 14;
+						upBound = true;
+						horizBound = true;
+						leftBound = true;
+					}
+				}			
+			}
 		}
 	}
 

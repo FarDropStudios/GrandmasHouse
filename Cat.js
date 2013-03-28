@@ -66,7 +66,7 @@ var Cat = function(startX, startY, tTileIndex, tImage) {
 				x-=moveAmount;
 			} else {
 				tileIndex += 1;
-			} 
+			}		 
 		} else {
 			if(horizBound) {
 				if(leftBound) {

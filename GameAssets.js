@@ -138,9 +138,6 @@ var GameAssets = function() {
 	var getPenny = function(){
 		return penny;
 	}
-	var getNickle = function(){
-		return nickle;
-	}
 	var getAtkArrowUpToDown = function(){
 		return atkArrowUpToDown;
 	}
@@ -368,7 +365,7 @@ var GameAssets = function() {
 		getFebreeze:getFebreeze,
 		getShopSign: getShopSign,
 		getPenny: getPenny,
-		getNickel: getNickle,
+		getNickel: getNickel,
 		getGlove:getGlove,
 		getGrenade:getGrenade,
 		getNightStand:getNightStand,

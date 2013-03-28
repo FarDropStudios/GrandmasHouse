@@ -37,7 +37,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				rooms[i] = factory.livingRoomGenerate();
 			}else if(i === 15){	//Kitchen
 				rooms[i] = factory.kitchenGenerate();
-			}else if(i === 6){ //Shop Keeper
+			}else if(i === 2){ //Shop Keeper
 				rooms[i] = factory.shopKeeperRoomGenerate();
 			}else{				//Basic Rooms
 				rooms[i] = factory.basicRoomGenerate();
@@ -382,6 +382,8 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 						enemy.addWigDemon(blockX, blockY, index);
 					}	
 				}
+			} else if(rooms[room][i] === 777){
+				enemy.addPurchaseBlock(blockX,blockY, index);
 			}
 			//Advance to next block
                         blockX +=60;

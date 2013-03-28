@@ -97,6 +97,9 @@ var Player = function(startX, startY, tGameAssets) {
 	var subtractCoin = function(howMany) {
 		coins -= howMany;
 	}
+	var getCoin = function(){
+		return coins;
+	}
 	
 	var update = function(tx, ty, map) {				
 		if(tx < x+120 && tx > x+60 && ty > y && ty < y+60 && !dead) {
@@ -438,6 +441,7 @@ var Player = function(startX, startY, tGameAssets) {
 		setPowerUps: setPowerUps,
 		getPos: getPos,
 		addCoin: addCoin,
+		getCoin: getCoin,
 		subtractCoin: subtractCoin,
 		setTileIndex: setTileIndex,
 		update: update,

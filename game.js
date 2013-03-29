@@ -99,7 +99,7 @@ function setEventListeners() {
 //possibly add a combat check in the collision here?
 function onKeyDown(e) {
 	key = e.keyCode;
-	if(player.isDead() != true && player.getMind() > 0 && lastMove > 16){
+		if(player.isDead() != true && player.getMind() > 0){
 		switch(key) {
 			case 49: //Power-up 1 	
 				player.setPowerUps(PowerUps.useShortcut(player.getPowerUps(), 1, player, map));
@@ -160,9 +160,8 @@ function onKeyDown(e) {
 		player.exitCheck();
 		player.moved();
 		enemies.update(map);
-	} else {
-		lastMove++;
-	} 		
+		lastMove = 0;
+	}  		
 }
 
 //UPDATE AND DRAW METHODS -- WHERE DA FUN HAPPENS DOE

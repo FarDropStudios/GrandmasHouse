@@ -45,11 +45,17 @@ var PileOfMeat = function(startX, startY, tTileIndex, tImage) {
 		}
 		ctx.drawImage(image, imageX, 0, 60, 60, x, y, 60, 60);
 	}
+	
+	var aiUpdate = function() {
+		
+	}
+	
 	var getName = function() {
 		return name;
 	}
 
 	return {
+		aiUpdate: aiUpdate,
 		getX: getX,
 		getY: getY,
 		getName: getName,

@@ -170,6 +170,7 @@ function update() {
 	//why is nothing updating? TG
 	//NOW IT DO, *lipsmack*, my cousin eat onehalg peg. TS
 	player.guiUpdate();
+	enemies.enemiesAiUpdate(map);
 }
 
 function draw() {

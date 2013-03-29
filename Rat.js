@@ -10,6 +10,7 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 		attackTimer = 0,
 		attackDraw = false;
 	var name = "Rat";
+	var waiting = false;
 	var x = startX,
 		image = tImage,
 		y = startY,
@@ -36,23 +37,27 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 		health = tHealth;
 	}
 
-	var update = function(map) {
+	var aiUpdate = function(map) {
 		var player = map.getPlayer();
-		
-		if(tileIndex === player.getPos() + 14) {
-			player.setHealth(player.getHealth() - 1);
-			console.log("up atk rat");
-		} else if(tileIndex === player.getPos() - 14) {
-			player.setHealth(player.getHealth() - 1);
-			console.log("down atk rat");
-		} else if(tileIndex === player.getPos() - 1) {
-			player.setHealth(player.getHealth() - 1);
-			console.log("left atk rat");
-		} else if(tileIndex === player.getPos() + 1) {
-			player.setHealth(player.getHealth() - 1);
-			console.log("right atk rat");
+		if(waiting === true) {
+			if(tileIndex === player.getPos() + 14) {
+				drawAttack("up");
+				player.setHealth(player.getHealth() - 1);
+			} else if(tileIndex === player.getPos() - 14) {
+				drawAttack("down");
+				player.setHealth(player.getHealth() - 1);
+			} else if(tileIndex === player.getPos() - 1) {
+				drawAttack("right");
+				player.setHealth(player.getHealth() - 1);
+			} else if(tileIndex === player.getPos() + 1) {
+				drawAttack("left");
+				player.setHealth(player.getHealth() - 1);
+			}
+		waiting = false;
 		}
-		
+	} 
+
+	var update = function(map) {	
 		if(leftBound) {
 			tileIndex--;
 			if(!map.getCollision(tileIndex)) {
@@ -74,6 +79,7 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 				leftBound = true;
 			}
 		}
+		waiting = true;
 	}
 
 	var draw = function(ctx) {
@@ -91,6 +97,7 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 	var getName = function() {
 		return name;
 	}
+	
 	var drawAttack = function(direction) {
 		switch(direction) {
 			case "left": attackImage = gameAssets.getAtkArrowRightToLeft();
@@ -106,6 +113,7 @@ var Rat = function(startX, startY, tTileIndex, tImage) {
 	}
 	
 	return {
+		aiUpdate: aiUpdate,
 		drawAttack: drawAttack,
 		getX: getX,
 		getY: getY,

@@ -33,11 +33,17 @@ var PurchaseBlock = function(startX, startY, tTileIndex, tImage) {
 	var draw = function(ctx) {
 		ctx.drawImage(image, x, y, 60, 60);
 	}
+	
+	var aiUpdate = function() {
+		
+	}
+	
 	var getName = function() {
 		return name;
 	}
 
 	return {
+		aiUpdate: aiUpdate,
 		getX: getX,
 		getY: getY,
 		getName: getName,

@@ -10,6 +10,7 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 	attackTimer = 0,
 	attackDraw = false;
 	var name = "Dog";
+	var waiting = true;
 	var x = startX,
 		image = tImage,
 		y = startY,
@@ -123,6 +124,27 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 				}
 			}
 		}
+		waiting = true;
+	}
+	
+	var aiUpdate = function(map) {
+		var player = map.getPlayer();
+		if(waiting === true) {
+			if(tileIndex === player.getPos() + 14) {
+				drawAttack("up");
+				player.setHealth(player.getHealth() - 1);
+			} else if(tileIndex === player.getPos() - 14) {
+				drawAttack("down");
+				player.setHealth(player.getHealth() - 1);
+			} else if(tileIndex === player.getPos() - 1) {
+				drawAttack("right");
+				player.setHealth(player.getHealth() - 1);
+			} else if(tileIndex === player.getPos() + 1) {
+				drawAttack("left");
+				player.setHealth(player.getHealth() - 1);
+			}
+		waiting = false;
+		}
 	}
 
 	var draw = function(ctx) {
@@ -155,6 +177,7 @@ var Dog = function(startX, startY, tTileIndex, tImage) {
 	}
 	
 	return {
+		aiUpdate: aiUpdate,
 		getX: getX,
 		getY: getY,
 		drawAttack: drawAttack,

@@ -39,6 +39,8 @@ var Enemies = function() {
 		return null;
 	}
 	
+	
+	
 	var update = function(map) {
 		for(var i = 0; i < enemies.length; i++) {
 			if(enemies[i].getHealth() <= 0) {
@@ -75,6 +77,12 @@ var Enemies = function() {
 		}
 	}
 	
+	var enemiesAiUpdate = function(map) {
+		for(var i = 0; i < enemies.length; i++) {
+			enemies[i].aiUpdate(map);
+		}
+	}
+	
 	var addRat = function(startX, startY, startTileIndex) {
 		enemies.push(new Rat(startX, startY, startTileIndex, gameAssets.getRat()));
 	}
@@ -100,6 +108,7 @@ var Enemies = function() {
 	}
 	
 	return {
+		enemiesAiUpdate: enemiesAiUpdate,
 		setPlayer: setPlayer,
 		getInstanceOfEnemy: getInstanceOfEnemy,
 		setGameAssets: setGameAssets,

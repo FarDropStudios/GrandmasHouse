@@ -428,8 +428,8 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		flatten(center);	
 	};
 	
-	var darkMagicSplash = function(){
-		enemies.emptyEnemies();
+	var darkMagicSplash = function(center){
+		
 		console.log("DarkMagicHere")
 	};
 	

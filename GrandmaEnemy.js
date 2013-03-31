@@ -98,10 +98,10 @@ var GrandmaEnemy = function(startX, startY, tTileIndex, tImage) {
 		var player = map.getPlayer();
 		if(waiting === true) {
 			if(tileIndex === player.getPos() + 14) {
-				drawAttack("up");
+				drawAttack("down");
 				player.setHealth(player.getHealth() - 1);
 			} else if(tileIndex === player.getPos() - 14) {
-				drawAttack("down");
+				drawAttack("up");
 				player.setHealth(player.getHealth() - 1);
 			} else if(tileIndex === player.getPos() - 1) {
 				drawAttack("right");

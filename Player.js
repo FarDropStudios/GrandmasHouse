@@ -12,8 +12,12 @@ var Player = function(startX, startY, tGameAssets) {
 	var attackImage,
 		attackTimer = 0,
 		attackDraw = false;
+	//Terminal variables
 	var terminal = [];
 		terminal[0] = "", terminal[1] = "", terminal[2] = "", terminal[3] = "", terminal[4] = "";
+	//Achievment variables
+	var roomCount = 0;
+	//Messy code
 	var x = startX,
 		playerImage = gameAssets.getCharacter();
 		mindPosX = 0,
@@ -33,7 +37,65 @@ var Player = function(startX, startY, tGameAssets) {
 		moveAmount = 60,
 		healthPosX = 0,
 		dead = false;
+	
+	//------------------- SOUND MANAGER START --------------------------- 
+	soundManager.url = 'soundManagerFiles/';
+	soundManager.flashVersion = 9; 
+	soundManager.useHighPerformance = true; // reduces delays 
+ 
+	// reduce the default 1 sec delay to 500 ms 
+	soundManager.flashLoadTimeout = 500; 
+ 
+	// mp3 is required by default, but we don't want any requirements 
+	soundManager.audioFormats.mp3.required = false; 
+ 	
+ 	soundManager.setup({
+ 		preferFlash: false
+ 	});
+ 	
+	// flash may timeout if not installed or when flashblock is installed 
+	soundManager.ontimeout(function(status) { 
+    // no flash, go with HTML5 audio 
+	    soundManager.useHTML5Audio = true; 
+	    soundManager.preferFlash = false; 
+	    soundManager.reboot(); 
+	}); 
 
+	soundManager.onready(function() { 
+		soundInit();
+	});
+	
+	function soundInit() {
+		//Load sounds
+	 	soundManager.createSound({
+			id:'Theme',
+			url:'Sound/StayNeutral.wav',
+			stream: true,
+			loops: 666
+		});
+		
+		soundManager.createSound({
+			id:'Voop',
+			url:'Sound/voop.ogg',
+			stream: true
+		});
+		
+		soundManager.createSound({
+			id:'Door',
+			url:'Sound/door.ogg',
+			stream: true
+		});
+		
+		soundManager.createSound({
+			id:'Attack',
+			url:'Sound/shbupp.ogg',
+			stream: true
+		});
+		
+		soundManager.play('Theme');
+	}
+//------------------- SOUND MANAGER FINISH --------------------------- 
+	
 	var getX = function() {
 		return x;
 	}
@@ -45,7 +107,7 @@ var Player = function(startX, startY, tGameAssets) {
 		return wearingGloves;
 	}
 	var toggleGloveState = function(){
-		soundManager.play('Voop', 'Sound/voop.ogg');
+		soundManager.play('Voop');
 		if(wearingGloves){
 			wearingGloves = false;
 		} else if(!wearingGloves){
@@ -114,14 +176,15 @@ var Player = function(startX, startY, tGameAssets) {
 			up();
 		}
 		if(tileIndex === map.getExit()) {
-			setMessage("new room");
+			roomCount+= 1;
+			setMessage("Room "+String(roomCount));
 			health++;
 			x = 60;
 			y = 60;
 			tileIndex=15;
 			var roomNumber = map.getRoom();
 			roomNumber++;
-			soundManager.play('Door', 'Sound/door.ogg');
+			soundManager.play('Door');
 			if(roomNumber >= map.getRoomsLength()){
 				roomNumber = 0;
 			}
@@ -129,6 +192,7 @@ var Player = function(startX, startY, tGameAssets) {
 			wearingGloves = false;
 			map.setRoom(roomNumber);
 			if(this.getHealth() === 0){
+				setMessage('You have died!');
 				dead = true; //implement further
 			}
 		}
@@ -221,30 +285,7 @@ var Player = function(startX, startY, tGameAssets) {
 			map.setRoom(roomNumber);
 		}
 	}
-	
-	//SOUNDS
-	soundManager.url = 'soundManagerFiles/';
-	soundManager.flashVersion = 9; 
-	soundManager.useHighPerformance = true; // reduces delays 
- 
-	// reduce the default 1 sec delay to 500 ms 
-	soundManager.flashLoadTimeout = 500; 
- 
-	// mp3 is required by default, but we don't want any requirements 
-	soundManager.audioFormats.mp3.required = false; 
- 
-	// flash may timeout if not installed or when flashblock is installed 
-	soundManager.ontimeout(function(status) { 
-    // no flash, go with HTML5 audio 
-	    soundManager.useHTML5Audio = true; 
-	    soundManager.preferFlash = false; 
-	    soundManager.reboot(); 
-	}); 
- 
-	soundManager.onready(function() { 
-	    // ok to show the button to run the sound sample 
-    soundManager.play('Fuck', 'Sound/StayNeutral.wav');
-}); 
+	 
 	var guiUpdate = function() {
 		//HEALTH BAR
 		if(health <= 0) {
@@ -289,6 +330,7 @@ var Player = function(startX, startY, tGameAssets) {
 
 	var exitCheck = function() {
 		if(tileIndex === map.getExit()) {
+			soundManager.play('Door');
 			wearingGloves = false;
 			x = 60;
 			y = 60;
@@ -397,7 +439,13 @@ var Player = function(startX, startY, tGameAssets) {
 
 
 	var drawAttack = function(direction) {
+<<<<<<< HEAD
 		
+=======
+		soundManager.setPosition('atk', 0);
+		soundManager.play('Attack');
+
+>>>>>>> a309ae165c8ffe34e4e850b903b266de68840eb2
 		switch(direction) {
 				case "left": attackImage = gameAssets.getAtkArrowRightToLeft();
 				break;

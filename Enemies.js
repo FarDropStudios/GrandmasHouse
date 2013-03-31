@@ -64,13 +64,7 @@ var Enemies = function() {
 						player.addCoin(1);
 						enemies.splice(i,1);
 					} else if(enemies[i].getName() === "PurchaseBlock"){
-						if(player.getCoin() >= 3){
-							player.subtractCoin(3);
-							//add random power up
-							enemies.splice(i,1);
-						}else{
-							enemies.splice(i,1,new PurchaseBlock(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getNickle()));
-						}
+						enemies.splice(i,1);
 					}
 			}
 					enemies[i].update(map);

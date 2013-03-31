@@ -18,8 +18,8 @@ var Player = function(startX, startY, tGameAssets) {
 		playerImage = gameAssets.getCharacter();
 		mindPosX = 0,
 		powerUps = [0,0,0,0,0],
-		health = 5,
-		coins = 0,
+		health = 10,
+		coins = 5,
 		mind = 6;
 		gameAssets = tGameAssets,
 		y = startY,
@@ -289,7 +289,6 @@ var Player = function(startX, startY, tGameAssets) {
 
 	var exitCheck = function() {
 		if(tileIndex === map.getExit()) {
-			soundManager.play('Door', 'Sound/door.ogg');
 			wearingGloves = false;
 			x = 60;
 			y = 60;
@@ -398,8 +397,7 @@ var Player = function(startX, startY, tGameAssets) {
 
 
 	var drawAttack = function(direction) {
-		soundManager.play('atk', 'Sound/shbupp.ogg');
-
+		
 		switch(direction) {
 				case "left": attackImage = gameAssets.getAtkArrowRightToLeft();
 				break;

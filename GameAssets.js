@@ -10,6 +10,8 @@ var GameAssets = function() {
 	var loader = new PxLoader(),
 		couchLeft = loader.addImage('images/houseObjects/couchLeftTile.png'),
 		couchRight = loader.addImage('images/houseObjects/couchRightTile.png'),
+		blackMagicExplosion = loader.addImage('images/MiscImages/blackMagicExplosion.png');
+		explosion = loader.addImage('images/MiscImages/explosion.png');
 		borderImage = loader.addImage('images/MiscImages/border.png'),
 		tommy = loader.addImage('images/houseOccupants/tomScratchSheet.png'),
 		tiles = loader.addImage('images/MiscImages/MedallionTiles.png'),
@@ -149,6 +151,12 @@ var GameAssets = function() {
 	}
 	var getOven = function() {
 		return oven;
+	}
+	var getExplosion = function() {
+		return explosion;
+	}
+	var getDarkExplosion = function(){
+		return darkMagicExplosion;
 	}
 	var getWallOutletRight = function(){
 		return wallOutletRight;
@@ -347,6 +355,8 @@ var GameAssets = function() {
 		getIsComplete: getIsComplete,
 		getPCTopRight: getPCTopRight,
 		getPCTopLeft: getPCTopLeft,
+		getDarkExplosion: getDarkExplosion,
+		getExplosion: getExplosion,
 		getLaundryBasket: getLaundryBasket,
 		getChair: getChair,
 		getBoxA0: getBoxA0,

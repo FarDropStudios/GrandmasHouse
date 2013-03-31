@@ -35,6 +35,11 @@ startScreen.width = 945;
 gameAssets = new GameAssets();
 gameAssets.loadingStart();
 
+//Start Screen Drawing
+
+ctxStartScreen.drawImage(gameAssets.getStartPoster(),200,0,640,960);
+ctxStartScreen.fillText("Grandma's House",100,100);
+
 //initialize Player
 player = new Player(60,60,gameAssets);
 
@@ -198,7 +203,6 @@ function draw() {
 	enemies.draw(ctx);
 	ctxGui.drawImage(gameAssets.getGmaNote(), 842, 525, 94,94);
 }
-
 var main = function() {
 	update();
 	draw();

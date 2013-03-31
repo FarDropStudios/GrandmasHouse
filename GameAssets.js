@@ -29,6 +29,7 @@ var GameAssets = function() {
 		bottomWallLeft = loader.addImage('images/wallsFloor/bottomLeftWall.png');
 		basicWallWindow = loader.addImage('images/wallsFloor/basicWallWindow.png');
 		cat = loader.addImage('images/houseOccupants/cat.png');
+		startPoster = loader.addImage('images/MiscImages/posterTom.png');
 		dog = loader.addImage('images/houseOccupants/dog.png');
 		grandma = loader.addImage('images/houseOccupants/grandMa.png');
 		shopKeeperMan = loader.addImage('images/houseOccupants/shopAtHomeMan.png');
@@ -220,6 +221,9 @@ var GameAssets = function() {
 	}
 	var getGrenade = function(){
 		return grenade;
+	}
+	var getStartPoster = function(){
+		return startPoster;
 	}
 	var getHealthMeter = function(){
 		return healthMeter;
@@ -426,6 +430,7 @@ var GameAssets = function() {
 		getBottomWallRight: getBottomWallRight,
 		getBottomWallLeft: getBottomWallLeft,
 		getStairs: getStairs,
+		getStartPoster: getStartPoster,
 		getOven: getOven,
 		getCounterBasicWithSink: getCounterBasicWithSink,
 		getBasicWallWindow: getBasicWallWindow

@@ -33,12 +33,12 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				rooms[i] = factory.bedRoomGenerate();
 			}else if(i === 1){	//Junk Room
 				rooms[i] = factory.junkRoomGenerate();
-			}else if(i === 4){	//Living Room
-				rooms[i] = factory.livingRoomGenerate();
-			}else if(i === 15){	//Kitchen
-				rooms[i] = factory.kitchenGenerate();
 			}else if(i === 2){ //Shop Keeper
 				rooms[i] = factory.shopKeeperRoomGenerate();
+			//}else if(i === 4){	//Living Room
+				//rooms[i] = factory.livingRoomGenerate();
+			}else if(i === 15){	//Kitchen
+				rooms[i] = factory.kitchenGenerate();
 			}else{				//Basic Rooms
 				rooms[i] = factory.basicRoomGenerate();
 			}
@@ -367,7 +367,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				ctx.drawImage(gameAssets.getCouchRight(),blockX,blockY,60,60);
 			} else if(rooms[room][i] === 10) {
 				//Draw an enemy
-				if(renderEnemies) {
+				if(renderEnemies) { // draws one
 					if(Math.random() > 0.65 && grandmaCount < 1){
 						enemy.addGmaEnemy(blockX,blockY,index);
 						grandmaCount++;
@@ -383,7 +383,10 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					}	
 				}
 			} else if(rooms[room][i] === 777){
-				enemy.addPurchaseBlock(blockX,blockY,index);
+				if(renderEnemies){
+					enemy.addPurchaseBlock(blockX,blockY, index);
+				} //draws one
+				
 			}
 			//Advance to next block
                         blockX +=60;

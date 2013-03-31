@@ -30,6 +30,7 @@ var PurchaseBlock = function(startX, startY, tTileIndex, tImage) {
 	var setHealth = function(tHealth) {
 		health = tHealth;
 	}
+	
 	var draw = function(ctx) {
 		ctx.drawImage(image, x, y, 60, 60);
 	}
@@ -50,7 +51,7 @@ var PurchaseBlock = function(startX, startY, tTileIndex, tImage) {
 		getPos: getPos,
 		getHealth: getHealth,
 		setHealth: setHealth,
-		update: update,
+		//update: update,
 		draw: draw
 	}	
 }

@@ -383,7 +383,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 					}	
 				}
 			} else if(rooms[room][i] === 777){
-				enemy.addPurchaseBlock(blockX,blockY, index);
+				enemy.addPurchaseBlock(blockX,blockY,index);
 			}
 			//Advance to next block
                         blockX +=60;

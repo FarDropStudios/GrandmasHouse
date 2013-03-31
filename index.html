@@ -7,6 +7,13 @@
 			html {
 				background-color:black;
 			}
+			#startscreen {
+				background-color:black;
+				z-index: 2;
+				position:absolute;
+				top:0;
+				left:0;
+			}
 			#canvas {
 				z-index:1;
 				position:absolute;
@@ -24,6 +31,7 @@
 		<meta name="viewport" content="user-scalable = no, width=device-width, initial-scale=1, maximum-scale=1">
 	</head>
 	<body>
+		<canvas id="startscreen"></canvas>
 		<canvas id="canvas"></canvas>
 		<canvas id="gui"></canvas>
 		<script src ="GrandmaEnemy.js"></script>

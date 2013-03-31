@@ -439,7 +439,6 @@ var Player = function(startX, startY, tGameAssets) {
 
 
 	var drawAttack = function(direction) {
-		soundManager.setPosition('atk', 0);
 		soundManager.play('Attack');
 		switch(direction) {
 				case "left": attackImage = gameAssets.getAtkArrowRightToLeft();

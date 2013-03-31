@@ -64,7 +64,13 @@ var Enemies = function() {
 						player.addCoin(1);
 						enemies.splice(i,1);
 					} else if(enemies[i].getName() === "PurchaseBlock"){
-						enemies.splice(i,1);
+						if(player.getCoin() >= 1){
+							player.subtractCoin(1);
+							enemies.splice(i,1);
+						} else {
+							enemies.splice(i,1,new PurchaseBlock(enemies[i].getX(), enemies[i].getY(), enemies[i].getPos(), gameAssets.getNickle()));
+						}
+						
 					}
 			}
 					enemies[i].update(map);

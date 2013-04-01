@@ -72,10 +72,10 @@ var PowerUps = {};
 			player.setHealth(5);
 		} else if(powerUpType == 4) {
 			//Dark Magic
-			map.darkMagicSplash(player.getPos());
+			map.darkMagicSplash(player.getPosForExplosion());
 		} else if(powerUpType == 5) {
 			//Grenade
-			map.grenade(player.getPos());
+			map.grenade(player.getPosForExplosion());
 		} else {
 			console.log("U dun goofed");
 		}

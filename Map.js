@@ -18,6 +18,7 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 		index = 0,
 		chancePowerUp,
 		obstacleChance,
+		countTimerForExplosion = 10,
 		exit,
 		blockY = 0,
 		enemy = tempEnemies,
@@ -341,6 +342,15 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			} else if(rooms[room][i] === 445){
 				//Shop Sign
 				ctx.drawImage(gameAssets.getShopSign(), blockX, blockY,60,60);
+			} else if(rooms[room][i] === 5555){
+				//explosion
+				ctx.drawImage(gameAssets.getDarkExplosion(), blockX, blockY,60,60);
+				console.log('explosion tile');
+				countTimerForExplosion--;
+				if(countTimerForExplosion <= 0){
+					rooms[room][i] = 2;
+					countTimerForExplosion = 10;
+				}
 			} else if(rooms[room][i] === 301){
 				//Left Wall
 				ctx.drawImage(gameAssets.getBasicWallLeft(),blockX,blockY,60,60);
@@ -408,8 +418,20 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 			var tempIndex = indexMods[i]
 			var tempIndex = center + tempIndex
 			if(rooms[room][tempIndex] === 1 || rooms[room][tempIndex] === 11 || rooms[room][tempIndex] === 1001 
-				|| rooms[room][tempIndex] === 1002 || rooms[room][tempIndex] === 1003 ) {
-				rooms[room][tempIndex] = 2;
+				|| rooms[room][tempIndex] === 1002 || rooms[room][tempIndex] === 1003 ||rooms[room][tempIndex] === 2) {
+				rooms[room][tempIndex] = 5555;
+				if(rooms[room][tempIndex] != 301
+					|| rooms[room][tempIndex] != 101
+					|| rooms[room][tempIndex] != 201
+					|| rooms[room][tempIndex] != 304
+					|| rooms[room][tempIndex] != 302
+					|| rooms[room][tempIndex] != 309
+					|| rooms[room][tempIndex] != 202
+					|| rooms[room][tempIndex] != 302
+					|| rooms[room][tempIndex] != 3
+					|| rooms[room][tempIndex] != 102){
+						rooms[room][tempIndex] = 5555;
+					}
 			}
 		}
 	};
@@ -426,13 +448,24 @@ var Map = function(tempEnemies, tempPlayer, tGameAssets, tRoomFactory) {
 				|| enemiesPositions[i] === center + 14
 				|| enemiesPositions[i] === center + 15) {
 					Combat.kill(enemy.getInstanceOfEnemy(enemiesPositions[i]));
+					var indexOfEnemyKilled = enemiesPositions[i]; 
+					rooms[room][indexOfEnemyKilled] = 5555;
 			}
 		}
 		flatten(center);	
 	};
 	
 	var darkMagicSplash = function(center){
-		
+		enemiesPositions = enemies.getEnemyPos();
+		for(var i = 0; i < enemiesPositions.length; i++) {
+			if(    enemiesPositions[i] === center - 14
+				|| enemiesPositions[i] === center - 1
+				|| enemiesPositions[i] === center + 1
+				|| enemiesPositions[i] === center + 14){
+					Combat.kill(enemy.getInstanceOfEnemy(enemiesPositions[i]));
+					rooms[room][enemiesPositions[i]] = 5555;	
+				}
+			}
 		console.log("DarkMagicHere")
 	};
 	

@@ -81,8 +81,32 @@ var Player = function(startX, startY, tGameAssets) {
 		});
 		
 		soundManager.createSound({
+			id:'darkMatter',
+			url:'Sound/darkMatter.ogg',
+			stream: true
+		});
+		
+		soundManager.createSound({
+			id:'lightMagic',
+			url:'Sound/magicSoundGood.ogg',
+			stream: true
+		});
+		
+		soundManager.createSound({
+			id:'gloveSound',
+			url:'Sound/glovesssss.ogg',
+			stream: true
+		});
+	
+		soundManager.createSound({
 			id:'Door',
 			url:'Sound/door.ogg',
+			stream: true
+		});
+		
+		soundManager.createSound({
+			id:'coinSound',
+			url:'Sound/coinSound.ogg',
 			stream: true
 		});
 		
@@ -107,7 +131,7 @@ var Player = function(startX, startY, tGameAssets) {
 		return wearingGloves;
 	}
 	var toggleGloveState = function(){
-		soundManager.play('Voop');
+		soundManager.play('gloveSound');
 		if(wearingGloves){
 			wearingGloves = false;
 		} else if(!wearingGloves){
@@ -141,7 +165,12 @@ var Player = function(startX, startY, tGameAssets) {
 	var getPos = function() {
 		return tileIndex;
 	}
-	
+	var getPosForExplosion = function(){
+		soundManager.play('darkMatter');
+		return tileIndex;
+		
+		
+	}
 	var getHealth = function() {
 		return health;
 	}
@@ -156,10 +185,12 @@ var Player = function(startX, startY, tGameAssets) {
 	
 	var addCoin = function(howMany) {
 		coins += howMany;
+		soundManager.play('coinSound');
 	}
 	
 	var subtractCoin = function(howMany) {
 		coins -= howMany;
+		soundManager.play('coinSound');
 	}
 	var getCoin = function(){
 		return coins;
@@ -512,6 +543,7 @@ var Player = function(startX, startY, tGameAssets) {
 		setTileIndex: setTileIndex,
 		update: update,
 		guiUpdate: guiUpdate,
+		getPosForExplosion: getPosForExplosion,
 		moved: moved,
 		exitCheck: exitCheck,
 		isDead: isDead,

@@ -9,27 +9,27 @@ var canvas,
 	gui,
 	ctxGui,
 	ctx,
-	startScreen,
-	ctxStartScreen,
+	//startScreen,
+	//ctxStartScreen,
 	lastMove,
 	w = window.innerWidth,
 	h = window.innerHeight,
 	scaleFactor = 1,
-	start = true;
+	//start = true;
 
 //Setup the canvas and maximize it to window size
 canvas = document.getElementById("canvas");
 ctx = canvas.getContext("2d");
 gui = document.getElementById("gui");
 ctxGui = gui.getContext("2d");
-startScreen = document.getElementById("startscreen");
-ctxStartScreen = startScreen.getContext("2d");
+//startScreen = document.getElementById("startscreen");
+//ctxStartScreen = startScreen.getContext("2d");
 canvas.height = 540;
 canvas.width = 840;
 gui.height = 625;
 gui.width = 945;
-startScreen.height = 625;
-startScreen.width = 945;
+//startScreen.height = 625;
+//startScreen.width = 945;
 
 //Start loading GameAssets
 gameAssets = new GameAssets();
@@ -37,8 +37,8 @@ gameAssets.loadingStart();
 
 //Start Screen Drawing
 
-ctxStartScreen.drawImage(gameAssets.getStartPoster(),200,0,640,960);
-ctxStartScreen.fillText("Grandma's House",100,100);
+//ctxStartScreen.drawImage(gameAssets.getStartPoster(),200,0,640,960);
+//ctxStartScreen.fillText("Grandma's House",100,100);
 
 //initialize Player
 player = new Player(60,60,gameAssets);
@@ -169,10 +169,10 @@ function onKeyDown(e) {
 				}
 				break;
 		}
-		if(start) {
-			start = false;
-			startScreen.style.zIndex = -1;
-		}
+		//if(start) {
+			//start = false;
+			//startScreen.style.zIndex = -1;
+		//}
 		player.exitCheck();
 		player.moved();
 		enemies.update(map);

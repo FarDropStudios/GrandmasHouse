@@ -155,6 +155,9 @@ var Player = function(startX, startY, tGameAssets) {
 	}
 
 	var setHealth = function(tH) {
+		if(tH > health){
+			soundManager.play('magicSoundGood');
+		}
 		health = tH;
 	}
 	
@@ -414,6 +417,7 @@ var Player = function(startX, startY, tGameAssets) {
 		guiCtx.drawImage(gameAssets.getBorderImage(), 172, 548, 69, 69);
 		guiCtx.fillText("Coins", 190, 570);
 		guiCtx.fillText("$ "+coins, 190, 585);
+		guiCtx.fillText("HP " +health, 190,595);
 		
 		//TERMINAL
 		guiCtx.drawImage(gameAssets.getBorderLongLeft(), 532, 548);

@@ -69,7 +69,7 @@ var PowerUps = {};
 			console.log("glove");
 		} else if(powerUpType == 3) {
 			//White Magic
-			player.setHealth(5);
+			player.setHealth(20);
 		} else if(powerUpType == 4) {
 			//Dark Magic
 			map.darkMagicSplash(player.getPosForExplosion());
